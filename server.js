@@ -46,7 +46,7 @@ app.post("/api/chat", async (req, res) => {
 
   try {
     const stream = anthropic.messages.stream({
-      model:      process.env.CLAUDE_MODEL || "claude-sonnet-4-5",
+      model:      process.env.CLAUDE_MODEL || "claude-haiku-4-5",
       max_tokens: 1500,
       system:     SYSTEM_PROMPT,
       messages:   messages.slice(-30), // cap history to last 30 turns
