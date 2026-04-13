@@ -322,6 +322,17 @@ function markdownToHtml(raw) {
       continue;
     }
 
+    // ── Table ─────────────────────────────────
+    if (/^\|/.test(line)) {
+      const tableLines = [];
+      while (i < lines.length && /^\|/.test(lines[i])) {
+        tableLines.push(lines[i]);
+        i++;
+      }
+      out.push(renderTable(tableLines));
+      continue;
+    }
+
     // ── Blockquote ────────────────────────────
     const bq = line.match(/^>\s*(.*)/);
     if (bq) { out.push(`<blockquote>${applyInline(bq[1])}</blockquote>`); i++; continue; }
@@ -346,6 +357,27 @@ function markdownToHtml(raw) {
   }
 
   return out.join("");
+}
+
+// Parse and render a markdown table block
+function renderTable(lines) {
+  // Separator rows look like |---|---| — skip them
+  const isSep = (l) => l.split("|").slice(1, -1).every((c) => /^[\s:\-]+$/.test(c));
+  const rows   = lines.filter((l) => !isSep(l));
+  if (!rows.length) return "";
+
+  const parseCells = (line, tag) =>
+    line.split("|").slice(1, -1)
+        .map((c) => `<${tag}>${applyInline(c.trim())}</${tag}>`)
+        .join("");
+
+  const [header, ...body] = rows;
+  const head = `<thead><tr>${parseCells(header, "th")}</tr></thead>`;
+  const bod  = body.length
+    ? `<tbody>${body.map((r) => `<tr>${parseCells(r, "td")}</tr>`).join("")}</tbody>`
+    : "";
+
+  return `<div class="bubble-table-wrap"><table>${head}${bod}</table></div>`;
 }
 
 // Inline: bold, italic, code — applied inside each block

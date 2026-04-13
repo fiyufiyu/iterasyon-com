@@ -741,6 +741,39 @@ body.chat {
   margin: .6rem 0;
 }
 
+.bubble-table-wrap {
+  overflow-x: auto;
+  margin: .5rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--line2);
+}
+
+.bubble-table-wrap table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: .82em;
+  min-width: 240px;
+}
+
+.bubble-table-wrap th,
+.bubble-table-wrap td {
+  padding: .4rem .65rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line2);
+  white-space: nowrap;
+}
+
+.bubble-table-wrap th {
+  background: rgba(255,255,255,.05);
+  font-weight: 600;
+  color: var(--paper);
+  border-bottom-color: rgba(201,169,110,.2);
+}
+
+.bubble-table-wrap td { color: #cdd5e8; }
+
+.bubble-table-wrap tr:last-child td { border-bottom: none; }
+
 /* typing indicator */
 .typing-dots {
   display: inline-flex;
