@@ -260,11 +260,22 @@ app.use((req, res) => {
 });
 
 // ── Boot ──────────────────────────────────────
+// #region agent log
+const _dbUrl = process.env.DATABASE_URL;
+console.error("[debug] DATABASE_URL set:", !!_dbUrl, "| length:", _dbUrl ? _dbUrl.length : 0, "| starts:", _dbUrl ? _dbUrl.slice(0,14) : "—");
+// #endregion
+
 initDB()
   .then(() => {
     app.listen(port, () => console.log(`iterasyon ▸ http://localhost:${port}`));
   })
   .catch((err) => {
+    // #region agent log
+    console.error("[debug] initDB error name:", err?.name);
+    console.error("[debug] initDB error message:", err?.message);
+    console.error("[debug] initDB error code:", err?.code);
+    console.error("[debug] initDB full:", String(err));
+    // #endregion
     console.error("[db] bağlantı hatası:", err.message);
     console.error("DATABASE_URL .env veya Railway değişkenlerinde tanımlı olmalı.");
     process.exit(1);
