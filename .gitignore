@@ -4,5 +4,8 @@
 # dependencies
 node_modules/
 
+# contact form inbox (local dev)
+data/
+
 # OS
 .DS_Store

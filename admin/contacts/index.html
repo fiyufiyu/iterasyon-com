@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0a0b0f" />
+    <title>Admin — iterasyon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,600;0,14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="page admin-body">
+
+    <!-- ─── Login panel ─────────────────────── -->
+    <div id="login-panel" class="admin-login-panel" hidden>
+      <div class="admin-login-card">
+        <p class="page-eyebrow" style="margin-bottom:.75rem;">iterasyon · yönetim</p>
+        <h1 style="font-size:1.5rem;margin-bottom:1.5rem;">Giriş yap</h1>
+        <form id="login-form" novalidate>
+          <div class="contact-field" style="margin-bottom:.75rem;">
+            <label for="login-user">Kullanıcı adı</label>
+            <input id="login-user" type="text" autocomplete="username" required />
+          </div>
+          <div class="contact-field" style="margin-bottom:1rem;">
+            <label for="login-pass">Şifre</label>
+            <input id="login-pass" type="password" autocomplete="current-password" required />
+          </div>
+          <p id="login-error" class="contact-form-status contact-form-status--error"
+             role="alert" aria-live="assertive"></p>
+          <button type="submit" class="btn btn-gold" id="login-btn"
+                  style="width:100%;justify-content:center;margin-top:.25rem;">
+            Giriş yap
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ─── Inbox panel ──────────────────────── -->
+    <div id="inbox-panel" hidden>
+      <header class="site-nav-bar">
+        <a href="/" class="nav-brand">iterasyon</a>
+        <nav>
+          <span id="admin-session-info" style="font-size:.75rem;color:var(--muted);"></span>
+          <button type="button" class="btn btn-ghost" id="logout-btn"
+                  style="font-size:.78rem;padding:0 .75rem;min-height:36px;">Çıkış</button>
+        </nav>
+      </header>
+
+      <div class="page-wrapper">
+        <div class="page-hero" style="padding-bottom:1rem;">
+          <p class="page-eyebrow">yalnızca yönetim</p>
+          <h1>Yönetim paneli</h1>
+        </div>
+
+        <!-- Tabs -->
+        <div class="page-section" style="padding-top:0;">
+          <div class="admin-tabs" role="tablist">
+            <button class="admin-tab active" id="tab-contacts" role="tab"
+                    aria-selected="true" aria-controls="panel-contacts">
+              İletişim Formu
+              <span class="admin-tab-badge" id="badge-contacts">—</span>
+            </button>
+            <button class="admin-tab" id="tab-chats" role="tab"
+                    aria-selected="false" aria-controls="panel-chats">
+              AI Sohbetler
+              <span class="admin-tab-badge" id="badge-chats">—</span>
+            </button>
+          </div>
+
+          <!-- Contacts panel -->
+          <div id="panel-contacts" role="tabpanel">
+            <div class="admin-toolbar">
+              <input id="contact-search" type="search"
+                     placeholder="Ara (ad, e-posta, konu…)"
+                     class="admin-search-input" />
+              <button type="button" class="btn btn-gold" id="contacts-refresh">Yenile</button>
+              <p id="contacts-status" class="admin-status" role="status" aria-live="polite"></p>
+            </div>
+            <div id="contacts-list" class="admin-list"></div>
+          </div>
+
+          <!-- Chats panel -->
+          <div id="panel-chats" role="tabpanel" hidden>
+            <div class="admin-toolbar">
+              <input id="chat-search" type="search"
+                     placeholder="Ara (ilk mesaj…)"
+                     class="admin-search-input" />
+              <button type="button" class="btn btn-gold" id="chats-refresh">Yenile</button>
+              <p id="chats-status" class="admin-status" role="status" aria-live="polite"></p>
+            </div>
+            <div id="chats-list" class="admin-list"></div>
+          </div>
+        </div>
+
+        <footer class="page-footer">
+          <a href="/hukuk/">← hukuk AI</a>
+          <span>© <span class="yr"></span> iterasyon</span>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".yr").forEach((el) => (el.textContent = new Date().getFullYear()));
+    </script>
+    <script src="./admin.js"></script>
+  </body>
+</html>
