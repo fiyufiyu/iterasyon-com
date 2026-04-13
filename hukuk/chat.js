@@ -54,6 +54,8 @@ function maybeShowLawyerNudge() {
   if (userTurnCount() < 2) return;
   lawyerNudgeShownThisVisit = true;
 
+  const previousFocus = document.activeElement;
+
   const overlay = document.createElement("div");
   overlay.className = "lawyer-nudge-overlay";
   overlay.setAttribute("role", "dialog");
@@ -79,6 +81,7 @@ function maybeShowLawyerNudge() {
       } catch (_) {}
     }
     overlay.remove();
+    previousFocus?.focus();
   };
 
   overlay.querySelector(".lawyer-nudge-close").addEventListener("click", () => close(true));
@@ -87,7 +90,22 @@ function maybeShowLawyerNudge() {
     if (e.target === overlay) close(true);
   });
 
+  overlay.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { close(true); return; }
+    if (e.key === "Tab") {
+      const focusable = [...overlay.querySelectorAll("a[href], button:not([disabled])")];
+      const first = focusable[0];
+      const last  = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  });
+
   document.body.appendChild(overlay);
+  overlay.querySelector(".lawyer-nudge-close").focus();
 }
 
 // ── Input helpers ─────────────────────────────
@@ -263,7 +281,7 @@ function markdownToHtml(text) {
     .replace(/\*(.+?)\*/g,     "<em>$1</em>")
     .replace(/`([^`]+)`/g,     "<code style='font-size:.85em;background:rgba(255,255,255,.08);padding:1px 5px;border-radius:4px;'>$1</code>")
     .replace(/^[-•]\s+(.+)$/gm, "<li>$1</li>")
-    .replace(/(<li>[\s\S]*?<\/li>)/g, "<ul>$1</ul>")
+    .replace(/((?:<li>[^\n]*<\/li>\n?)+)/g, (m) => `<ul>${m}</ul>`)
     .split(/\n{2,}/)
     .map((p) => {
       p = p.trim();
