@@ -6,6 +6,8 @@
     <title>iterasyon hukuk — AI Asistan</title>
     <meta name="description" content="Hukuki sorularınızı yapay zekaya sorun. iterasyon hukuk AI asistanı." />
     <meta name="theme-color" content="#0a0b0f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,700;1,14..32,300&display=swap" rel="stylesheet" />
@@ -15,7 +17,6 @@
 
     <div class="chat-layout">
 
-      <!-- Header -->
       <header class="chat-header">
         <a href="/" class="nav-brand" style="font-size:.9rem;">iterasyon</a>
 
@@ -25,17 +26,16 @@
           </div>
           <div class="chat-header-sub">
             <span class="status-dot"></span>
-            çevrimiçi
+            çevrimiçi · claude sonnet
           </div>
         </div>
 
-        <div style="display:flex;gap:.4rem;">
-          <a href="/hukuk/blog/" class="chat-icon-btn" title="Blog" style="text-decoration:none;font-size:.75rem;font-weight:600;letter-spacing:.03em;width:auto;padding:0 .7rem;">blog</a>
-          <button class="chat-icon-btn" id="settings-btn" title="API ayarları" aria-label="API anahtarı ayarla">⚙</button>
-        </div>
+        <a href="/hukuk/blog/" class="chat-icon-btn" title="Blog"
+           style="text-decoration:none;font-size:.75rem;font-weight:600;width:auto;padding:0 .75rem;">
+          blog
+        </a>
       </header>
 
-      <!-- Messages -->
       <div class="messages" id="messages">
         <div class="chat-disclaimer">
           Bilgi amaçlıdır · Hukuki tavsiye değildir · Önemli kararlar için avukata danışın
@@ -44,14 +44,13 @@
         <div class="msg ai">
           <div class="msg-avatar">ik</div>
           <div class="bubble">
-            <p>Merhaba! Ben <strong>iterasyon hukuk AI</strong> asistanıyım.</p>
-            <p>Türk hukuku hakkındaki sorularınızı sade bir dille yanıtlarım. İş hukuku, kira hukuku, tüketici hakları, sözleşmeler ve daha fazlasında yardımcı olabilirim.</p>
-            <p>Sorunuzu yazın, başlayalım. 👋</p>
+            <p>Merhaba! Ben <strong>iterasyon hukuk</strong> yapay zeka asistanıyım.</p>
+            <p>İş hukuku, kira, tüketici hakları, sözleşmeler ve daha fazlasında sade bir Türkçe ile yardımcı olurum.</p>
+            <p>Sorunuzu yazın. 👋</p>
           </div>
         </div>
       </div>
 
-      <!-- Input bar -->
       <div class="chat-input-wrap">
         <textarea
           id="chat-input"
@@ -61,39 +60,12 @@
         ></textarea>
         <button id="send-btn" aria-label="Gönder" disabled>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 2L14 8L8 14M14 8H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 2L14 8L8 14M14 8H2" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
 
-    </div><!-- /chat-layout -->
-
-    <!-- API Key overlay -->
-    <div class="key-overlay" id="key-overlay">
-      <div class="key-modal">
-        <h2>⚙ OpenAI API Anahtarı</h2>
-        <p>
-          iterasyon hukuk AI, OpenAI GPT-4o'yu kullanır. Sohbet başlatmak için
-          kendi API anahtarınızı girin. Anahtar yalnızca tarayıcınızda saklanır,
-          hiçbir sunucuya gönderilmez.
-        </p>
-        <div class="key-input-row">
-          <input
-            type="password"
-            id="api-key-input"
-            placeholder="sk-..."
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button class="btn btn-gold" id="save-key-btn" style="padding:0 1rem;min-height:44px;">Kaydet</button>
-        </div>
-        <p class="key-note">
-          API anahtarınız yok mu?
-          <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com</a>
-          adresinden ücretsiz oluşturabilirsiniz.
-          Anahtarınız yalnızca bu tarayıcıda <code style="font-size:.7rem;color:var(--gold)">localStorage</code>'a kaydedilir.
-        </p>
-      </div>
     </div>
 
     <script src="./chat.js"></script>
