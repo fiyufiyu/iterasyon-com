@@ -271,24 +271,87 @@ function scrollToBottom() {
   messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: "smooth" });
 }
 
-// ── Minimal markdown → HTML ───────────────────
-function markdownToHtml(text) {
-  return text
+// ── Markdown → HTML (streaming-safe) ─────────
+// Runs on every chunk with the full accumulated text, so re-renders
+// are cheap and incomplete patterns at the end are handled gracefully.
+
+function markdownToHtml(raw) {
+  // 1. Escape HTML entities so AI text can't inject markup
+  let text = raw
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
+    .replace(/>/g, "&gt;");
+
+  // 2. Process line by line for block elements
+  const lines = text.split("\n");
+  const out   = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // ── Headings ──────────────────────────────
+    const h3 = line.match(/^###\s+(.+)$/);
+    if (h3) { out.push(`<h3>${applyInline(h3[1])}</h3>`); i++; continue; }
+
+    const h2 = line.match(/^##\s+(.+)$/);
+    if (h2) { out.push(`<h2>${applyInline(h2[1])}</h2>`); i++; continue; }
+
+    const h1 = line.match(/^#\s+(.+)$/);
+    if (h1) { out.push(`<h1>${applyInline(h1[1])}</h1>`); i++; continue; }
+
+    // ── Bullet list ───────────────────────────
+    if (/^[-•*]\s/.test(line)) {
+      const items = [];
+      while (i < lines.length && /^[-•*]\s/.test(lines[i])) {
+        items.push(`<li>${applyInline(lines[i].replace(/^[-•*]\s+/, ""))}</li>`);
+        i++;
+      }
+      out.push(`<ul>${items.join("")}</ul>`);
+      continue;
+    }
+
+    // ── Numbered list ─────────────────────────
+    if (/^\d+[.)]\s/.test(line)) {
+      const items = [];
+      while (i < lines.length && /^\d+[.)]\s/.test(lines[i])) {
+        items.push(`<li>${applyInline(lines[i].replace(/^\d+[.)]\s+/, ""))}</li>`);
+        i++;
+      }
+      out.push(`<ol>${items.join("")}</ol>`);
+      continue;
+    }
+
+    // ── Blockquote ────────────────────────────
+    const bq = line.match(/^>\s*(.*)/);
+    if (bq) { out.push(`<blockquote>${applyInline(bq[1])}</blockquote>`); i++; continue; }
+
+    // ── Horizontal rule ───────────────────────
+    if (/^---+$/.test(line.trim())) { out.push("<hr>"); i++; continue; }
+
+    // ── Blank line ────────────────────────────
+    if (!line.trim()) { i++; continue; }
+
+    // ── Paragraph ─────────────────────────────
+    // Collect consecutive non-block lines
+    const paraLines = [];
+    const BLOCK_RE  = /^(#{1,3}\s|[-•*]\s|\d+[.)]\s|>\s|---+$)/;
+    while (i < lines.length && lines[i].trim() && !BLOCK_RE.test(lines[i])) {
+      paraLines.push(lines[i]);
+      i++;
+    }
+    if (paraLines.length) {
+      out.push(`<p>${applyInline(paraLines.join("<br>"))}</p>`);
+    }
+  }
+
+  return out.join("");
+}
+
+// Inline: bold, italic, code — applied inside each block
+function applyInline(text) {
+  return text
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*(.+?)\*/g,     "<em>$1</em>")
-    .replace(/`([^`]+)`/g,     "<code style='font-size:.85em;background:rgba(255,255,255,.08);padding:1px 5px;border-radius:4px;'>$1</code>")
-    .replace(/^[-•]\s+(.+)$/gm, "<li>$1</li>")
-    .replace(/((?:<li>[^\n]*<\/li>\n?)+)/g, (m) => `<ul>${m}</ul>`)
-    .split(/\n{2,}/)
-    .map((p) => {
-      p = p.trim();
-      if (!p) return "";
-      if (p.startsWith("<ul>") || p.startsWith("<li>")) return p;
-      return `<p>${p.replace(/\n/g, "<br>")}</p>`;
-    })
-    .filter(Boolean)
-    .join("");
+    .replace(/\*([^*\n]+?)\*/g, "<em>$1</em>")
+    .replace(/`([^`\n]+)`/g, "<code>$1</code>");
 }
