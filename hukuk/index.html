@@ -2,115 +2,100 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iterasyon hukuk — Yapay Zeka Destekli Hukuki Rehberlik</title>
-    <meta name="description" content="Yapay zeka ile hukuki süreçlerinizi anlayın. iterasyon hukuk, haklarınızı öğrenmenize yardımcı olur." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>iterasyon hukuk — AI Asistan</title>
+    <meta name="description" content="Hukuki sorularınızı yapay zekaya sorun. iterasyon hukuk AI asistanı." />
+    <meta name="theme-color" content="#0a0b0f" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,700;1,14..32,300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body class="page">
+  <body class="chat">
 
-    <header class="site-nav-bar">
-      <a href="/" class="nav-brand">iterasyon</a>
-      <nav>
-        <a href="/hukuk/" style="color: var(--paper);">hukuk <span class="tag-ai">AI</span></a>
-        <a href="/hukuk/blog/">blog</a>
-      </nav>
-    </header>
+    <div class="chat-layout">
 
-    <div class="page-wrapper">
+      <!-- Header -->
+      <header class="chat-header">
+        <a href="/" class="nav-brand" style="font-size:.9rem;">iterasyon</a>
 
-      <div class="page-hero">
-        <p class="page-eyebrow">
-          <span class="tag-ai">AI</span>
-          iterasyon hukuk
-        </p>
-        <h1>Hukuki arayışlarınızda yapay zekanın rehberliği.</h1>
+        <div class="chat-header-center">
+          <div class="chat-header-title">
+            hukuk <span class="tag-ai">AI</span>
+          </div>
+          <div class="chat-header-sub">
+            <span class="status-dot"></span>
+            çevrimiçi
+          </div>
+        </div>
+
+        <div style="display:flex;gap:.4rem;">
+          <a href="/hukuk/blog/" class="chat-icon-btn" title="Blog" style="text-decoration:none;font-size:.75rem;font-weight:600;letter-spacing:.03em;width:auto;padding:0 .7rem;">blog</a>
+          <button class="chat-icon-btn" id="settings-btn" title="API ayarları" aria-label="API anahtarı ayarla">⚙</button>
+        </div>
+      </header>
+
+      <!-- Messages -->
+      <div class="messages" id="messages">
+        <div class="chat-disclaimer">
+          Bilgi amaçlıdır · Hukuki tavsiye değildir · Önemli kararlar için avukata danışın
+        </div>
+
+        <div class="msg ai">
+          <div class="msg-avatar">ik</div>
+          <div class="bubble">
+            <p>Merhaba! Ben <strong>iterasyon hukuk AI</strong> asistanıyım.</p>
+            <p>Türk hukuku hakkındaki sorularınızı sade bir dille yanıtlarım. İş hukuku, kira hukuku, tüketici hakları, sözleşmeler ve daha fazlasında yardımcı olabilirim.</p>
+            <p>Sorunuzu yazın, başlayalım. 👋</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input bar -->
+      <div class="chat-input-wrap">
+        <textarea
+          id="chat-input"
+          placeholder="Hukuki sorunuzu yazın..."
+          rows="1"
+          aria-label="Mesaj yaz"
+        ></textarea>
+        <button id="send-btn" aria-label="Gönder" disabled>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2L14 8L8 14M14 8H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </div><!-- /chat-layout -->
+
+    <!-- API Key overlay -->
+    <div class="key-overlay" id="key-overlay">
+      <div class="key-modal">
+        <h2>⚙ OpenAI API Anahtarı</h2>
         <p>
-          Dava mı açacaksınız? Sözleşme mi okuyorsunuz? Haklarınızı mı merak ediyorsunuz?
-          iterasyon hukuk, karmaşık hukuki metinleri sade bir dille anlatır ve size doğru
-          yönü gösterir.
+          iterasyon hukuk AI, OpenAI GPT-4o'yu kullanır. Sohbet başlatmak için
+          kendi API anahtarınızı girin. Anahtar yalnızca tarayıcınızda saklanır,
+          hiçbir sunucuya gönderilmez.
+        </p>
+        <div class="key-input-row">
+          <input
+            type="password"
+            id="api-key-input"
+            placeholder="sk-..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="btn btn-gold" id="save-key-btn" style="padding:0 1rem;min-height:44px;">Kaydet</button>
+        </div>
+        <p class="key-note">
+          API anahtarınız yok mu?
+          <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com</a>
+          adresinden ücretsiz oluşturabilirsiniz.
+          Anahtarınız yalnızca bu tarayıcıda <code style="font-size:.7rem;color:var(--gold)">localStorage</code>'a kaydedilir.
         </p>
       </div>
-
-      <div class="page-section">
-        <p class="section-title">Ne yapabilir?</p>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h3>Belge analizi</h3>
-            <p>Sözleşme, ihtarname veya mahkeme kararlarını yükleyin; yapay zeka temel maddeleri özetlesin.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Hak sorgulama</h3>
-            <p>İş hukuku, kira hukuku, tüketici hakları ve daha fazlası hakkında sade sorular sorun.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Süreç yönlendirme</h3>
-            <p>Hangi mahkemeye başvurmanız gerektiğini, süreleri ve adımları öğrenin.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Avukat bulma</h3>
-            <p>Yapay zekanın tespitleri ışığında size uygun uzman avukata yönlendirme alın.</p>
-          </div>
-        </div>
-
-        <div class="cta-strip">
-          <p>Şimdi erken erişim listesine kaydolun. Ürün çıktığında ilk siz deneyin.</p>
-          <a href="mailto:merhaba@iterasyon.com" class="btn btn-gold">Erken erişim isteyin</a>
-        </div>
-
-        <p class="section-title">Sık sorulan sorular</p>
-        <div class="faq">
-          <details class="faq-item">
-            <summary>Bu bir hukuki danışmanlık hizmeti midir?</summary>
-            <p>Hayır. iterasyon hukuk, bilgi amaçlıdır ve avukatlık hizmetinin yerini tutmaz. Kritik kararlar için mutlaka bir hukuk uzmanına danışın.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Hangi hukuk alanlarını kapsıyor?</summary>
-            <p>İlk aşamada iş hukuku, kira ve mülkiyet hukuku, tüketici hakları ve sözleşme hukuku alanlarını kapsayacak. Yeni alanlar sürekli ekleniyor.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Verilerim güvende mi?</summary>
-            <p>Yüklediğiniz belgeler şifreli olarak işlenir ve sunucularımızda saklanmaz. Gizlilik politikamıza bağlıyız.</p>
-          </details>
-        </div>
-      </div>
-
-      <footer class="page-footer">
-        <a href="/">iterasyon</a>
-        <span>© <span class="yr"></span> iterasyon. Bilgi amaçlıdır, hukuki tavsiye değildir.</span>
-      </footer>
     </div>
 
-    <script>
-      document.querySelectorAll(".yr").forEach(el => el.textContent = new Date().getFullYear());
-    </script>
-    <style>
-      .faq { display: flex; flex-direction: column; gap: .5rem; }
-      .faq-item {
-        background: var(--panel);
-        border: 1px solid var(--line2);
-        border-radius: 10px;
-        padding: 1rem 1.2rem;
-      }
-      .faq-item summary {
-        font-weight: 600;
-        font-size: .92rem;
-        cursor: pointer;
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-      }
-      .faq-item summary::after { content: "+"; color: var(--gold); }
-      .faq-item[open] summary::after { content: "−"; }
-      .faq-item p {
-        margin-top: .8rem;
-        font-size: .87rem;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-    </style>
+    <script src="./chat.js"></script>
   </body>
 </html>
