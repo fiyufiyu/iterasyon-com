@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iterasyon hukuk — Yapay Zeka Destekli Hukuki Rehberlik</title>
+    <meta name="description" content="Yapay zeka ile hukuki süreçlerinizi anlayın. iterasyon hukuk, haklarınızı öğrenmenize yardımcı olur." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,700;1,14..32,300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="page">
+
+    <header class="site-nav-bar">
+      <a href="/" class="nav-brand">iterasyon</a>
+      <nav>
+        <a href="/hukuk/" style="color: var(--paper);">hukuk <span class="tag-ai">AI</span></a>
+        <a href="/hukuk/blog/">blog</a>
+      </nav>
+    </header>
+
+    <div class="page-wrapper">
+
+      <div class="page-hero">
+        <p class="page-eyebrow">
+          <span class="tag-ai">AI</span>
+          iterasyon hukuk
+        </p>
+        <h1>Hukuki arayışlarınızda yapay zekanın rehberliği.</h1>
+        <p>
+          Dava mı açacaksınız? Sözleşme mi okuyorsunuz? Haklarınızı mı merak ediyorsunuz?
+          iterasyon hukuk, karmaşık hukuki metinleri sade bir dille anlatır ve size doğru
+          yönü gösterir.
+        </p>
+      </div>
+
+      <div class="page-section">
+        <p class="section-title">Ne yapabilir?</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Belge analizi</h3>
+            <p>Sözleşme, ihtarname veya mahkeme kararlarını yükleyin; yapay zeka temel maddeleri özetlesin.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Hak sorgulama</h3>
+            <p>İş hukuku, kira hukuku, tüketici hakları ve daha fazlası hakkında sade sorular sorun.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Süreç yönlendirme</h3>
+            <p>Hangi mahkemeye başvurmanız gerektiğini, süreleri ve adımları öğrenin.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Avukat bulma</h3>
+            <p>Yapay zekanın tespitleri ışığında size uygun uzman avukata yönlendirme alın.</p>
+          </div>
+        </div>
+
+        <div class="cta-strip">
+          <p>Şimdi erken erişim listesine kaydolun. Ürün çıktığında ilk siz deneyin.</p>
+          <a href="mailto:merhaba@iterasyon.com" class="btn btn-gold">Erken erişim isteyin</a>
+        </div>
+
+        <p class="section-title">Sık sorulan sorular</p>
+        <div class="faq">
+          <details class="faq-item">
+            <summary>Bu bir hukuki danışmanlık hizmeti midir?</summary>
+            <p>Hayır. iterasyon hukuk, bilgi amaçlıdır ve avukatlık hizmetinin yerini tutmaz. Kritik kararlar için mutlaka bir hukuk uzmanına danışın.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Hangi hukuk alanlarını kapsıyor?</summary>
+            <p>İlk aşamada iş hukuku, kira ve mülkiyet hukuku, tüketici hakları ve sözleşme hukuku alanlarını kapsayacak. Yeni alanlar sürekli ekleniyor.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Verilerim güvende mi?</summary>
+            <p>Yüklediğiniz belgeler şifreli olarak işlenir ve sunucularımızda saklanmaz. Gizlilik politikamıza bağlıyız.</p>
+          </details>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <a href="/">iterasyon</a>
+        <span>© <span class="yr"></span> iterasyon. Bilgi amaçlıdır, hukuki tavsiye değildir.</span>
+      </footer>
+    </div>
+
+    <script>
+      document.querySelectorAll(".yr").forEach(el => el.textContent = new Date().getFullYear());
+    </script>
+    <style>
+      .faq { display: flex; flex-direction: column; gap: .5rem; }
+      .faq-item {
+        background: var(--panel);
+        border: 1px solid var(--line2);
+        border-radius: 10px;
+        padding: 1rem 1.2rem;
+      }
+      .faq-item summary {
+        font-weight: 600;
+        font-size: .92rem;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+      }
+      .faq-item summary::after { content: "+"; color: var(--gold); }
+      .faq-item[open] summary::after { content: "−"; }
+      .faq-item p {
+        margin-top: .8rem;
+        font-size: .87rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+    </style>
+  </body>
+</html>
