@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motorlu Taşıt Vergisi (MTV) Hesaplama 2026</title>
+  <meta name="description" content="Aracınızın motor hacmi, yaşı ve türüne göre 2026 MTV tutarını hesaplayın. Otomobil, motosiklet ve minibüs tarifeleri." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/mtv" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Motorlu Taşıt Vergisi (MTV) Hesaplama","url":"https://hukuk.iterasyon.com/mtv","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Vergi &amp; Harçlar</div>
+    <h1>Motorlu Taşıt Vergisi (MTV)</h1>
+    <p class="calc-subtitle">197 s. MTV Kanunu · Tahmini 2026 yıllık tarife · Ocak ve Temmuz taksitleri</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🚗</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label">Araç türü<span class="req">*</span></label>
+          <select id="arac-turu" class="form-select">
+            <option value="otomobil">Otomobil / Arazi Taşıtı / Kaptıkaçtı</option>
+            <option value="motosiklet">Motosiklet</option>
+            <option value="minibus">Minibüs</option>
+            <option value="kamyonet">Kamyonet / Panel Van</option>
+          </select>
+        </div>
+
+        <div id="motor-group">
+          <div class="form-group">
+            <label class="form-label">Motor silindir hacmi (cc)<span class="req">*</span></label>
+            <select id="motor-hacim" class="form-select">
+              <option value="0">1.300 cc ve altı</option>
+              <option value="1">1.301 – 1.600 cc</option>
+              <option value="2">1.601 – 1.800 cc</option>
+              <option value="3">1.801 – 2.000 cc</option>
+              <option value="4">2.001 – 2.500 cc</option>
+              <option value="5">2.501 – 3.000 cc</option>
+              <option value="6">3.001 cc ve üzeri</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="moto-group" style="display:none">
+          <div class="form-group">
+            <label class="form-label">Motor silindir hacmi (cc)</label>
+            <select id="moto-hacim" class="form-select">
+              <option value="0">100 cc ve altı</option>
+              <option value="1">101 – 250 cc</option>
+              <option value="2">251 – 650 cc</option>
+              <option value="3">651 – 1.200 cc</option>
+              <option value="4">1.201 cc ve üzeri</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="model-yili">Aracın model yılı<span class="req">*</span></label>
+          <input type="number" id="model-yili" class="form-input" placeholder="ör. 2018" min="1960" max="2026" inputmode="numeric" required />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">MTV Tutarını Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Araç yaşı (2026 itibariyle)</span>
+          <span class="result-value" id="r-yas"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Yaş grubu</span>
+          <span class="result-value" id="r-yas-grubu"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Yıllık MTV (tahmini)</span>
+          <span class="result-value" id="r-yillik"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Ocak taksiti (%50)</span>
+          <span class="result-value" id="r-taksit1"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Temmuz taksiti (%50)</span>
+          <span class="result-value" id="r-taksit2"></span>
+        </div>
+        <div class="result-warning" style="display:flex">
+          <span class="result-warning-icon">⚠️</span>
+          <span>Bu tutarlar <strong>tahminidir</strong>. Gerçek MTV miktarı Gelir İdaresi Başkanlığı internet vergi dairesi üzerinden sorgulanmalıdır.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 2026 MTV Tarifeleri (Tahmini — Otomobil)</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Motor Hacmi</th><th>1–3 Yaş</th><th>4–6 Yaş</th><th>7–11 Yaş</th><th>12–15 Yaş</th><th>16+ Yaş</th></tr></thead>
+            <tbody>
+              <tr><td>≤1.300 cc</td><td>6.100</td><td>5.200</td><td>4.300</td><td>2.100</td><td>1.050</td></tr>
+              <tr><td>1.301–1.600 cc</td><td>10.300</td><td>8.700</td><td>6.900</td><td>3.500</td><td>1.750</td></tr>
+              <tr><td>1.601–1.800 cc</td><td>17.500</td><td>13.100</td><td>10.700</td><td>5.300</td><td>2.600</td></tr>
+              <tr><td>1.801–2.000 cc</td><td>26.400</td><td>20.000</td><td>15.000</td><td>7.500</td><td>3.750</td></tr>
+              <tr><td>2.001–2.500 cc</td><td>44.000</td><td>34.000</td><td>26.000</td><td>12.500</td><td>6.250</td></tr>
+              <tr><td>2.501–3.000 cc</td><td>68.000</td><td>54.000</td><td>41.000</td><td>20.000</td><td>10.000</td></tr>
+              <tr><td>3.001+ cc</td><td>100.000</td><td>81.000</td><td>62.000</td><td>30.000</td><td>15.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p">MTV yılda iki eşit taksitte ödenir: <strong>Ocak</strong> ve <strong>Temmuz</strong> aylarının son iş günü. Geç ödeme durumunda aylık %4 gecikme zammı uygulanır.</p>
+        <div class="legal-ref">⚖️ 197 s. MTV Kanunu</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Araç yaşı nasıl hesaplanır? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>MTV tarifeye göre araç yaşı, <strong>ilk tescil yılı ile vergilendirme yılı arasındaki fark</strong>tır. 2020 model bir araç 2026'da 6 yaşındadır (4–6 yaş grubuna girer).</p></details>
+      <details><summary>MTV ödemeden araç kullanılabilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>MTV borcu bulunan araçlar için muayene yapılmaz ve plaka tescili yenilenemez. Ödeme yapılmadan trafikten men işlemi de uygulanabilir.</p></details>
+      <details><summary>Elektrikli araçlar MTV öder mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet, tam elektrikli araçlar da (motor hacmi yerine motor gücü kW bazında) MTV öder. 2026 itibarıyla kW'a dayalı tarife uygulanmaktadır. Bu hesaplayıcı henüz kW tarifesini kapsamamaktadır.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Tahmini değerlerdir; kesin MTV tutarı için GİB internet vergi dairesi veya e-Devlet üzerinden sorgulama yapın. Tutarlar yıllık yeniden değerleme oranına göre güncellenir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits: 0, maximumFractionDigits: 0}) + ' ₺'; }
+
+  // [cc_group][yas_group] — otomobil
+  const OTOMOBIL = [
+    [6100, 5200, 4300, 2100, 1050],
+    [10300, 8700, 6900, 3500, 1750],
+    [17500, 13100, 10700, 5300, 2600],
+    [26400, 20000, 15000, 7500, 3750],
+    [44000, 34000, 26000, 12500, 6250],
+    [68000, 54000, 41000, 20000, 10000],
+    [100000, 81000, 62000, 30000, 15000]
+  ];
+
+  // Motosiklet [cc_group][yas_group]
+  const MOTOSIKLET = [
+    [700, 600, 500, 300, 200],
+    [2200, 1900, 1500, 800, 400],
+    [5800, 4900, 3800, 1900, 950],
+    [12000, 9500, 7500, 3700, 1850],
+    [22000, 17500, 13500, 6700, 3350]
+  ];
+
+  // Minibüs / kamyonet — flat by age group
+  const MINIBUS    = [12000, 9500, 7500, 3700, 1850];
+  const KAMYONET   = [10000, 8000, 6200, 3100, 1550];
+
+  function yasGrubu(yas) {
+    if (yas <= 3)  return { idx: 0, label: '1–3 yaş' };
+    if (yas <= 6)  return { idx: 1, label: '4–6 yaş' };
+    if (yas <= 11) return { idx: 2, label: '7–11 yaş' };
+    if (yas <= 15) return { idx: 3, label: '12–15 yaş' };
+    return { idx: 4, label: '16 yaş ve üzeri' };
+  }
+
+  const turSel = document.getElementById('arac-turu');
+  turSel.addEventListener('change', function() {
+    const tur = turSel.value;
+    document.getElementById('motor-group').style.display = tur === 'motosiklet' ? 'none' : '';
+    document.getElementById('moto-group').style.display  = tur === 'motosiklet' ? '' : 'none';
+  });
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const tur        = turSel.value;
+    const modelYili  = parseInt(document.getElementById('model-yili').value);
+
+    if (!modelYili || modelYili < 1960 || modelYili > 2026) { err.textContent = 'Geçerli bir model yılı girin.'; err.classList.add('visible'); return; }
+
+    const yas  = 2026 - modelYili;
+    const yg   = yasGrubu(yas);
+
+    let mtv = 0;
+    if (tur === 'otomobil') {
+      const cc = parseInt(document.getElementById('motor-hacim').value);
+      mtv = OTOMOBIL[cc][yg.idx];
+    } else if (tur === 'motosiklet') {
+      const cc = parseInt(document.getElementById('moto-hacim').value);
+      mtv = MOTOSIKLET[cc][yg.idx];
+    } else if (tur === 'minibus') {
+      mtv = MINIBUS[yg.idx];
+    } else {
+      mtv = KAMYONET[yg.idx];
+    }
+
+    document.getElementById('r-yas').textContent      = yas + ' yıl';
+    document.getElementById('r-yas-grubu').textContent = yg.label;
+    document.getElementById('r-yillik').textContent   = fmt(mtv);
+    document.getElementById('r-taksit1').textContent  = fmt(mtv / 2);
+    document.getElementById('r-taksit2').textContent  = fmt(mtv / 2);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

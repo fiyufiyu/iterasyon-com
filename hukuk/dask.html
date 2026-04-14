@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASK Prim Hesaplama 2026 | Zorunlu Deprem Sigortası</title>
+  <meta name="description" content="Konutunuzun m², yapı tarzı ve deprem risk bölgesine göre DASK primini hesaplayın. 2026 tahmini oranlar ve sigorta bedeli." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/dask" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"DASK Prim Hesaplama","url":"https://hukuk.iterasyon.com/dask","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Trafik &amp; Sigorta</div>
+    <h1>DASK Prim Hesaplama</h1>
+    <p class="calc-subtitle">587 s. KHK · Zorunlu Deprem Sigortası · 2026 tahmini tarife</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🏚️</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="alan">Brüt konut alanı (m²)<span class="req">*</span></label>
+          <div class="form-hint">Balkon dahil toplam brüt alan (tapudaki m²)</div>
+          <input type="number" id="alan" class="form-input" placeholder="ör. 110" min="10" max="500" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Yapı tarzı<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="yapi" value="0" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Kagir / Betonarme</span>
+                <span class="radio-option-hint">Çelik ya da betonarme iskelet, kargir duvar</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="yapi" value="1" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Yığma Taş / Tuğla</span>
+                <span class="radio-option-hint">Taş, tuğla veya kerpiç yığma yapı</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="yapi" value="2" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Ahşap / Hafif Metal / Diğer</span>
+                <span class="radio-option-hint">Ahşap iskelet, prefabrik hafif metal</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Deprem risk bölgesi<span class="req">*</span></label>
+          <div class="form-hint">1 = en yüksek risk (Marmara, İzmir, Erzincan) · 5 = en düşük risk</div>
+          <select id="risk" class="form-select">
+            <option value="0">Bölge 1 — En yüksek risk (İstanbul, İzmir, Kocaeli, Bursa, Erzincan, Bingöl…)</option>
+            <option value="1">Bölge 2 — Yüksek risk (Ankara, Diyarbakır, Adana, Denizli, Balıkesir…)</option>
+            <option value="2">Bölge 3 — Orta risk (Trabzon, Antalya, Mersin, Edirne, Tekirdağ…)</option>
+            <option value="3">Bölge 4 — Düşük risk (Konya, Kayseri, Samsun, Zonguldak…)</option>
+            <option value="4">Bölge 5 — En düşük risk (Kırklareli, Kastamonu, Sinop, Bolu…)</option>
+          </select>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">DASK Primini Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Yeniden yapım bedeli (m² × birim)</span>
+          <span class="result-value" id="r-birim"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">DASK sigorta bedeli</span>
+          <span class="result-value" id="r-sigorta"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Prim oranı (‰)</span>
+          <span class="result-value" id="r-oran"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Yıllık DASK primi (tahmini)</span>
+          <span class="result-value" id="r-prim"></span>
+        </div>
+        <div class="result-warning" style="display:flex">
+          <span class="result-warning-icon">⚠️</span>
+          <span>Bu hesaplama <strong>tahminidir</strong>. Gerçek prim tutarı için dask.gov.tr veya herhangi bir yetkili sigorta acentesine başvurun.</span>
+        </div>
+        <p class="result-note">DASK primleri yıllık belirlenir ve KDV'den muaftır. Azami sigorta bedeli DASK tarafından belirlenen tavan ile sınırlıdır.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./trafik-tazminat" class="sim-link">
+        <span class="sim-icon">🚑</span><span class="sim-name">Trafik Kazası Tazminatı</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./tapu-harci" class="sim-link">
+        <span class="sim-icon">🏗️</span><span class="sim-name">Tapu Harcı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./kira-artis" class="sim-link">
+        <span class="sim-icon">🏠</span><span class="sim-name">Kira Artış Oranı</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 DASK Prim Oranları (Tahmini 2026, ‰)</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Risk Bölgesi</th><th>Kagir/Betonarme</th><th>Yığma Taş/Tuğla</th><th>Ahşap/Diğer</th></tr></thead>
+            <tbody>
+              <tr><td>Bölge 1</td><td>‰2,20</td><td>‰3,74</td><td>‰5,22</td></tr>
+              <tr><td>Bölge 2</td><td>‰1,55</td><td>‰2,64</td><td>‰3,68</td></tr>
+              <tr><td>Bölge 3</td><td>‰0,92</td><td>‰1,57</td><td>‰2,19</td></tr>
+              <tr><td>Bölge 4</td><td>‰0,61</td><td>‰1,04</td><td>‰1,45</td></tr>
+              <tr><td>Bölge 5</td><td>‰0,37</td><td>‰0,63</td><td>‰0,88</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Yeniden yapım bedeli (2026 tahmini):</strong> Kagir ~18.000 ₺/m² · Yığma ~15.000 ₺/m² · Ahşap ~12.000 ₺/m². Azami sigorta bedeli ~1.200.000 ₺.</p>
+        <p class="info-p">DASK bulunmayan konutlar için su, elektrik ve doğalgaz aboneliği yapılamaz; tapuda satış işlemi gerçekleştirilemez.</p>
+        <div class="legal-ref">⚖️ 587 s. KHK · DASK Yönetmelikleri</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Kiracı da DASK yaptırmalı mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>DASK yükümlülüğü <strong>malik (ev sahibi)</strong>e aittir. Kiracının zorunluluğu yoktur; ancak kiracı kendi eşyaları için ev sigortası yaptırabilir. Depremde yapı hasarı DASK tarafından ödenir, eşya hasarı değil.</p></details>
+      <details><summary>DASK poliçesi olmadan sigorta şirketi ödeme yapar mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>DASK'sız konutlar için kasko veya ev sigortası şirketleri deprem hasarını karşılamaz. Deprem zararları yalnızca DASK poliçesi kapsamında tazmin edilir.</p></details>
+      <details><summary>Deprem bölgesini nasıl öğrenirim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>DASK'ın resmi internet sitesinde (dask.gov.tr) adres girilerek hangi risk bölgesinde olduğunuz sorgulanabilir. Prim hesabı da aynı siteden yapılabilir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Tahmini hesaplamadır; gerçek prim için dask.gov.tr veya yetkili sigorta acentesine başvurun. DASK tarifesi yıllık güncellenir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' ₺'; }
+  function fmtPer(n) { return '‰' + (n * 1000).toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+
+  // Yeniden yapım bedeli (₺/m²) — [yapi_idx]
+  const BIRIM_BEDEL = [18000, 15000, 12000];
+  const AZAMI_SIGORTA = 1200000; // 2026 tahmini
+
+  // Prim oranları [risk_bolgesi][yapi_idx]
+  const PRIM_ORANLARI = [
+    [0.00220, 0.00374, 0.00522], // Bölge 1
+    [0.00155, 0.00264, 0.00368], // Bölge 2
+    [0.00092, 0.00157, 0.00219], // Bölge 3
+    [0.00061, 0.00104, 0.00145], // Bölge 4
+    [0.00037, 0.00063, 0.00088]  // Bölge 5
+  ];
+
+  const MIN_PRIM = 150; // minimum prim
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const alan   = parseFloat(document.getElementById('alan').value);
+    const yapi   = parseInt(document.querySelector('input[name="yapi"]:checked').value);
+    const risk   = parseInt(document.getElementById('risk').value);
+
+    if (!alan || alan < 10 || alan > 500) { err.textContent = 'Geçerli bir alan girin (10–500 m²).'; err.classList.add('visible'); return; }
+
+    const birim        = BIRIM_BEDEL[yapi];
+    const hammSigorta  = alan * birim;
+    const sigorta      = Math.min(hammSigorta, AZAMI_SIGORTA);
+    const oran         = PRIM_ORANLARI[risk][yapi];
+    const prim         = Math.max(MIN_PRIM, sigorta * oran);
+
+    document.getElementById('r-birim').textContent   = fmt(alan) + ' m² × ' + birim.toLocaleString('tr-TR') + ' ₺/m²';
+    document.getElementById('r-sigorta').textContent = fmt(sigorta) + (hammSigorta > AZAMI_SIGORTA ? ' (tavana göre sınırlandı)' : '');
+    document.getElementById('r-oran').textContent    = fmtPer(oran);
+    document.getElementById('r-prim').textContent    = fmt(prim);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

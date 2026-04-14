@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tapu Harcı Hesaplama 2026 | Alım-Satım Toplam Masraf</title>
+  <meta name="description" content="Gayrimenkul alım-satımında tapu harcını hesaplayın. 2026 oranlarıyla alıcı ve satıcı payları, döner sermaye ücreti ve toplam maliyet." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/tapu-harci" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tapu Harcı Hesaplama","url":"https://hukuk.iterasyon.com/tapu-harci","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Vergi &amp; Harçlar</div>
+    <h1>Tapu Harcı Hesaplama</h1>
+    <p class="calc-subtitle">492 s. Harçlar Kanunu · Binde 20 + Binde 20 · Döner sermaye · 2026</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🏗️</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="bedel">Beyan edilen satış bedeli (₺)<span class="req">*</span></label>
+          <div class="form-hint">Tapuda beyan edeceğiniz gerçek satış bedeli. Eksik beyan vergi cezasına yol açar.</div>
+          <input type="number" id="bedel" class="form-input" placeholder="ör. 3 500 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">İşlem türü</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="islem" value="satis" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Satış (Alım-Satım Devri)</span>
+                <span class="radio-option-hint">Alıcı ‰20 + Satıcı ‰20 = toplam ‰40</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="islem" value="bağış" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Bağış / İvazsız Devir</span>
+                <span class="radio-option-hint">Alıcı ‰68,31 (sadece alıcı öder)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Tapu Harcını Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+
+        <div id="satıs-rows">
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Alıcı tapu harcı (‰20)</span>
+            <span class="result-value" id="r-alici"></span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Satıcı tapu harcı (‰20)</span>
+            <span class="result-value" id="r-satici"></span>
+          </div>
+        </div>
+        <div id="bagis-row" style="display:none">
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Bağış tapu harcı (‰68,31)</span>
+            <span class="result-value" id="r-bagis"></span>
+          </div>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Döner sermaye (tahmini, her taraf)</span>
+          <span class="result-value" id="r-donerher"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Toplam maliyet (her iki taraf)</span>
+          <span class="result-value" id="r-toplam"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Alıcı toplam ödemesi</span>
+          <span class="result-value" id="r-alici-toplam"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Satıcı toplam ödemesi</span>
+          <span class="result-value" id="r-satici-toplam"></span>
+        </div>
+        <div class="result-warning" style="display:flex">
+          <span class="result-warning-icon">⚠️</span>
+          <span>Tapuda beyan edilen bedel rayiç değerin altında olamaz. Eksik beyan cezalı tarhiyata ve %25 vergi ziyaı cezasına yol açar.</span>
+        </div>
+        <p class="result-note">Döner sermaye tutarı tahminidir; il ve işlem türüne göre değişir. Kadastro payı ve diğer küçük masraflar dahil değildir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./damga-vergisi" class="sim-link">
+        <span class="sim-icon">🖊️</span><span class="sim-name">Damga Vergisi Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./veraset-vergisi" class="sim-link">
+        <span class="sim-icon">📑</span><span class="sim-name">Veraset ve İntikal Vergisi</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./dask" class="sim-link">
+        <span class="sim-icon">🏚️</span><span class="sim-name">DASK Prim Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Kalem</th><th>Oran / Tutar</th><th>Ödeyen</th></tr></thead>
+            <tbody>
+              <tr><td>Tapu harcı (satış)</td><td>‰20</td><td>Alıcı</td></tr>
+              <tr><td>Tapu harcı (satış)</td><td>‰20</td><td>Satıcı</td></tr>
+              <tr><td>Döner sermaye</td><td>~900 ₺ (2026 tahmini)</td><td>Her taraf ayrı</td></tr>
+              <tr><td>Tapu harcı (bağış)</td><td>‰68,31</td><td>Alıcı (devralan)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p">Döner sermaye bedeli her yıl güncellenir. 2026 tahmini ~900 ₺ olup işlem türüne ve ile göre farklılık gösterebilir. Tapudan güncel rakamı teyit edin.</p>
+        <div class="legal-ref">⚖️ 492 s. Harçlar Kanunu · Tapu Harcı Tarifesi</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Tapu harcını kim öder? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Yasal olarak alıcı ‰20, satıcı ‰20 öder. Ancak pratikte satıcı ve alıcı harçların tamamını alıcının ödeyeceğini kararlaştırabilir; bu yasal engel olmayan özel bir anlaşmadır.</p></details>
+      <details><summary>Konut kredisiyle alımda ek harç var mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Banka ipoteği için ayrıca ipotek tesis harcı ödenir (kredi tutarının ‰4,55'i). Bu tutar banka tarafından tesis edilirken tahsil edilir.</p></details>
+      <details><summary>Emlak vergisi değeri dikkate alınır mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Beyan edilen satış bedeli, taşınmazın emlak vergisi matrahından (belediye rayici) düşük olamaz. Tapu müdürlüğü bu rayice bakarak eksik beyan olup olmadığını kontrol eder.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; resmi harç öncesinde Tapu Müdürlüğü ile teyit edin. Döner sermaye tutarları tahminidir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' ₺'; }
+
+  const DONER_SERMAYE = 900; // 2026 tahmini, kişi başı
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const bedel  = parseFloat(document.getElementById('bedel').value);
+    const islem  = document.querySelector('input[name="islem"]:checked').value;
+
+    if (!bedel || bedel <= 0) { err.textContent = 'Geçerli bir satış bedeli girin.'; err.classList.add('visible'); return; }
+
+    let aliciHarc = 0, saticiHarc = 0, toplam = 0, aliciToplam = 0, saticiToplam = 0;
+
+    document.getElementById('satıs-rows').style.display = islem === 'satis' ? '' : 'none';
+    document.getElementById('bagis-row').style.display  = islem === 'bagis' ? '' : 'none';
+
+    if (islem === 'satis') {
+      aliciHarc  = bedel * 0.020;
+      saticiHarc = bedel * 0.020;
+      aliciToplam  = aliciHarc  + DONER_SERMAYE;
+      saticiToplam = saticiHarc + DONER_SERMAYE;
+      toplam = aliciToplam + saticiToplam;
+      document.getElementById('r-alici').textContent  = fmt(aliciHarc);
+      document.getElementById('r-satici').textContent = fmt(saticiHarc);
+    } else {
+      const bagisHarc = bedel * 0.06831;
+      aliciToplam  = bagisHarc + DONER_SERMAYE;
+      saticiToplam = DONER_SERMAYE;
+      toplam = aliciToplam + saticiToplam;
+      document.getElementById('r-bagis').textContent = fmt(bagisHarc);
+    }
+
+    document.getElementById('r-donerher').textContent    = fmt(DONER_SERMAYE) + ' / kişi';
+    document.getElementById('r-toplam').textContent      = fmt(toplam);
+    document.getElementById('r-alici-toplam').textContent  = fmt(aliciToplam);
+    document.getElementById('r-satici-toplam').textContent = fmt(saticiToplam);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

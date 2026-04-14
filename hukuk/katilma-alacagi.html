@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boşanmada Katılma Alacağı Hesaplama 2026 | TMK 236</title>
+  <meta name="description" content="Boşanmada edinilmiş mal paylaşımı ve katılma alacağını hesaplayın. TMK Md. 236 kapsamında artık değer ve katılma payı hesaplayıcı." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/katilma-alacagi" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Boşanmada Katılma Alacağı Hesaplama","url":"https://hukuk.iterasyon.com/katilma-alacagi","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Aile &amp; Miras</div>
+    <h1>Boşanmada Katılma Alacağı</h1>
+    <p class="calc-subtitle">TMK Md. 219–236 · Edinilmiş mallara katılma rejimi · Artık değer paylaşımı</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🤝</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:.25rem;">Edinilmiş mallar: evlilik süresince elde edilen gelir, alınan ücret, SGK ödemeleri ve bunlarla alınan malvarlığı değerleridir. Kişisel mallar (miras, bağış, evlilik öncesi mallar) <strong>hesaba katılmaz</strong>.</p>
+
+        <div style="border-top:1px solid var(--line2);padding-top:.8rem;">
+          <div style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;">Eş A</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="a-mal">Edinilmiş mallar (₺)<span class="req">*</span></label>
+              <div class="form-hint">Evlilik süresince elde edilen tüm değerler</div>
+              <input type="number" id="a-mal" class="form-input" placeholder="ör. 1 500 000" min="0" inputmode="numeric" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="a-borc">Kişisel borçlar (₺)</label>
+              <div class="form-hint">Edinilmiş mallara düşen borçlar</div>
+              <input type="number" id="a-borc" class="form-input" placeholder="0" min="0" inputmode="numeric" />
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--line2);padding-top:.8rem;">
+          <div style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;">Eş B</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="b-mal">Edinilmiş mallar (₺)<span class="req">*</span></label>
+              <input type="number" id="b-mal" class="form-input" placeholder="ör. 500 000" min="0" inputmode="numeric" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="b-borc">Kişisel borçlar (₺)</label>
+              <input type="number" id="b-borc" class="form-input" placeholder="0" min="0" inputmode="numeric" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Katılma Alacağını Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Eş A — Artık değer</span>
+          <span class="result-value" id="r-a-artik"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Eş B — Artık değer</span>
+          <span class="result-value" id="r-b-artik"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Katılma alacağı</span>
+          <span class="result-value" id="r-alacak"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Alacaklı eş</span>
+          <span class="result-value" id="r-alacakli"></span>
+        </div>
+        <p class="result-note">Artık değerin sıfır veya eksi olduğu eş katılma alacağına sahip değildir. Kişisel malların tespiti ve değerleme davaları sonucu önemli ölçüde etkiler.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./nafaka" class="sim-link">
+        <span class="sim-icon">👨‍👧</span><span class="sim-name">Nafaka Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./miras-payi" class="sim-link">
+        <span class="sim-icon">📜</span><span class="sim-name">Miras Payı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p">Türk Medeni Kanunu'nun 236. maddesi gereğince her eş, tasfiye sırasında <strong>diğer eşin artık değerinin yarısı üzerinde hak sahibi</strong> olur. Artık değer = Edinilmiş mallar − Kişisel borçlar.</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Kavram</th><th>Açıklama</th></tr></thead>
+            <tbody>
+              <tr><td>Edinilmiş mal</td><td>Evlilik süresindeki kazanç, ücret, SGK alacakları, bu mallarla alınanlar</td></tr>
+              <tr><td>Kişisel mal</td><td>Miras, bağış, evlilik öncesi mal, manevi tazminat — katılmaya dahil DEĞİL</td></tr>
+              <tr><td>Artık değer</td><td>Edinilmiş mallar − Edinilmiş mala düşen borçlar</td></tr>
+              <tr><td>Katılma alacağı</td><td>Az artık değere sahip eşin, farkın yarısını talep etme hakkı</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Örnek:</strong> A'nın artık değeri 1.200.000 ₺, B'nin 400.000 ₺ ise fark 800.000 ₺ → B, A'dan 400.000 ₺ katılma alacağı talep edebilir.</p>
+        <div class="legal-ref">⚖️ TMK Md. 218-241</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Kişisel mallar nasıl ispat edilir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Banka hesap dökümleri, tapu kayıtları, miras/bağış belgeleri ve tanık beyanları kullanılır. İsbat yükü, malın kişisel mal olduğunu iddia eden eşte olup aksinin kanıtlanması güçtür. Kayıt dışı değer aktarımlarında bilirkişi incelemesi yapılır.</p></details>
+      <details><summary>Ev hanımı çalışmadıysa katılma alacağı doğar mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. TMK, ev içi emeği ve çocuk bakımını da edinilmiş mala katkı olarak kabul eder. Çalışmayan eş de diğer eşin edinilmiş mallarına katılma alacağı talep edebilir.</p></details>
+      <details><summary>Eşler farklı mal rejimi seçebilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Evlilik öncesinde veya sonrasında noter onaylı sözleşmeyle <strong>mal ayrılığı</strong> veya <strong>paylaşmalı mal ayrılığı</strong> rejimi seçilebilir. Bu durumda katılma alacağı hükümleri uygulanmaz.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Katılma alacağı davası kişisel koşullara bağlıdır; bir aile hukuku avukatından destek alın.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' ₺'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const aMal  = parseFloat(document.getElementById('a-mal').value)  || 0;
+    const aBorc = parseFloat(document.getElementById('a-borc').value) || 0;
+    const bMal  = parseFloat(document.getElementById('b-mal').value)  || 0;
+    const bBorc = parseFloat(document.getElementById('b-borc').value) || 0;
+
+    if (aMal <= 0 && bMal <= 0) { err.textContent = 'En az bir eşin edinilmiş mal değerini girin.'; err.classList.add('visible'); return; }
+
+    const aArtik = Math.max(0, aMal - aBorc);
+    const bArtik = Math.max(0, bMal - bBorc);
+    const fark   = aArtik - bArtik;
+    const alacak = Math.abs(fark) / 2;
+    const alacakli = fark > 0 ? 'Eş B, Eş A\'dan ' + fmt(alacak) + ' alacaklıdır'
+                   : fark < 0 ? 'Eş A, Eş B\'den ' + fmt(alacak) + ' alacaklıdır'
+                   : 'Eşit — katılma alacağı doğmaz';
+
+    document.getElementById('r-a-artik').textContent  = fmt(aArtik);
+    document.getElementById('r-b-artik').textContent  = fmt(bArtik);
+    document.getElementById('r-alacak').textContent   = fmt(alacak);
+    document.getElementById('r-alacakli').textContent = alacakli;
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

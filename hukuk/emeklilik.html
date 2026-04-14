@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emeklilik Yaşı Hesaplama 2026 | Kalan Süre & EYT</title>
+  <meta name="description" content="Sigorta başlangıç tarihinize göre emeklilik yaşını ve kalan süreyi hesaplayın. EYT kademeli geçiş, SSK, Bağ-Kur ve yeni rejim dahil." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/emeklilik" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Emeklilik Yaşı ve Süre Hesaplama","url":"https://hukuk.iterasyon.com/emeklilik","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Sosyal Güvenlik</div>
+    <h1>Emeklilik Yaşı &amp; Süre Hesaplama</h1>
+    <p class="calc-subtitle">5510 s. Kanun · EYT kademeli geçiş · Eski ve yeni rejim · 2026</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🏖️</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="dogum">Doğum tarihi<span class="req">*</span></label>
+            <input type="date" id="dogum" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sigorta-bas">Sigorta başlangıç tarihi<span class="req">*</span></label>
+            <div class="form-hint">SGK hizmet dökümündeki ilk işe giriş tarihi</div>
+            <input type="date" id="sigorta-bas" class="form-input" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="prim-gun">Toplam prim gün sayısı<span class="req">*</span></label>
+            <div class="form-hint">SGK hizmet dökümünüzdeki toplam prim günü</div>
+            <input type="number" id="prim-gun" class="form-input" placeholder="ör. 4500" min="0" inputmode="numeric" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cinsiyet">Cinsiyet<span class="req">*</span></label>
+            <select id="cinsiyet" class="form-select">
+              <option value="E">Erkek</option>
+              <option value="K">Kadın</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Emeklilik Tarihini Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Emeklilik rejimi</span>
+          <span class="result-value" id="r-rejim"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Gerekli prim günü</span>
+          <span class="result-value" id="r-req-gun"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Gerekli emeklilik yaşı</span>
+          <span class="result-value" id="r-req-yas"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Mevcut yaşınız</span>
+          <span class="result-value" id="r-mevcut-yas"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Eksik prim günü</span>
+          <span class="result-value" id="r-eksik-gun"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Tahmini emeklilik tarihi</span>
+          <span class="result-value" id="r-tarih"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Kalan süre</span>
+          <span class="result-value" id="r-kalan"></span>
+        </div>
+
+        <div id="eyt-warn" class="result-warning" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          <span id="eyt-warn-text"></span>
+        </div>
+
+        <div class="result-info">ℹ️ Hesaplama, her yıl 365 prim günü kazanıldığını varsayar. Gerçek sonuç SGK sicil kaydınıza göre değişir.</div>
+        <p class="result-note">Emeklilik hukuku çok karmaşıktır. Kesin bilgi için SGK'ya veya bir uzman avukata danışın.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./issizlik-odenegi" class="sim-link">
+        <span class="sim-icon">📂</span><span class="sim-name">İşsizlik Ödeneği</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./kidem-tazminati" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./sgk-isveren-maliyeti" class="sim-link">
+        <span class="sim-icon">🏢</span><span class="sim-name">SGK İşveren Maliyeti</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Emeklilik Rejimleri</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Sigorta Başlangıcı</th><th>Rejim</th><th>Prim Günü</th><th>Yaş (E/K)</th></tr></thead>
+            <tbody>
+              <tr><td>9/9/1999 öncesi</td><td>Eski rejim (EYT)</td><td>3.600 – 5.000</td><td>50 – 55</td></tr>
+              <tr><td>9/9/1999 – 31/12/2007</td><td>Kademeli geçiş</td><td>4.500 – 7.000</td><td>55 – 60</td></tr>
+              <tr><td>1/1/2008 sonrası</td><td>Yeni rejim (5510)</td><td>7.200</td><td>65 / 65</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>EYT (Erken Emeklilik Yaşı Torpili):</strong> 2023 yılında yapılan yasal düzenlemeyle, 9/9/1999 öncesi ilk defa sigortalı olup prim günü koşulunu sağlayanlar yaş şartı aranmaksızın emekli olabilir.</p>
+        <div class="legal-ref">⚖️ 5510 s. SGK Kanunu · 3201 s. Kanun · EYT 7438 s. Kanun</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>EYT'den yararlanabilir miyim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>9/9/1999 tarihinden önce ilk defa sigortalı olduysanız ve eski rejim prim günü koşulunu sağlıyorsanız (erkek için genellikle 25 yıl ve 4.500–5.000 gün, kadın için 20 yıl ve 3.600–4.000 gün) yaş şartı aranmadan emekli olabilirsiniz. Kesin bilgi için SGK'ya başvurun.</p></details>
+      <details><summary>Askerlik ve doğum borçlanması prim gününe sayılır mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Askerlik borçlanması (en fazla 18 ay), doğum borçlanması (her doğum için 2 yıla kadar) ve yurt dışı hizmet borçlanması yapılabilir. Bu süreler prim gününe eklenir ve emeklilik için sayılır.</p></details>
+      <details><summary>Prim günümü nasıl öğrenirim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>e-Devlet üzerinden SGK Hizmet Dökümü sorgulayarak güncel prim gün sayınızı öğrenebilirsiniz. Hizmet dökümü, tüm işyerlerinde çalışılan süreleri ve prim günlerini ayrıntılı gösterir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Emeklilik koşulları kişiye özel olup SGK sicil kaydına göre değişir. Kesin bilgi için SGK'ya veya avukata başvurun.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR'); }
+
+  // Emeklilik parametreleri (simplified)
+  function getEmeklilikParams(sigortaBas, dogum, cinsiyet) {
+    const EYT_KESIM = new Date('1999-09-09');
+    const KADEMELI_SON = new Date('2008-01-01');
+
+    if (sigortaBas < EYT_KESIM) {
+      // Eski rejim (EYT)
+      const yillar = (EYT_KESIM - sigortaBas) / (365.25 * 24 * 3600 * 1000);
+      if (cinsiyet === 'E') {
+        const primGun = yillar >= 25 ? 5000 : yillar >= 20 ? 4500 : 3600;
+        const yas = yillar >= 25 ? 50 : 55;
+        return { rejim: 'Eski rejim (EYT)', primGun, yas, eyt: primGun <= 5000 };
+      } else {
+        const primGun = yillar >= 20 ? 4000 : 3600;
+        const yas = yillar >= 20 ? 46 : 50;
+        return { rejim: 'Eski rejim (EYT)', primGun, yas, eyt: true };
+      }
+    } else if (sigortaBas < KADEMELI_SON) {
+      // Kademeli geçiş
+      if (cinsiyet === 'E') {
+        return { rejim: 'Kademeli geçiş dönemi', primGun: 6300, yas: 60, eyt: false };
+      } else {
+        return { rejim: 'Kademeli geçiş dönemi', primGun: 5975, yas: 58, eyt: false };
+      }
+    } else {
+      // Yeni rejim
+      return { rejim: 'Yeni rejim (5510)', primGun: 7200, yas: 65, eyt: false };
+    }
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const dogumStr = document.getElementById('dogum').value;
+    const sigBasStr = document.getElementById('sigorta-bas').value;
+    const primGun = parseInt(document.getElementById('prim-gun').value);
+    const cinsiyet = document.getElementById('cinsiyet').value;
+
+    if (!dogumStr) { err.textContent = 'Doğum tarihi girin.'; err.classList.add('visible'); return; }
+    if (!sigBasStr) { err.textContent = 'Sigorta başlangıç tarihi girin.'; err.classList.add('visible'); return; }
+    if (isNaN(primGun) || primGun < 0) { err.textContent = 'Geçerli bir prim günü girin.'; err.classList.add('visible'); return; }
+
+    const dogum = new Date(dogumStr);
+    const sigBas = new Date(sigBasStr);
+    const bugun = new Date();
+
+    if (sigBas < dogum) { err.textContent = 'Sigorta başlangıcı doğum tarihinden önce olamaz.'; err.classList.add('visible'); return; }
+
+    const params = getEmeklilikParams(sigBas, dogum, cinsiyet);
+
+    // Current age in years
+    const yasMs = bugun - dogum;
+    const yasYil = yasMs / (365.25 * 24 * 3600 * 1000);
+    const yasStr = Math.floor(yasYil) + ' yaş ' + Math.floor((yasYil % 1) * 12) + ' ay';
+
+    // Days still needed
+    const eksikGun = Math.max(0, params.primGun - primGun);
+
+    // Calculate retirement date
+    // Two conditions: age & prim günü
+    // Age date: birthdate + required age
+    const yasEmekliTarih = new Date(dogum);
+    yasEmekliTarih.setFullYear(yasEmekliTarih.getFullYear() + params.yas);
+
+    // Prim günü date: today + (eksikGun / 365.25) years
+    let primEmekliTarih;
+    if (eksikGun === 0) {
+      primEmekliTarih = bugun;
+    } else {
+      primEmekliTarih = new Date(bugun);
+      primEmekliTarih.setDate(primEmekliTarih.getDate() + eksikGun);
+    }
+
+    // Emeklilik = max(yasEmekliTarih, primEmekliTarih)
+    let emekliTarih;
+    if (params.eyt && primGun >= params.primGun) {
+      // EYT: no age requirement if prim günü met
+      emekliTarih = bugun; // already eligible
+    } else {
+      emekliTarih = new Date(Math.max(yasEmekliTarih.getTime(), primEmekliTarih.getTime()));
+    }
+
+    const kalanMs = emekliTarih - bugun;
+    let kalanStr;
+    if (kalanMs <= 0) {
+      kalanStr = 'Emeklilik koşulları sağlanıyor';
+    } else {
+      const kalanYil = Math.floor(kalanMs / (365.25 * 24 * 3600 * 1000));
+      const kalanAy  = Math.floor((kalanMs % (365.25 * 24 * 3600 * 1000)) / (30.44 * 24 * 3600 * 1000));
+      kalanStr = kalanYil > 0 ? kalanYil + ' yıl ' + kalanAy + ' ay' : kalanAy + ' ay';
+    }
+
+    const emekliTarihStr = emekliTarih <= bugun ? 'Şu an emekli olabilirsiniz' :
+      emekliTarih.toLocaleDateString('tr-TR', {year:'numeric', month:'long'});
+
+    document.getElementById('r-rejim').textContent    = params.rejim;
+    document.getElementById('r-req-gun').textContent  = fmt(params.primGun) + ' gün';
+    document.getElementById('r-req-yas').textContent  = params.eyt ? params.yas + ' yaş (EYT ile koşulsuz)' : params.yas + ' yaş';
+    document.getElementById('r-mevcut-yas').textContent = yasStr;
+    document.getElementById('r-eksik-gun').textContent = eksikGun > 0 ? fmt(eksikGun) + ' gün' : '—  (prim günü yeterli)';
+    document.getElementById('r-tarih').textContent    = emekliTarihStr;
+    document.getElementById('r-kalan').textContent    = kalanStr;
+
+    const eytWarn = document.getElementById('eyt-warn');
+    if (params.eyt && primGun >= params.primGun) {
+      eytWarn.style.display = 'flex';
+      document.getElementById('eyt-warn-text').innerHTML = 'EYT kapsamında prim günü koşulunu sağlıyorsunuz. <strong>Yaş koşulu aranmadan şu an emekli olabilirsiniz.</strong> SGK\'ya başvurmanız yeterlidir.';
+    } else if (params.eyt) {
+      eytWarn.style.display = 'flex';
+      document.getElementById('eyt-warn-text').innerHTML = 'Sigorta başlangıcınız EYT kapsamındadır. Prim günü koşulunu sağladığınızda yaş şartı aranmaz.';
+    } else {
+      eytWarn.style.display = 'none';
+    }
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Net Maaş Hesaplama 2026 | Brüt → Net Ücret Hesaplayıcı</title>
+  <meta name="description" content="Brüt maaşınızdan SGK, işsizlik, gelir vergisi ve damga vergisi kesintilerini hesaplayın. Asgari ücret muafiyeti dahil 2026 güncel oranları." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/net-maas" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Net Maaş Hesaplama","url":"https://hukuk.iterasyon.com/net-maas","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Sosyal Güvenlik</div>
+    <h1>Net Maaş Hesaplama</h1>
+    <p class="calc-subtitle">SGK · İşsizlik · Gelir Vergisi · Damga Vergisi · 2026 oranları · Asgari ücret muafiyeti dahil</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">💵</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="brut">Giydirilmiş brüt aylık ücret (₺)<span class="req">*</span></label>
+          <div class="form-hint">Maaş + düzenli ikramiye + yemek/yol yardımlarının toplamı</div>
+          <input type="number" id="brut" class="form-input" placeholder="ör. 50 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="cumul">Kümülatif gelir vergisi matrahı (₺)</label>
+          <div class="form-hint">Ocak'tan bu aya kadar biriken GV matrahı. Bilmiyorsanız 0 girin (ilk ay hesabı).</div>
+          <input type="number" id="cumul" class="form-input" placeholder="0" min="0" inputmode="numeric" />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Net Maaşı Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Aylık Hesaplama Sonucu</div>
+
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Brüt ücret</span>
+          <span class="result-value" id="r-brut"></span>
+        </div>
+        <div class="result-item result-item--deduct">
+          <span class="result-label">SGK işçi payı (%14)</span>
+          <span class="result-value" id="r-sgk"></span>
+        </div>
+        <div class="result-item result-item--deduct">
+          <span class="result-label">İşsizlik sigortası (%1)</span>
+          <span class="result-value" id="r-issizlik"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Gelir vergisi matrahı</span>
+          <span class="result-value" id="r-gv-matrah"></span>
+        </div>
+        <div class="result-item result-item--deduct">
+          <span class="result-label">Gelir vergisi</span>
+          <span class="result-value" id="r-gv"></span>
+        </div>
+        <div class="result-item result-item--deduct">
+          <span class="result-label">Damga vergisi (‰7,59)</span>
+          <span class="result-value" id="r-dv"></span>
+        </div>
+
+        <div class="result-divider"></div>
+        <div class="result-item result-item--net">
+          <span class="result-label">Net ücret</span>
+          <span class="result-value" id="r-net"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Toplam kesinti</span>
+          <span class="result-value" id="r-kesinti"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Efektif vergi oranı</span>
+          <span class="result-value" id="r-efektif"></span>
+        </div>
+
+        <div class="result-info">ℹ️ Asgari ücret (tahmini brüt ~32.735 ₺) üzerindeki kısım için GV ve DV hesaplanır. Sonuçlar ilk ay (kümülatif sıfır) üzerinden verilir.</div>
+        <p class="result-note">Tahminidir; vergi dilimi birikimi, özel gider indirimleri ve diğer faktörler sonucu değiştirebilir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./sgk-isveren-maliyeti" class="sim-link">
+        <span class="sim-icon">🏢</span><span class="sim-name">SGK İşveren Maliyeti</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./issizlik-odenegi" class="sim-link">
+        <span class="sim-icon">📂</span><span class="sim-name">İşsizlik Ödeneği Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./kidem-tazminati" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p">Net maaş; brüt ücretten <strong>SGK işçi payı (%14)</strong>, <strong>işsizlik sigortası (%1)</strong>, <strong>gelir vergisi</strong> ve <strong>damga vergisi (‰7,59)</strong> kesildikten sonra kalan tutardır.</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Kesinti</th><th>Oran</th><th>Matrah</th></tr></thead>
+            <tbody>
+              <tr><td>SGK işçi payı</td><td>%14</td><td>Brüt ücret</td></tr>
+              <tr><td>İşsizlik sigortası</td><td>%1</td><td>Brüt ücret</td></tr>
+              <tr><td>Gelir vergisi</td><td>%15–%40</td><td>Brüt − SGK − İşsizlik (kümülatif)</td></tr>
+              <tr><td>Damga vergisi</td><td>‰7,59</td><td>Brüt ücret</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Asgari ücret muafiyeti (2022+):</strong> Asgari ücrete isabet eden gelir vergisi ve damga vergisi sıfırlanır. Bu sayede asgari ücretlinin net maaşı, brüt × %85 olarak gerçekleşir.</p>
+        <p class="info-p"><strong>2026 Gelir Vergisi Dilimleri (tahmini, aylık kümülatif):</strong> 0–10.833 ₺: %15 · 10.834–23.333 ₺: %20 · 23.334–73.333 ₺: %27 · 73.334–291.667 ₺: %35 · 291.667+ ₺: %40</p>
+        <div class="legal-ref">⚖️ 193 s. GVK · 5510 s. SGK Kanunu · 488 s. DVK</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Giydirilmiş brüt ücret ne demektir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Giydirilmiş brüt ücret; çıplak brüt maaş + yemek yardımı + yol yardımı + düzenli ikramiyeler gibi sürekli nitelikteki ödemelerin toplamıdır. SGK primi bu toplam tutar üzerinden hesaplanır.</p></details>
+      <details><summary>Kümülatif GV matrahı ne işe yarar? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Türkiye'de gelir vergisi yıl içinde kümülatif olarak hesaplanır. Yıl içinde biriken matrah arttıkça üst dilimlere girilerek vergi oranı yükselir. Yıl sonu ikramiyeleri bu nedenle daha yüksek vergilenebilir.</p></details>
+      <details><summary>İşveren maliyeti neden farklı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>İşveren, işçi payına ek olarak kendi SGK payını (%15,5 + %2 iş kazası), işsizlik sigortasını (%2) ve varsa teşvik primlerini öder. Toplam işveren maliyeti brüt maaşın yaklaşık %20-22 üzerindedir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; hukuki veya mali danışmanlık yerine geçmez. Oranlar 2026 tahmini değerlerdir; resmi tebliğler esas alınmalıdır.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const ASGARI_BRUT  = 32735; // 2026 tahmini
+  const SGK_ORAN     = 0.14;
+  const ISSIZLIK     = 0.01;
+  const DV_ORAN      = 0.00759;
+  const ASGARI_GV_M  = ASGARI_BRUT * (1 - SGK_ORAN - ISSIZLIK); // ~27 825
+
+  // Monthly cumulative GV brackets (2026 estimated)
+  const GV_DILIMLER = [
+    { limit: 10833,   oran: 0.15 },
+    { limit: 12500,   oran: 0.20 },
+    { limit: 50000,   oran: 0.27 },
+    { limit: 218334,  oran: 0.35 },
+    { limit: Infinity,oran: 0.40 }
+  ];
+
+  function hesaplaGV(vergiyeTabiMatrah, cumulPrev) {
+    // cumulPrev: cumulative GV matrahı before this month
+    let vergi = 0;
+    let kalan = vergiyeTabiMatrah;
+    let gecilen = cumulPrev;
+    for (const { limit, oran } of GV_DILIMLER) {
+      const dilimSonu = limit;
+      if (gecilen >= dilimSonu) { gecilen -= dilimSonu; continue; }
+      const dilimdeKalan = dilimSonu - gecilen;
+      const buAy = Math.min(kalan, dilimdeKalan);
+      vergi += buAy * oran;
+      kalan -= buAy;
+      gecilen = 0;
+      if (kalan <= 0) break;
+    }
+    return vergi;
+  }
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' ₺'; }
+  function fmtPct(n) { return (n * 100).toLocaleString('tr-TR', {minimumFractionDigits: 1, maximumFractionDigits: 1}) + '%'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err  = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const brut  = parseFloat(document.getElementById('brut').value);
+    const cumul = parseFloat(document.getElementById('cumul').value) || 0;
+
+    if (!brut || brut <= 0) { err.textContent = 'Geçerli bir brüt ücret girin.'; err.classList.add('visible'); return; }
+
+    const sgk      = brut * SGK_ORAN;
+    const issizlik = brut * ISSIZLIK;
+    const gvMatrah = brut - sgk - issizlik;
+
+    // GV exemption: subtract minimum wage GV threshold
+    const vergiyeTabiMatrah = Math.max(0, gvMatrah - ASGARI_GV_M);
+    const gv = hesaplaGV(vergiyeTabiMatrah, Math.max(0, cumul - ASGARI_GV_M * (cumul > 0 ? 1 : 0)));
+
+    // DV: exempt on minimum wage portion
+    const dv  = Math.max(0, brut - ASGARI_BRUT) * DV_ORAN;
+    const net = brut - sgk - issizlik - gv - dv;
+    const toplamKesinti = sgk + issizlik + gv + dv;
+
+    document.getElementById('r-brut').textContent     = fmt(brut);
+    document.getElementById('r-sgk').textContent      = '−' + fmt(sgk);
+    document.getElementById('r-issizlik').textContent = '−' + fmt(issizlik);
+    document.getElementById('r-gv-matrah').textContent= fmt(gvMatrah);
+    document.getElementById('r-gv').textContent       = gv > 0 ? '−' + fmt(gv) : '0,00 ₺ (muaf)';
+    document.getElementById('r-dv').textContent       = dv > 0 ? '−' + fmt(dv) : '0,00 ₺ (muaf)';
+    document.getElementById('r-net').textContent      = fmt(net);
+    document.getElementById('r-kesinti').textContent  = fmt(toplamKesinti);
+    document.getElementById('r-efektif').textContent  = fmtPct(toplamKesinti / brut);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>
