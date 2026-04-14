@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dava Harcı Hesaplama 2026 | Yargı Harcı Tarifesi</title>
+  <meta name="description" content="492 sayılı Harçlar Kanunu 2026 tarifesine göre başvuru harcı ve karar-ilam harcını hesaplayın. Nispi ve maktu harçlar, peşin ödenecek tutar dahil." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/dava-harci" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Dava Harcı Hesaplama","url":"https://hukuk.iterasyon.com/dava-harci","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Yargı &amp; Avukatlık</div>
+    <h1>Dava (Yargı) Harcı Hesaplama</h1>
+    <p class="calc-subtitle">492 s. Harçlar Kanunu · 98 Seri No'lu Tebliğ · 2026 Tarifesi</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">⚖️</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label">Mahkeme türü<span class="req">*</span></label>
+          <select id="mahkeme" class="form-select">
+            <option value="asliye">Asliye Hukuk / İş / Aile / Tüketici / Ticaret</option>
+            <option value="sulh">Sulh Hukuk Mahkemesi</option>
+            <option value="idare">İdare / Vergi Mahkemesi</option>
+            <option value="bam">Bölge Adliye Mahkemesi (İstinaf)</option>
+            <option value="yargitay">Yargıtay (Temyiz)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Dava türü<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="dava-turu" value="nispi" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Nispi — para ile ölçülebilir dava</span>
+                <span class="radio-option-hint">Tazminat, alacak, kıdem, nafaka bedeli, boşanmada mal paylaşımı vb.</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="dava-turu" value="maktu" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Maktu — para ile ölçülemeyen dava</span>
+                <span class="radio-option-hint">Boşanma, velayet, soy bağı, tespit, iptal davaları vb.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="grup-dava-degeri">
+          <label class="form-label" for="dava-degeri">Dava değeri (₺)<span class="req">*</span></label>
+          <div class="form-hint">Dava dilekçesinde yazılacak toplam talep miktarı</div>
+          <input type="number" id="dava-degeri" class="form-input" placeholder="ör. 100 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Dava Harcını Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Başvuru (peşin) harcı</span>
+          <span class="result-value" id="r-basvuru"></span>
+        </div>
+        <div id="satir-nispi" style="display:none">
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Karar ve ilam harcı (toplam — binde 68,31)</span>
+            <span class="result-value" id="r-karar-toplam"></span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Dava açılışta peşin ödenen (toplam 1/4)</span>
+            <span class="result-value" id="r-pesin"></span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Karar tebliğinden 1 ay içinde kalan (3/4)</span>
+            <span class="result-value" id="r-kalan"></span>
+          </div>
+        </div>
+        <div id="satir-maktu" style="display:none">
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Karar ve ilam harcı (maktu)</span>
+            <span class="result-value" id="r-maktu-karar"></span>
+          </div>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Dava açarken toplam ödenecek harç</span>
+          <span class="result-value" id="r-toplam-pesin"></span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Toplam dava harcı (karar sonrası tamamı)</span>
+          <span class="result-value" id="r-toplam-tum"></span>
+        </div>
+        <div class="result-info">ℹ️ Gösterilen tutarlar sadece yargı harcıdır. Bilirkişi ücreti, tebligat, posta ve diğer yargılama giderleri ayrıca ödenir.</div>
+        <p class="result-note">2026 tarifesine göre hesaplanmıştır. Harçlar kanununun değişmesi durumunda güncellenecektir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./avukatlik-ucreti" class="sim-link">
+        <span class="sim-icon">🏛️</span><span class="sim-name">Avukatlık Ücreti (AAÜT)</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./damga-vergisi" class="sim-link">
+        <span class="sim-icon">🖊️</span><span class="sim-name">Damga Vergisi Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./zamanasimi" class="sim-link">
+        <span class="sim-icon">📅</span><span class="sim-name">Zamanaşımı Takvimi</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 2026 Harç Tarifesi</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Mahkeme</th><th>Başvuru Harcı</th><th>Karar Harcı (nispi)</th></tr></thead>
+            <tbody>
+              <tr><td>Asliye Hukuk / İş / Aile</td><td>732,00 ₺</td><td>Binde 68,31</td></tr>
+              <tr><td>Sulh Hukuk</td><td>335,20 ₺</td><td>Binde 68,31</td></tr>
+              <tr><td>İdare / Vergi</td><td>732,00 ₺</td><td>Binde 68,31</td></tr>
+              <tr><td>İstinaf (BAM)</td><td>732,00 ₺</td><td>Binde 68,31</td></tr>
+              <tr><td>Yargıtay (temyiz)</td><td>732,00 ₺</td><td>Binde 68,31</td></tr>
+              <tr><td>Maktu dava (boşanma vb.)</td><td>732,00 ₺</td><td>732,00 ₺ (sabit)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Peşin ödeme kuralı:</strong> Nispi davalarda toplam karar ve ilam harcının <strong>1/4'ü dava açılışında</strong> peşin ödenir. Kalan 3/4, karar tebliğinden itibaren 1 ay içinde ödenir.</p>
+        <p class="info-p"><strong>Harç muafiyetleri:</strong> İşçi alacağı davaları (dava açılışında harç yok, karar sonrası tahsil edilir), nafaka, velayet ve bazı idari davalarda muafiyet veya erteleme uygulanabilir.</p>
+        <div class="legal-ref">⚖️ 492 s. Harçlar Kanunu · 98 Seri No'lu Harçlar Kanunu Genel Tebliği</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>İşçi alacağı davalarında harç ne zaman ödenir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>İşçi alacağı davalarında (kıdem, ihbar, fazla mesai vb.) dava açılışında yargı harcı <strong>alınmaz</strong>. Harcın tamamı, dava sonuçlanıp karar kesinleştikten sonra hükmolunan miktara göre hesaplanarak tahsil edilir. Davayı kaybeden taraftan da alınabilir.</p></details>
+      <details><summary>Dava değerini yanlış yazarsam ne olur? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Dava dilekçesinde yazılan değer esastır. Dava sırasında talep artırılırsa artan kısım için ek harç ödenir. Islah dilekçesiyle talep değiştirildiğinde de harç tamamlanır.</p></details>
+      <details><summary>Davayı kazanırsam harcı geri alabilir miyim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Davayı kazanırsanız mahkeme, ödediğiniz yargı giderlerini (harç dahil) karşı tarafa yükler. Kaybedilen tutar için kısmi hüküm kurulabilir. Tam kazanım halinde tüm harç karşı taraftan tahsil edilir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. 2026 tarife esas alınmıştır; harç mevzuatı değiştiğinde güncellenecektir. Kesin harç miktarı için mahkeme kalemi veya e-harç sistemini kullanın.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const davaTuruRadios = document.querySelectorAll('input[name="dava-turu"]');
+
+  function getVal(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+
+  function toggleDegeriGrubu() {
+    const t = getVal('dava-turu');
+    document.getElementById('grup-dava-degeri').style.display = t === 'nispi' ? '' : 'none';
+  }
+
+  davaTuruRadios.forEach(r => r.addEventListener('change', toggleDegeriGrubu));
+  toggleDegeriGrubu();
+
+  // Başvuru harcı (2026 tarifesi)
+  const basvuruHarci = { asliye: 732, sulh: 335.20, idare: 732, bam: 732, yargitay: 732 };
+  const maktuKararHarci = 732;
+  const nispiOran = 0.06831; // binde 68.31
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const mahkeme  = document.getElementById('mahkeme').value;
+    const davaTuru = getVal('dava-turu');
+    const basvuru  = basvuruHarci[mahkeme];
+
+    document.getElementById('r-basvuru').textContent = fmt(basvuru);
+    document.getElementById('satir-nispi').style.display = 'none';
+    document.getElementById('satir-maktu').style.display = 'none';
+
+    if (davaTuru === 'nispi') {
+      const davaD = parseFloat(document.getElementById('dava-degeri').value);
+      if (!davaD || davaD <= 0) { err.textContent = 'Geçerli bir dava değeri girin.'; err.classList.add('visible'); return; }
+
+      const kararToplam = Math.max(davaD * nispiOran, maktuKararHarci);
+      const pesinKarar  = kararToplam / 4;
+      const kalanKarar  = kararToplam * 3 / 4;
+      const toplamPesin = basvuru + pesinKarar;
+      const toplamTum   = basvuru + kararToplam;
+
+      document.getElementById('r-karar-toplam').textContent = fmt(kararToplam);
+      document.getElementById('r-pesin').textContent        = fmt(pesinKarar);
+      document.getElementById('r-kalan').textContent        = fmt(kalanKarar);
+      document.getElementById('r-toplam-pesin').textContent = fmt(toplamPesin);
+      document.getElementById('r-toplam-tum').textContent   = fmt(toplamTum);
+      document.getElementById('satir-nispi').style.display  = '';
+
+    } else {
+      const toplamPesin = basvuru + maktuKararHarci;
+      document.getElementById('r-maktu-karar').textContent  = fmt(maktuKararHarci);
+      document.getElementById('r-toplam-pesin').textContent = fmt(toplamPesin);
+      document.getElementById('r-toplam-tum').textContent   = fmt(toplamPesin);
+      document.getElementById('satir-maktu').style.display  = '';
+    }
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

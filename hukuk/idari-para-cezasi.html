@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İdari Para Cezası Peşin Ödeme İndirimi 2026 | Kabahatler Kanunu</title>
+  <meta name="description" content="İdari para cezanızda peşin ödeme ile %25 indirim hesaplayın. Trafik, vergi, SGK, belediye cezaları için Kabahatler Kanunu Md. 17/6 indirimi." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/idari-para-cezasi" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"İdari Para Cezası İndirim Hesaplama","url":"https://hukuk.iterasyon.com/idari-para-cezasi","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Vergi &amp; Harçlar</div>
+    <h1>İdari Para Cezası İndirim Hesaplama</h1>
+    <p class="calc-subtitle">Kabahatler Kanunu Md. 17/6 · %25 Peşin Ödeme İndirimi · 2026</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">📋</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="ceza-tutar">İdari para cezası tutarı (₺)<span class="req">*</span></label>
+          <div class="form-hint">Tebliğ edilen ceza tutarının tamamı</div>
+          <input type="number" id="ceza-tutar" class="form-input" placeholder="ör. 10 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ceza türü</label>
+          <select id="ceza-turu" class="form-select">
+            <option value="trafik">Trafik cezası (2918 s. Karayolları Trafik K.)</option>
+            <option value="vergi">Vergi cezası / Usulsüzlük</option>
+            <option value="sgk">SGK idari para cezası</option>
+            <option value="isguv">İş güvenliği cezası (6331 s. Kanun)</option>
+            <option value="bel">Belediye / çevre cezası</option>
+            <option value="diger">Diğer idari para cezası</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="teblig-tarihi">Tebliğ tarihi<span class="req">*</span></label>
+          <div class="form-hint">Peşin ödeme için tebliğden itibaren 15 gün içinde ödeme yapılmalıdır</div>
+          <input type="date" id="teblig-tarihi" class="form-input" required />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">İndirimi Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Ceza tutarı (tam)</span>
+          <span class="result-value" id="r-tam"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Peşin ödeme indirimi (%25)</span>
+          <span class="result-value" id="r-indirim"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Son peşin ödeme tarihi</span>
+          <span class="result-value" id="r-son-tarih"></span>
+        </div>
+        <div id="r-sure-warn" class="result-warning" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          <span id="r-sure-warn-text"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">İndirimli ödenecek tutar (%75)</span>
+          <span class="result-value" id="r-indirimli"></span>
+        </div>
+        <div class="result-item result-item--net">
+          <span class="result-label">Tasarruf</span>
+          <span class="result-value" id="r-tasarruf"></span>
+        </div>
+        <div id="r-itiraz-notu" class="result-info"></div>
+        <p class="result-note">Peşin ödeme sonrasında cezaya itiraz hakkı düşer. İtiraz düşünüyorsanız indirimli ödeme yapmadan önce hukuki değerlendirme alın.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./damga-vergisi" class="sim-link">
+        <span class="sim-icon">🖊️</span><span class="sim-name">Damga Vergisi Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./zamanasimi" class="sim-link">
+        <span class="sim-icon">📅</span><span class="sim-name">Zamanaşımı Takvimi</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./dava-harci" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Dava Harcı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Peşin Ödeme İndirimi Kuralları</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Ceza Türü</th><th>İndirim</th><th>Süre</th><th>Dayanak</th></tr></thead>
+            <tbody>
+              <tr><td>Trafik cezası</td><td>%25</td><td>15 gün</td><td>2918 s. KTK + 5326 s. K.</td></tr>
+              <tr><td>SGK idari cezası</td><td>%25</td><td>15 gün</td><td>5510 s. Kanun</td></tr>
+              <tr><td>İş güvenliği cezası</td><td>%25</td><td>15 gün</td><td>6331 s. İSG K.</td></tr>
+              <tr><td>Belediye cezaları</td><td>%25</td><td>15 gün</td><td>5326 s. Kabahatler K.</td></tr>
+              <tr><td>Vergi usul cezası</td><td>%50 uzlaşma</td><td>Dava açılmadan</td><td>213 s. VUK</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Önemli uyarı:</strong> Peşin ödeme yapıldığında cezaya itiraz hakkı <strong>ortadan kalkar</strong>. Ceza hatalı veya haksız ise itiraz yolu tercih edilmelidir. İdari para cezalarına sulh ceza mahkemesinde <strong>15 gün</strong> içinde itiraz edilebilir.</p>
+        <p class="info-p"><strong>Vergi cezalarında fark:</strong> Vergi Usul Kanunu kapsamındaki vergi ziyaı ve usulsüzlük cezalarında uzlaşma mekanizması daha avantajlı olabilir. Uzlaşma ile %50'ye kadar indirim mümkündür.</p>
+        <div class="legal-ref">⚖️ 5326 s. Kabahatler Kanunu Md. 17/6 · 2918 s. KTK · 6331 s. İSG Kanunu</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>İndirimli ödedikten sonra itiraz edebilir miyim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Hayır. Peşin indirimli ödeme, cezayı kabul anlamına gelir ve itiraz hakkını ortadan kaldırır. İtiraz düşünüyorsanız <strong>kesinlikle önce itiraz edin</strong>, ödeme yapmayın. İtiraz sonucu aleyhte olursa tam tutarı ödersiniz; lehte olursa ceza iptal edilir.</p></details>
+      <details><summary>Trafik cezasına nasıl itiraz edilir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Trafik cezasına tebliğden itibaren <strong>15 gün içinde</strong> sulh ceza hâkimliğine itiraz edilir. İtiraz dilekçesi mahkeme kalemine veya e-Devlet üzerinden gönderilebilir. İtiraz sürecinde ceza ertelenir; itiraz reddedilirse tam tutar ödenir.</p></details>
+      <details><summary>İndirimli ödeme için taksit yapılabilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Hayır. Peşin ödeme indirimi, tutarın tek seferde ödenmesini gerektirir. İndirim uygulandıktan sonra taksitli ödeme yapılamaz. Tam tutarı taksitle ödemek mümkündür; ancak indirim uygulanmaz.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Peşin ödeme yapmadan önce cezanın haklılığını değerlendirin. İtiraz hakkınız olabilir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+  function addDays(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); return r; }
+  function fmtDate(d) { return d.toLocaleDateString('tr-TR', {day:'2-digit', month:'long', year:'numeric'}); }
+
+  const itirazNotlari = {
+    trafik: 'ℹ️ Trafik cezalarına tebliğden itibaren 15 gün içinde sulh ceza hâkimliğine itiraz edilebilir.',
+    vergi:  'ℹ️ Vergi cezalarında uzlaşma (%50 indirim) daha avantajlı olabilir. Vergi mahkemesinde dava da açılabilir (30 gün).',
+    sgk:    'ℹ️ SGK idari para cezalarına tebliğden 15 gün içinde itiraz edilebilir. SGK'nın yeniden değerlendirmesi istenebilir.',
+    isguv:  'ℹ️ İş güvenliği cezaları için 15 gün içinde idare mahkemesine itiraz yapılabilir.',
+    bel:    'ℹ️ Belediye cezalarına 15 gün içinde sulh ceza hâkimliğine itiraz edilebilir.',
+    diger:  'ℹ️ İdari para cezasının türüne göre itiraz mercii ve süresi değişir. Tebliğ yazısındaki başvuru yollarını kontrol edin.'
+  };
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const ceza     = parseFloat(document.getElementById('ceza-tutar').value);
+    const tebStr   = document.getElementById('teblig-tarihi').value;
+    const cezaTuru = document.getElementById('ceza-turu').value;
+
+    if (!ceza || ceza <= 0) { err.textContent = 'Geçerli bir ceza tutarı girin.'; err.classList.add('visible'); return; }
+    if (!tebStr)             { err.textContent = 'Tebliğ tarihini girin.'; err.classList.add('visible'); return; }
+
+    const tebligTar   = new Date(tebStr);
+    const sonTarih    = addDays(tebligTar, 15);
+    const bugun       = new Date();
+    const kalan       = Math.ceil((sonTarih - bugun) / (1000 * 60 * 60 * 24));
+    const indirim     = ceza * 0.25;
+    const indirimli   = ceza * 0.75;
+
+    document.getElementById('r-tam').textContent      = fmt(ceza);
+    document.getElementById('r-indirim').textContent  = fmt(indirim);
+    document.getElementById('r-son-tarih').textContent = fmtDate(sonTarih);
+    document.getElementById('r-indirimli').textContent = fmt(indirimli);
+    document.getElementById('r-tasarruf').textContent  = fmt(indirim);
+    document.getElementById('r-itiraz-notu').textContent = itirazNotlari[cezaTuru] || itirazNotlari['diger'];
+
+    const warnEl   = document.getElementById('r-sure-warn');
+    const warnTxt  = document.getElementById('r-sure-warn-text');
+    if (kalan <= 0) {
+      warnEl.style.display = 'flex';
+      warnTxt.innerHTML    = '<strong>Peşin ödeme süresi dolmuş!</strong> 15 günlük indirim süresi geçmiş. Artık tam tutarı ödemeniz gerekir.';
+    } else if (kalan <= 3) {
+      warnEl.style.display = 'flex';
+      warnTxt.innerHTML    = 'Peşin ödeme için son <strong>' + kalan + ' gün</strong> kaldı! (' + fmtDate(sonTarih) + ')';
+    } else {
+      warnEl.style.display = 'none';
+    }
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

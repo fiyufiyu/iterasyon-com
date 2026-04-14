@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Araç Değer Kaybı Hesaplama 2026 | Kaza Tazminatı</title>
+  <meta name="description" content="Trafik kazası sonrası aracınızın değer kaybını hesaplayın. Araç değeri, hasar oranı ve araç yaşına göre sigorta veya kusurlu sürücüden talep edilecek değer kaybı tazminatı." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/arac-deger-kaybi" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Araç Değer Kaybı Hesaplama","url":"https://hukuk.iterasyon.com/arac-deger-kaybi","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Trafik &amp; Sigorta</div>
+    <h1>Araç Değer Kaybı Hesaplama</h1>
+    <p class="calc-subtitle">Trafik Sigortası · TBK · Yargıtay emsal tabloları · 2026</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🚗</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="arac-degeri">Kaza öncesi araç piyasa değeri (₺)<span class="req">*</span></label>
+          <div class="form-hint">Kaza tarihindeki ikinci el satış değeri (Eurotax, OtoNet vb.)</div>
+          <input type="number" id="arac-degeri" class="form-input" placeholder="ör. 1 500 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="hasar-orani">Hasar oranı (%)<span class="req">*</span></label>
+          <div class="form-hint">Eksper/sigorta tarafından tespit edilen hasar oranı. Ağır hasarda %20+, tam hasar = %100.</div>
+          <input type="number" id="hasar-orani" class="form-input" placeholder="ör. 35" min="1" max="100" step="0.5" inputmode="decimal" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="arac-yasi">Araç yaşı (yıl)<span class="req">*</span></label>
+          <div class="form-hint">Kaza tarihindeki araç yaşı</div>
+          <input type="number" id="arac-yasi" class="form-input" placeholder="ör. 3" min="0" max="25" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="km">Araç kilometresi</label>
+          <div class="form-hint">Yüksek km değer kaybını artırır (opsiyonel)</div>
+          <input type="number" id="km" class="form-input" placeholder="ör. 85 000" min="0" inputmode="numeric" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="kusur">Karşı tarafın kusur oranı (%)<span class="req">*</span></label>
+          <div class="form-hint">Kazada %100 karşı kusur ise tam tazminat; %50 kusur ise yarısı talep edilebilir</div>
+          <input type="number" id="kusur" class="form-input" placeholder="ör. 100" min="1" max="100" step="5" inputmode="numeric" required />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Değer Kaybını Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Araç piyasa değeri</span>
+          <span class="result-value" id="r-deger"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Hasar oranı</span>
+          <span class="result-value" id="r-hasar-oran"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Yaş katsayısı</span>
+          <span class="result-value" id="r-yas-katsayi"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Km düzeltme katsayısı</span>
+          <span class="result-value" id="r-km-katsayi"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Hesaplanan değer kaybı (tam kusur)</span>
+          <span class="result-value" id="r-tam-kayıp"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Talep edilebilir değer kaybı tazminatı</span>
+          <span class="result-value" id="r-tazminat"></span>
+        </div>
+        <div id="toplam-hasar-warn" class="result-warning" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          <span>Hasar oranı %70'in üzerinde — <strong>tam hasar</strong> (totale gitme) söz konusu olabilir. Bu durumda değer kaybı yerine araç değeri üzerinden tazminat hesaplanır.</span>
+        </div>
+        <div class="result-info">ℹ️ Bu hesaplama Yargıtay emsal tablolarına dayanan tahmini bir ön değerlendirmedir. Gerçek değer kaybı sigorta eksperi veya mahkeme bilirkişisiyle kesinleşir.</div>
+        <p class="result-note">Dava açma süresi kaza tarihinden itibaren 2 yıldır (sigorta şirketine karşı). Sigortanın reddi veya yetersiz ödeme halinde icra veya dava yoluna başvurulabilir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./trafik-tazminat" class="sim-link">
+        <span class="sim-icon">🚑</span><span class="sim-name">Trafik Kazası Tazminatı</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./dask" class="sim-link">
+        <span class="sim-icon">🏚️</span><span class="sim-name">DASK Prim Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./dava-harci" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Dava Harcı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Araç Değer Kaybı Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p">Araç değer kaybı; kaza öncesi ile kaza sonrası araç değeri arasındaki farktır. Yargıtay içtihatlarına göre sigorta şirketi veya kusurlu sürücü bu farkı ödemekle yükümlüdür.</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Araç Yaşı</th><th>Yaş Katsayısı</th></tr></thead>
+            <tbody>
+              <tr><td>0–1 yıl</td><td>0,30</td></tr>
+              <tr><td>1–3 yıl</td><td>0,25</td></tr>
+              <tr><td>3–5 yıl</td><td>0,20</td></tr>
+              <tr><td>5–7 yıl</td><td>0,15</td></tr>
+              <tr><td>7–10 yıl</td><td>0,10</td></tr>
+              <tr><td>10+ yıl</td><td>0,05</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Formül:</strong> Değer Kaybı = Araç Değeri × Hasar Oranı × Yaş Katsayısı × Km Katsayısı × Kusur Oranı. Bu araç basitleştirilmiş Yargıtay emsal tablosu yöntemini kullanmaktadır.</p>
+        <p class="info-p"><strong>Talep süreci:</strong> Sigortaya ihbar → eksper raporu → ödeme veya ret → ret/yetersiz ödeme halinde arabuluculuk veya dava. Zorunlu trafik sigortasından değer kaybı talep edilebilir.</p>
+        <div class="legal-ref">⚖️ TBK Md. 49 · 2918 s. Trafik Kanunu · Yargıtay 17. HD Kararları</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Sigorta değer kaybını ödemek zorunda mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Yargıtay Hukuk Genel Kurulu kararına göre <strong>zorunlu trafik sigortası</strong> kapsamında değer kaybı tazminatı ödenebilir. Sigorta şirketleri zaman zaman reddetse de dava yoluyla bu hak kazanılabilmektedir. Kasko sigortasında ise poliçeye bağlıdır.</p></details>
+      <details><summary>Hangi hasar oranından itibaren değer kaybı talep edilebilir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Yargıtay kararları ışığında genel uygulama, hasar oranının en az <strong>%5</strong> olması halinde değer kaybı talebinin kabul gördüğü yönündedir. Bazı sigorta şirketleri %10 eşiği uygulasa da mahkemeler daha düşük oranlarda da değer kaybına hükmetmiştir.</p></details>
+      <details><summary>Dava açmak yerine sigorta şirketiyle nasıl anlaşabilirim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Sigorta şirketine yazılı başvurudan sonra 15 gün içinde yanıt gelmezse veya ret cevabı alınırsa <strong>Sigorta Tahkim Komisyonu</strong>'na başvurulabilir (ücretsiz, 3 aya kadar sonuçlanır). Tutarın yüksek olduğu durumlarda avukat aracılığıyla dava açmak daha etkin olabilir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Değer kaybı; eksper ve mahkeme bilirkişisiyle kesin olarak belirlenir. Bu araç tahmini ön değerlendirme sunmaktadır.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:0, maximumFractionDigits:0}) + ' ₺'; }
+  function fmtPct(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:0, maximumFractionDigits:0}) + '%'; }
+
+  // Yaş katsayıları (Yargıtay emsal tablosu)
+  function yasKatsayisi(yas) {
+    if (yas <= 1)  return 0.30;
+    if (yas <= 3)  return 0.25;
+    if (yas <= 5)  return 0.20;
+    if (yas <= 7)  return 0.15;
+    if (yas <= 10) return 0.10;
+    return 0.05;
+  }
+
+  // Km katsayısı: düşük km = daha yüksek kayıp
+  function kmKatsayisi(km) {
+    if (!km || km === 0) return 1.0;
+    if (km < 30000)  return 1.10;
+    if (km < 60000)  return 1.00;
+    if (km < 100000) return 0.95;
+    if (km < 150000) return 0.90;
+    return 0.85;
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const aracD   = parseFloat(document.getElementById('arac-degeri').value);
+    const hasarO  = parseFloat(document.getElementById('hasar-orani').value) / 100;
+    const yasI    = parseInt(document.getElementById('arac-yasi').value);
+    const kmI     = parseInt(document.getElementById('km').value) || 0;
+    const kusurO  = parseFloat(document.getElementById('kusur').value) / 100;
+
+    if (!aracD || aracD <= 0) { err.textContent = 'Geçerli bir araç değeri girin.'; err.classList.add('visible'); return; }
+    if (!hasarO || hasarO <= 0) { err.textContent = 'Geçerli bir hasar oranı girin.'; err.classList.add('visible'); return; }
+    if (isNaN(yasI) || yasI < 0) { err.textContent = 'Geçerli bir araç yaşı girin.'; err.classList.add('visible'); return; }
+    if (!kusurO || kusurO <= 0) { err.textContent = 'Geçerli bir kusur oranı girin.'; err.classList.add('visible'); return; }
+
+    const yasK  = yasKatsayisi(yasI);
+    const kmK   = kmKatsayisi(kmI);
+    const tamKayip = aracD * hasarO * yasK * kmK;
+    const tazminat = tamKayip * kusurO;
+
+    document.getElementById('r-deger').textContent      = fmt(aracD);
+    document.getElementById('r-hasar-oran').textContent = fmtPct(hasarO * 100);
+    document.getElementById('r-yas-katsayi').textContent = yasK.toLocaleString('tr-TR', {minimumFractionDigits:2}) + ' (' + yasI + ' yaşlık araç)';
+    document.getElementById('r-km-katsayi').textContent  = kmK.toLocaleString('tr-TR', {minimumFractionDigits:2}) + (kmI ? ' (' + kmI.toLocaleString('tr-TR') + ' km)' : ' (bilinmiyor)');
+    document.getElementById('r-tam-kayıp').textContent   = fmt(tamKayip);
+    document.getElementById('r-tazminat').textContent    = fmt(tazminat);
+    document.getElementById('toplam-hasar-warn').style.display = hasarO >= 0.70 ? 'flex' : 'none';
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

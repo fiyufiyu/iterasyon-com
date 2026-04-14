@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İş Kazası Tazminatı Hesaplama 2026 | Maddi & Manevi Tazminat</title>
+  <meta name="description" content="İş kazası sonucu maluliyet oranına göre maddi ve manevi tazminat tutarını hesaplayın. 6331 sayılı Kanun, TBK ve Yargıtay içtihatları esas alınmıştır." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/is-kazasi-tazminati" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"İş Kazası Tazminatı Hesaplama","url":"https://hukuk.iterasyon.com/is-kazasi-tazminati","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">İş Hukuku</div>
+    <h1>İş Kazası Tazminatı Hesaplama</h1>
+    <p class="calc-subtitle">6331 sayılı İSG Kanunu · TBK · Yargıtay içtihatları · 2026</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🏥</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="yas">Kazalının yaşı<span class="req">*</span></label>
+            <div class="form-hint">Kaza tarihindeki yaş</div>
+            <input type="number" id="yas" class="form-input" placeholder="ör. 35" min="15" max="75" inputmode="numeric" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cinsiyet">Cinsiyet<span class="req">*</span></label>
+            <select id="cinsiyet" class="form-select">
+              <option value="E">Erkek (emeklilik 60)</option>
+              <option value="K">Kadın (emeklilik 58)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="net-ucret">Aylık net ücret (₺)<span class="req">*</span></label>
+          <div class="form-hint">Kaza tarihindeki fiilen alınan net maaş</div>
+          <input type="number" id="net-ucret" class="form-input" placeholder="ör. 35 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="maluliyet">SGK maluliyet oranı (%)<span class="req">*</span></label>
+            <div class="form-hint">SGK sağlık kurulunca tespit edilen oran</div>
+            <input type="number" id="maluliyet" class="form-input" placeholder="ör. 30" min="1" max="100" step="0.5" inputmode="decimal" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="kusur">İşveren kusur oranı (%)<span class="req">*</span></label>
+            <div class="form-hint">Mahkeme/bilirkişi tespiti; bilinmiyorsa %50 girin</div>
+            <input type="number" id="kusur" class="form-input" placeholder="ör. 80" min="1" max="100" step="5" inputmode="numeric" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tedavi">Tedavi ve diğer masraflar (₺)</label>
+          <div class="form-hint">SGK karşılamayan hastane, ilaç, ulaşım giderleri (opsiyonel)</div>
+          <input type="number" id="tedavi" class="form-input" placeholder="ör. 15 000" min="0" inputmode="numeric" />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">İş Kazası Tazminatını Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+
+        <div class="result-item result-item--neutral" id="row-bakiye" style="display:none">
+          <span class="result-label">Bakiye çalışma süresi</span>
+          <span class="result-value" id="r-bakiye"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Yıllık net ücret</span>
+          <span class="result-value" id="r-yillik"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Aktif dönem tahmini maddi tazminat</span>
+          <span class="result-value" id="r-aktif"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Pasif dönem (65 yaş sonrası) tahmini</span>
+          <span class="result-value" id="r-pasif"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Tedavi ve diğer masraflar</span>
+          <span class="result-value" id="r-tedavi"></span>
+        </div>
+
+        <div id="low-maluliyet-warn" class="result-warning" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          <span>Maluliyet oranı <strong>%10 ve altında</strong> ise sürekli iş göremezlik tazminatı talep edilemez. Yalnızca geçici iş göremezlik ödeneği (SGK) ve tedavi giderleri söz konusu olabilir.</span>
+        </div>
+
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Tahmini toplam maddi tazminat</span>
+          <span class="result-value" id="r-toplam"></span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Manevi tazminat (Yargıtay aralığı, 2026)</span>
+          <span class="result-value" id="r-manevi"></span>
+        </div>
+        <div class="result-info">ℹ️ Bu hesaplama basitleştirilmiş bir tahminidir. Gerçek tazminat aktüeryal (TRH 2010 yaşam tablosu + progresif rant) yöntemiyle bilirkişi tarafından hesaplanır; SGK tarafından yapılan ödemeler düşülür.</div>
+        <p class="result-note">Kesin sonuç değildir. Mahkeme, SGK'nın ödediği geçici iş göremezlik ödeneklerini ve diğer yardımları bu tutardan düşer. Bir iş hukuku avukatından destek alın.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./kidem-tazminati" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./fazla-mesai" class="sim-link">
+        <span class="sim-icon">⏱️</span><span class="sim-name">Fazla Mesai Ücreti Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./trafik-tazminat" class="sim-link">
+        <span class="sim-icon">🚑</span><span class="sim-name">Trafik Kazası Tazminatı</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p">İş kazası tazminatı <strong>SGK maluliyet raporu</strong> olmadan talep edilemez. %10 altı maluliyet oranlarında sürekli iş göremezlik tazminatı doğmaz; yalnızca geçici iş göremezlik ödeneği ve tedavi giderleri söz konusu olabilir.</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Tazminat Türü</th><th>Dayanak</th><th>Açıklama</th></tr></thead>
+            <tbody>
+              <tr><td>Maddi tazminat (aktif dönem)</td><td>TBK 54</td><td>Net ücret × 12 × bakiye çalışma × maluliyet × kusur</td></tr>
+              <tr><td>Maddi tazminat (pasif dönem)</td><td>TBK 54</td><td>Asgari ücret bazlı, 65 yaş sonrası döneme kadar</td></tr>
+              <tr><td>Manevi tazminat</td><td>TBK 56</td><td>Hâkimin takdiri; 20.000–150.000+ ₺ (2026 emsal)</td></tr>
+              <tr><td>Tedavi giderleri</td><td>TBK 54/1</td><td>SGK karşılamayan fiili giderler</td></tr>
+              <tr><td>Geçici iş göremezlik</td><td>5510 Md. 18</td><td>SGK tarafından ödenir (işveren değil)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Progresif rant yöntemi:</strong> Gerçek hesaplamada TRH 2010 yaşam tablosu ve aktüeryal katsayılar kullanılır. Mahkeme bilirkişi atar; SGK ödemeleri sonuçtan düşülür. Bu araç basitleştirilmiş bir ön tahmindir.</p>
+        <p class="info-p"><strong>Zamanaşımı:</strong> İş kazası tazminat davası için TBK'ya göre <strong>10 yıl</strong>. SGK'nın rücu davası ise ayrıdır.</p>
+        <div class="legal-ref">⚖️ 6331 s. İSG Kanunu · TBK Md. 54-56 · 5510 s. SGK Kanunu</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>İş kazası tazminatı için hangi belgeler gerekir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>SGK iş kazası bildirim belgesi, SGK maluliyet oranı raporu, hastane ve tedavi kayıtları, bordro/ücret belgeleri, kaza tutanağı ve tanık beyanları. SGK tespit kararı olmadan dava açılsa da tazminat talep edilebilmesi için maluliyet raporu kritiktir.</p></details>
+      <details><summary>İşverenin kusuru olmazsa tazminat alınabilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Yargıtay içtihatlarına göre iş kazalarında <strong>kusursuz sorumluluk</strong> (tehlike sorumluluğu) ilkesi geçerlidir. Kusur oranı düşük olsa da tazminata hükmedilebilir; ancak işçinin kusuru bulunursa tazminat oransal olarak indirilir.</p></details>
+      <details><summary>SGK'nın ödediği ödenekler tazminattan düşülür mü? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Mahkeme, SGK tarafından işçiye ödenen geçici iş göremezlik ödeneği, sürekli iş göremezlik geliri ve peşin sermaye değerini maddi tazminattan mahsup eder. Bu nedenle gerçek net tazminat bu hesaplamadan daha düşük çıkabilir.</p></details>
+      <details><summary>Davayı kim açabilir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>İşçi, iş kazasından kaynaklanan maddi ve manevi tazminat için <strong>iş mahkemesinde</strong> (dava değerine göre) işveren ve/veya işveren sigortasına karşı dava açabilir. Ölümlü iş kazasında destekten yoksun kalan yakınlar ayrıca dava açabilir. Dava öncesi arabuluculuk zorunludur.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; hukuki danışmanlık yerine geçmez. Gerçek tazminat bilirkişi raporuyla hesaplanır, SGK ödemeleri düşülür ve mahkeme takdiriyle kesinleşir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:0, maximumFractionDigits:0}) + ' ₺'; }
+  function fmtRange(a, b) { return a.toLocaleString('tr-TR', {minimumFractionDigits:0, maximumFractionDigits:0}) + ' – ' + b.toLocaleString('tr-TR', {minimumFractionDigits:0, maximumFractionDigits:0}) + ' ₺'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const yas       = parseInt(document.getElementById('yas').value);
+    const cinsiyet  = document.getElementById('cinsiyet').value;
+    const netUcret  = parseFloat(document.getElementById('net-ucret').value);
+    const maluliyet = parseFloat(document.getElementById('maluliyet').value);
+    const kusur     = parseFloat(document.getElementById('kusur').value);
+    const tedavi    = parseFloat(document.getElementById('tedavi').value) || 0;
+
+    if (!yas || yas < 15 || yas > 75) { err.textContent = 'Geçerli bir yaş girin (15–75).'; err.classList.add('visible'); return; }
+    if (!netUcret || netUcret <= 0)   { err.textContent = 'Geçerli bir net ücret girin.'; err.classList.add('visible'); return; }
+    if (!maluliyet || maluliyet <= 0) { err.textContent = 'Geçerli bir maluliyet oranı girin.'; err.classList.add('visible'); return; }
+    if (!kusur || kusur <= 0)         { err.textContent = 'Geçerli bir işveren kusur oranı girin.'; err.classList.add('visible'); return; }
+
+    const emeklilikYas   = cinsiyet === 'E' ? 60 : 58;
+    const yasam65        = 65;
+    const bakiyeCalisan  = Math.max(0, emeklilikYas - yas);
+    const bakiyePasif    = Math.max(0, yasam65 - emeklilikYas);
+    const maluliyetOrani = maluliyet / 100;
+    const kusurOrani     = kusur / 100;
+
+    // Aktif dönem: net ücret × 12 × bakiye çalışma × maluliyet × kusur
+    // İskonto katsayısı (basitleştirilmiş, gerçekte aktüeryal tablo kullanılır): 0.85
+    const aktifTazminat = netUcret * 12 * bakiyeCalisan * maluliyetOrani * kusurOrani * 0.85;
+
+    // Pasif dönem: asgari net ücret bazlı (27 825 ₺ × 0.7 pratik katsayı)
+    const asgariNet = 27825;
+    const pasifTazminat = asgariNet * 0.7 * 12 * bakiyePasif * maluliyetOrani * kusurOrani * 0.85;
+
+    const toplam = aktifTazminat + pasifTazminat + tedavi;
+
+    // Manevi tazminat aralığı (Yargıtay 2024-2026 emsalleri, maluliyet ağırlıklı)
+    let maneviMin, maneviMax;
+    if (maluliyet <= 20)      { maneviMin = 20000;  maneviMax = 60000; }
+    else if (maluliyet <= 40) { maneviMin = 50000;  maneviMax = 100000; }
+    else if (maluliyet <= 60) { maneviMin = 80000;  maneviMax = 150000; }
+    else                       { maneviMin = 120000; maneviMax = 300000; }
+
+    document.getElementById('r-bakiye').textContent  = bakiyeCalisan + ' yıl (aktif) + ' + bakiyePasif + ' yıl (pasif)';
+    document.getElementById('r-yillik').textContent  = fmt(netUcret * 12);
+    document.getElementById('r-aktif').textContent   = fmt(aktifTazminat);
+    document.getElementById('r-pasif').textContent   = fmt(pasifTazminat);
+    document.getElementById('r-tedavi').textContent  = tedavi > 0 ? fmt(tedavi) : '—';
+    document.getElementById('r-toplam').textContent  = fmt(toplam);
+    document.getElementById('r-manevi').textContent  = fmtRange(maneviMin, maneviMax);
+    document.getElementById('row-bakiye').style.display = '';
+    document.getElementById('low-maluliyet-warn').style.display = maluliyet <= 10 ? 'flex' : 'none';
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

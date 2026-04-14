@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kira Tespit Davası Hesaplama 2026 | TBK Md. 344</title>
+  <meta name="description" content="Kira tespit veya uyarlama davası açıp açamayacağınızı öğrenin. Dava koşulları, tahmini dava harcı ve TBK Md. 344 kapsamında kiranın tespiti." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/kira-tespit" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Kira Tespit Davası Hesaplama","url":"https://hukuk.iterasyon.com/kira-tespit","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Kira &amp; Borçlar</div>
+    <h1>Kira Tespit &amp; Uyarlama Davası</h1>
+    <p class="calc-subtitle">TBK Md. 344 · Sulh Hukuk Mahkemesi · 2026 Tarifesi</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🏠</span> Dava Koşulları &amp; Harç Hesabı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="kira-baslangic">Kira sözleşmesi başlangıç tarihi<span class="req">*</span></label>
+          <div class="form-hint">Kiracı ile ilk kira sözleşmesinin imzalandığı tarih</div>
+          <input type="date" id="kira-baslangic" class="form-input" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mevcut-kira">Mevcut aylık kira bedeli (₺)<span class="req">*</span></label>
+          <input type="number" id="mevcut-kira" class="form-input" placeholder="ör. 15 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="talep-kira">Talep edilen/hedef aylık kira bedeli (₺)<span class="req">*</span></label>
+          <div class="form-hint">Bilirkişi tespiti yapılmadan önce tahmini hedef kira. Dava değeri = yıllık kira farkı.</div>
+          <input type="number" id="talep-kira" class="form-input" placeholder="ör. 25 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Dava türü</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="dava-turu" value="tespit" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Kira tespiti — sözleşmede artış yoksa / 5 yıl sonra</span>
+                <span class="radio-option-hint">TBK Md. 344/3: Her 5 yılda bir, emsal kira belirlenir</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="dava-turu" value="uyarlama" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Kira uyarlaması — olağanüstü ekonomik değişiklik</span>
+                <span class="radio-option-hint">TBK Md. 138: Yüksek enflasyon/ekonomik kriz gerekçesiyle her zaman açılabilir</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Dava Koşullarını ve Harcı Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Değerlendirme ve Hesaplama</div>
+
+        <div id="r-kosul-ok" class="result-info" style="display:none"></div>
+        <div id="r-kosul-warn" class="result-warning" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          <span id="r-kosul-warn-text"></span>
+        </div>
+
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Sözleşmeden geçen süre</span>
+          <span class="result-value" id="r-sure"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Mevcut yıllık kira</span>
+          <span class="result-value" id="r-yillik-mevcut"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Hedef yıllık kira</span>
+          <span class="result-value" id="r-yillik-hedef"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Dava değeri (yıllık kira farkı)</span>
+          <span class="result-value" id="r-dava-degeri"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Başvuru harcı (Sulh Hukuk)</span>
+          <span class="result-value">335,20 ₺</span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Karar ve ilam harcı (binde 68,31)</span>
+          <span class="result-value" id="r-karar-harc"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Peşin ödenecek (1/4)</span>
+          <span class="result-value" id="r-pesin"></span>
+        </div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Dava açarken toplam harç</span>
+          <span class="result-value" id="r-toplam"></span>
+        </div>
+        <p class="result-note">Bilirkişi ücreti, tebligat giderleri ve avukatlık ücreti harca dahil değildir. Gerçek emsal kira mahkeme bilirkişisiyle belirlenir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./kira-artis" class="sim-link">
+        <span class="sim-icon">🏠</span><span class="sim-name">Kira Artış Oranı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./dava-harci" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Dava Harcı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./avukatlik-ucreti" class="sim-link">
+        <span class="sim-icon">🏛️</span><span class="sim-name">Avukatlık Ücreti (AAÜT)</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Kira Tespit ve Uyarlama Davaları</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Dava Türü</th><th>Yasal Dayanak</th><th>Açılma Koşulu</th></tr></thead>
+            <tbody>
+              <tr><td>Kira tespiti</td><td>TBK Md. 344/3</td><td>5 yıldan uzun süreli sözleşme</td></tr>
+              <tr><td>Artış oranı uyuşmazlığı</td><td>TBK Md. 344/1-2</td><td>TÜFE üstü artış anlaşması</td></tr>
+              <tr><td>Kira uyarlaması</td><td>TBK Md. 138</td><td>Olağanüstü ekonomik değişiklik</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>5 yıl kuralı:</strong> Konut kira sözleşmeleri 5 yılı geçmişse her yenileme döneminde kiraya veren, TÜFE ile sınırlı olmaksızın emsal kira tespiti isteyebilir. Bilirkişi, bölgedeki emsal kiraları araştırır.</p>
+        <p class="info-p"><strong>Dava öncesi şart:</strong> Dava açmadan önce noter kanalıyla ihtarname göndermek zorunlu değildir; ancak müzakere tutanağı veya yazışma delil açısından önemlidir. Dava sonucu <strong>bir sonraki kira döneminden</strong> itibaren geçerlidir.</p>
+        <div class="legal-ref">⚖️ TBK Md. 344-345 · TBK Md. 138 (Aşırı İfa Güçlüğü)</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Kira tespit davası ne zaman açılmalıdır? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>TBK Md. 345 uyarınca dava, yeni kira döneminin başlamasından en az <strong>30 gün önce</strong> açılmalıdır. Geç açılan davalarda karar bir sonraki dönem için geçerli olur. Yıl sonuna doğru dava açarak ertesi yıl kira artışını belirlettirmek yaygın bir uygulamadır.</p></details>
+      <details><summary>Kiracı kira tespiti davası açabilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Hem kiracı hem kiraya veren kira tespiti davası açabilir. Kiracı; kiraya verenin TÜFE oranı üzerinde artış talep etmesi, anlaşmazlık veya sözleşme sona erme koşullarının doğması halinde dava yoluna başvurabilir.</p></details>
+      <details><summary>Emsal kira nasıl belirlenir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Mahkeme bilirkişi tayin eder. Bilirkişi; taşınmazın konumu, büyüklüğü, yaşı, durumu ve aynı bölgedeki emsal kira sözleşmelerini karşılaştırarak piyasa kirası belirler. Tapu sicili, belediye ve gayrimenkul değerleme raporları esas alınır.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Gerçek dava değeri ve harç mahkemece kesinleşir. Dava öncesinde bir avukattan danışmanlık alın.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  function getVal(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const baslangicStr = document.getElementById('kira-baslangic').value;
+    const mevcutKira   = parseFloat(document.getElementById('mevcut-kira').value);
+    const talepKira    = parseFloat(document.getElementById('talep-kira').value);
+    const davaTuru     = getVal('dava-turu');
+
+    if (!baslangicStr)              { err.textContent = 'Sözleşme başlangıç tarihi girin.'; err.classList.add('visible'); return; }
+    if (!mevcutKira || mevcutKira <= 0) { err.textContent = 'Geçerli bir mevcut kira girin.'; err.classList.add('visible'); return; }
+    if (!talepKira || talepKira <= 0)   { err.textContent = 'Geçerli bir hedef kira girin.'; err.classList.add('visible'); return; }
+
+    const baslangic = new Date(baslangicStr);
+    const bugun     = new Date();
+    const diffAy    = (bugun.getFullYear() - baslangic.getFullYear()) * 12 + (bugun.getMonth() - baslangic.getMonth());
+    const diffYil   = diffAy / 12;
+    const sure5Yil  = diffYil >= 5;
+
+    const sureTxt = Math.floor(diffYil) + ' yıl ' + (diffAy % 12) + ' ay';
+    document.getElementById('r-sure').textContent = sureTxt;
+
+    const yillikMevcut = mevcutKira * 12;
+    const yillikHedef  = talepKira * 12;
+    const yillikFark   = Math.abs(yillikHedef - yillikMevcut);
+
+    document.getElementById('r-yillik-mevcut').textContent = fmt(yillikMevcut);
+    document.getElementById('r-yillik-hedef').textContent  = fmt(yillikHedef);
+    document.getElementById('r-dava-degeri').textContent   = fmt(yillikFark);
+
+    const okEl   = document.getElementById('r-kosul-ok');
+    const warnEl = document.getElementById('r-kosul-warn');
+    const warnTxt = document.getElementById('r-kosul-warn-text');
+
+    if (davaTuru === 'tespit' && !sure5Yil) {
+      okEl.style.display   = 'none';
+      warnEl.style.display = 'flex';
+      warnTxt.innerHTML    = 'Sözleşmeden <strong>' + sureTxt + '</strong> geçmiş. Kira <em>tespiti</em> davası için 5 yılın dolması gerekir. 5 yıl dolmadan <strong>uyarlama davası</strong> seçeneğini değerlendirebilirsiniz.';
+    } else if (davaTuru === 'uyarlama') {
+      okEl.textContent = 'ℹ️ Kira uyarlama davası olağanüstü ekonomik değişiklik gerekçesiyle her zaman açılabilir. Süre koşulu aranmaz.';
+      okEl.style.display   = '';
+      warnEl.style.display = 'none';
+    } else {
+      okEl.textContent = 'ℹ️ Sözleşmeden ' + sureTxt + ' geçmiş. Kira tespiti davası koşulları sağlanıyor.';
+      okEl.style.display   = '';
+      warnEl.style.display = 'none';
+    }
+
+    // Harç hesabı
+    const basvuruHarc  = 335.20;
+    const nispiOran    = 0.06831;
+    const kararHarc    = Math.max(yillikFark * nispiOran, 732);
+    const pesin        = basvuruHarc + kararHarc / 4;
+    const toplam       = basvuruHarc + kararHarc / 4;
+
+    document.getElementById('r-karar-harc').textContent = fmt(kararHarc);
+    document.getElementById('r-pesin').textContent      = fmt(kararHarc / 4);
+    document.getElementById('r-toplam').textContent     = fmt(pesin);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

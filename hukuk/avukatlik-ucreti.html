@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avukatlık Ücreti Hesaplama 2026 | AAÜT Tarifesi</title>
+  <meta name="description" content="2025–2026 Avukatlık Asgari Ücret Tarifesi'ne (AAÜT) göre avukatlık ve vekalet ücretini hesaplayın. Mahkeme türü ve dava değerine göre maktu ve nispi ücretler." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/avukatlik-ucreti" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Avukatlık Ücreti (AAÜT) Hesaplama","url":"https://hukuk.iterasyon.com/avukatlik-ucreti","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Yargı &amp; Avukatlık</div>
+    <h1>Avukatlık Ücreti Hesaplama</h1>
+    <p class="calc-subtitle">2025–2026 AAÜT · Resmi Gazete 4.11.2025 &amp; 28.03.2026 değişikliği</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🏛️</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label">Ücret türü<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="tur" value="danisman" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Danışmanlık / Sözlü görüşme</span>
+                <span class="radio-option-hint">Büroda veya ofiste avukatla görüşme ücreti</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tur" value="maktu" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Maktu vekalet ücreti (mahkeme türüne göre)</span>
+                <span class="radio-option-hint">Boşanma, velayet, idare gibi para ile ölçülemeyen davalar</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tur" value="nispi" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Nispi vekalet ücreti (dava değerine göre)</span>
+                <span class="radio-option-hint">Tazminat, alacak, kıdem gibi para değeri olan davalar</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Danışmanlık -->
+        <div id="grup-danisman" style="display:none">
+          <div class="form-group">
+            <label class="form-label" for="saat">Görüşme süresi (saat)<span class="req">*</span></label>
+            <div class="form-hint">İlk saat 4.000 ₺ · Her ek saat 1.800 ₺ (2025-2026 AAÜT)</div>
+            <input type="number" id="saat" class="form-input" placeholder="ör. 2" min="0.5" step="0.5" inputmode="decimal" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Görüşme yeri</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="yer" value="buro" checked />
+                <div class="radio-option-body">
+                  <span class="radio-option-label">Avukat bürosunda</span>
+                </div>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="yer" value="cagri" />
+                <div class="radio-option-body">
+                  <span class="radio-option-label">Çağrı üzerine müvekkil yerinde</span>
+                  <span class="radio-option-hint">Ulaşım dahil ek ücret uygulanabilir</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maktu mahkeme -->
+        <div id="grup-maktu" style="display:none">
+          <div class="form-group">
+            <label class="form-label" for="mahkeme">Mahkeme türü<span class="req">*</span></label>
+            <select id="mahkeme" class="form-select">
+              <option value="45000">Asliye Hukuk / İş / Aile / İdare Mahkemesi — 45.000 ₺</option>
+              <option value="30000">Sulh Hukuk Mahkemesi — 30.000 ₺</option>
+              <option value="22500">Tüketici Mahkemesi — 22.500 ₺</option>
+              <option value="9000">İcra Takibi (maktu) — 9.000 ₺</option>
+              <option value="45000_ceza">Ceza Mahkemesi — 45.000 ₺</option>
+              <option value="60000">Bölge Adliye Mahkemesi (istinaf) — 60.000 ₺</option>
+              <option value="75000">Yargıtay (temyiz) — 75.000 ₺</option>
+              <option value="22500_icra">Sulh Ceza / İdari Para Cezası itirazı — 22.500 ₺</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Nispi dava değeri -->
+        <div id="grup-nispi" style="display:none">
+          <div class="form-group">
+            <label class="form-label" for="dava-degeri">Dava değeri (₺)<span class="req">*</span></label>
+            <div class="form-hint">Talep edilen toplam tazminat veya alacak miktarı</div>
+            <input type="number" id="dava-degeri" class="form-input" placeholder="ör. 250 000" min="1" inputmode="numeric" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="nispi-oran">Nispi oran (%)<span class="req">*</span></label>
+            <div class="form-hint">AAÜT Md. 10: dava değerinin %10–20'si. Serbest sözleşmeyle taraflarca belirlenir.</div>
+            <select id="nispi-oran" class="form-select">
+              <option value="10">%10 — AAÜT asgari</option>
+              <option value="12">%12</option>
+              <option value="15" selected>%15 — Yaygın oran</option>
+              <option value="18">%18</option>
+              <option value="20">%20 — AAÜT azami (sözleşmeyle)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Avukatlık Ücretini Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral" id="row-detay">
+          <span class="result-label" id="r-label-detay"></span>
+          <span class="result-value" id="r-detay"></span>
+        </div>
+        <div class="result-item result-item--neutral" id="row-kdv">
+          <span class="result-label">KDV (%20)</span>
+          <span class="result-value" id="r-kdv"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label" id="r-toplam-label">Toplam avukatlık ücreti (KDV dahil)</span>
+          <span class="result-value" id="r-toplam"></span>
+        </div>
+        <div class="result-info" id="r-info"></div>
+        <p class="result-note">AAÜT asgari ücrettir; mahkeme hükmünde esas alınan vekalet ücreti bu tarifenin 1–3 katına kadar çıkabilir. Serbest sözleşme ile farklı tutar belirlenebilir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./dava-harci" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Dava (Yargı) Harcı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./damga-vergisi" class="sim-link">
+        <span class="sim-icon">🖊️</span><span class="sim-name">Damga Vergisi Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./zamanasimi" class="sim-link">
+        <span class="sim-icon">📅</span><span class="sim-name">Zamanaşımı Takvimi</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 2025–2026 AAÜT Özeti</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>İş Türü</th><th>AAÜT Asgari Ücreti</th></tr></thead>
+            <tbody>
+              <tr><td>Büro sözlü danışma — ilk saat</td><td>4.000 ₺</td></tr>
+              <tr><td>Büro sözlü danışma — ek her saat</td><td>1.800 ₺</td></tr>
+              <tr><td>Asliye/İş/Aile/İdare Mahkemesi</td><td>45.000 ₺</td></tr>
+              <tr><td>Sulh Hukuk Mahkemesi</td><td>30.000 ₺</td></tr>
+              <tr><td>Tüketici Mahkemesi</td><td>22.500 ₺</td></tr>
+              <tr><td>İcra takibi (maktu)</td><td>9.000 ₺</td></tr>
+              <tr><td>İstinaf (BAM)</td><td>60.000 ₺</td></tr>
+              <tr><td>Yargıtay (temyiz)</td><td>75.000 ₺</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Nispi davalarda</strong> dava değeri üzerinden oran uygulanır ve sonuç maktu asgari ücretten az olamaz. Mahkeme hükmünde karşı tarafa yüklenen vekalet ücreti tarifenin 1–3 katına kadar takdir edilebilir.</p>
+        <p class="info-p"><strong>28 Mart 2026 değişikliği:</strong> Sulh ceza ve idari para cezası itirazlarında hükmolunan vekalet ücreti, iptal edilen ceza tutarını aşamaz.</p>
+        <div class="legal-ref">⚖️ 2025–2026 AAÜT · R.G. 4.11.2025 &amp; 28.03.2026</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Mahkeme hangi vekalet ücretine hükmeder? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Mahkeme, AAÜT'te belirtilen maktu veya nispi ücretin 1 ila 3 katına kadar vekalet ücretine hükmedebilir. Hükmolunan vekalet ücreti, müvekkil ile avukat arasındaki sözleşme ücretinden bağımsızdır ve davayı kaybeden tarafa yüklenir.</p></details>
+      <details><summary>Avukat ücretine KDV eklenir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Avukatlık hizmetleri %20 KDV'ye tabidir. Bu araçtaki hesaplamalar KDV hariç ve dahil sonucu ayrıca göstermektedir. Mahkeme kararlarında hükmedilen vekalet ücretine KDV ayrıca eklenir.</p></details>
+      <details><summary>AAÜT'nin altında ücret belirlenebilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Hayır. Avukatlık Kanunu'nun 164. maddesi uyarınca belirlenen ücret AAÜT'nin altına inemez. AAÜT altındaki sözleşmeler geçersiz sayılır ve tarife geçerli olur.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Gerçek avukatlık ücreti sözleşmeyle serbestçe belirlenir; AAÜT asgari sınırı oluşturur. 2025–2026 AAÜT esas alınmıştır.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const turRadios = document.querySelectorAll('input[name="tur"]');
+
+  function getVal(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+
+  function toggleGroups() {
+    const tur = getVal('tur');
+    document.getElementById('grup-danisman').style.display = tur === 'danisman' ? '' : 'none';
+    document.getElementById('grup-maktu').style.display    = tur === 'maktu'    ? '' : 'none';
+    document.getElementById('grup-nispi').style.display    = tur === 'nispi'    ? '' : 'none';
+  }
+
+  turRadios.forEach(r => r.addEventListener('change', toggleGroups));
+  toggleGroups();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  // Maktu mapping
+  const maktuMap = {
+    '45000': 45000, '30000': 30000, '22500': 22500,
+    '9000': 9000, '45000_ceza': 45000, '60000': 60000,
+    '75000': 75000, '22500_icra': 22500
+  };
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const tur = getVal('tur');
+    let ucretHariç = 0;
+    let detayLabel = '';
+    let detayVal   = '';
+    let infoText   = '';
+
+    if (tur === 'danisman') {
+      const saat = parseFloat(document.getElementById('saat').value);
+      const yer  = getVal('yer');
+      if (!saat || saat <= 0) { err.textContent = 'Görüşme süresini girin.'; err.classList.add('visible'); return; }
+      const ilk    = 4000;
+      const ekSaat = Math.max(0, saat - 1);
+      ucretHariç = ilk + ekSaat * 1800;
+      if (yer === 'cagri') ucretHariç += 2500;
+      detayLabel = saat + ' saat danışmanlık' + (yer === 'cagri' ? ' (çağrı üzerine)' : '');
+      detayVal   = fmt(ucretHariç);
+      infoText   = 'ℹ️ İlk saat 4.000 ₺ + her ek saat 1.800 ₺. Çağrı üzerine gidilen yerde ek ücret uygulanır.';
+
+    } else if (tur === 'maktu') {
+      const mahkemeVal = document.getElementById('mahkeme').value;
+      ucretHariç = maktuMap[mahkemeVal];
+      detayLabel = 'AAÜT maktu vekalet ücreti';
+      detayVal   = fmt(ucretHariç);
+      infoText   = 'ℹ️ Bu tutar AAÜT asgari ücretidir. Mahkeme 1–3 katına kadar hükmedebilir.';
+
+    } else if (tur === 'nispi') {
+      const davaD = parseFloat(document.getElementById('dava-degeri').value);
+      const nispiO = parseFloat(document.getElementById('nispi-oran').value) / 100;
+      if (!davaD || davaD <= 0) { err.textContent = 'Geçerli bir dava değeri girin.'; err.classList.add('visible'); return; }
+      const hesaplanan = davaD * nispiO;
+      const asgariMaktu = 45000;
+      ucretHariç = Math.max(hesaplanan, asgariMaktu);
+      detayLabel = 'Dava değeri × ' + (nispiO * 100).toLocaleString('tr-TR') + '%' + (hesaplanan < asgariMaktu ? ' (maktu asgari uygulandı)' : '');
+      detayVal   = fmt(ucretHariç);
+      infoText   = 'ℹ️ Nispi oran dava değerine uygulanır; sonuç AAÜT maktu asgari ücretinden (%45.000) az olamaz.';
+    }
+
+    const kdv   = ucretHariç * 0.20;
+    const toplam = ucretHariç + kdv;
+
+    document.getElementById('r-label-detay').textContent = detayLabel;
+    document.getElementById('r-detay').textContent       = detayVal;
+    document.getElementById('r-kdv').textContent         = fmt(kdv);
+    document.getElementById('r-toplam').textContent      = fmt(toplam);
+    document.getElementById('r-info').textContent        = infoText;
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

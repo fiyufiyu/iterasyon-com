@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haciz Edilebilir Maaş Hesaplama 2026 | İİK Md. 83</title>
+  <meta name="description" content="Net maaşınızın haczedilebilecek kısmını hesaplayın. İİK Md. 83 uyarınca net maaşın en fazla 1/4'ü haczedilebilir. Nafaka istisnası dahil 2026." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/haciz-maas" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Haciz Edilebilir Maaş Hesaplama","url":"https://hukuk.iterasyon.com/haciz-maas","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Yargı &amp; İcra</div>
+    <h1>Haciz Edilebilir Maaş Hesaplama</h1>
+    <p class="calc-subtitle">İcra ve İflas Kanunu Md. 83 · 2026 Asgari Ücret Koruması</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🔒</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="net-maas">Aylık net maaş (₺)<span class="req">*</span></label>
+          <div class="form-hint">Tüm kesintiler düşüldükten sonra eline geçen tutar</div>
+          <input type="number" id="net-maas" class="form-input" placeholder="ör. 40 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Borç türü<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="borc-turu" value="genel" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Genel borç (kredi, vergi, SGK, ticari alacak vb.)</span>
+                <span class="radio-option-hint">Net maaşın en fazla 1/4'ü haczedilebilir</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="borc-turu" value="nafaka" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Nafaka borcu</span>
+                <span class="radio-option-hint">1/4 sınırı uygulanmaz; tamamı haczedilebilir (asgari ücret altında bile)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="asgari-net">2026 Net asgari ücret (₺)</label>
+          <div class="form-hint">2026 H1 net asgari ücret (varsayılan: 27.825 ₺). Değiştirirseniz güncel değeri girin.</div>
+          <input type="number" id="asgari-net" class="form-input" placeholder="27825" min="1" inputmode="numeric" />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Haczedilebilir Tutarı Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Net maaş</span>
+          <span class="result-value" id="r-net"></span>
+        </div>
+
+        <div id="sonuc-genel" style="display:none">
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Teorik maksimum haciz (1/4)</span>
+            <span class="result-value" id="r-ceyrek"></span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Asgari ücret koruma tutarı (korunan kısım)</span>
+            <span class="result-value" id="r-korunan"></span>
+          </div>
+          <div id="uyari-asagari" class="result-warning" style="display:none">
+            <span class="result-warning-icon">⚠️</span>
+            <span>Net maaş net asgari ücretin altında — maaşın tamamı korunur, <strong>haciz yapılamaz</strong>.</span>
+          </div>
+          <div class="result-divider"></div>
+          <div class="result-item result-item--primary">
+            <span class="result-label">Haczedilebilir tutar</span>
+            <span class="result-value" id="r-haciz"></span>
+          </div>
+          <div class="result-item result-item--net">
+            <span class="result-label">Borçlunun elinde kalacak net tutar</span>
+            <span class="result-value" id="r-kalan"></span>
+          </div>
+        </div>
+
+        <div id="sonuc-nafaka" style="display:none">
+          <div class="result-divider"></div>
+          <div class="result-item result-item--primary">
+            <span class="result-label">Nafaka borcunda haczedilebilir tutar</span>
+            <span class="result-value" id="r-nafaka-haciz"></span>
+          </div>
+          <div class="result-info">ℹ️ Nafaka alacağında İİK Md. 83/2 uyarınca 1/4 sınırı <strong>uygulanmaz</strong>. Maaşın tamamı haczedilebilir. Ancak hâkim, borçlunun asgari geçim ihtiyacını da dikkate alabilir.</div>
+        </div>
+
+        <p class="result-note">Birden fazla haciz emri varsa öncelik sırası ve kümülasyon kuralları uygulanır. İcra müdürü her haciz için ayrı hesaplama yapar.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./nafaka" class="sim-link">
+        <span class="sim-icon">👨‍👧</span><span class="sim-name">Nafaka Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./net-maas" class="sim-link">
+        <span class="sim-icon">💵</span><span class="sim-name">Net Maaş Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./zamanasimi" class="sim-link">
+        <span class="sim-icon">📅</span><span class="sim-name">Zamanaşımı Takvimi</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Maaş Haczi Kuralları</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Borç Türü</th><th>Haciz Sınırı</th><th>Asgari Ücret Koruması</th></tr></thead>
+            <tbody>
+              <tr><td>Genel alacaklar (kredi, vergi, SGK)</td><td>Net maaşın 1/4'ü</td><td>Evet</td></tr>
+              <tr><td>Nafaka borcu</td><td>Tamamı</td><td>Hâkim takdiri</td></tr>
+              <tr><td>Birden fazla haciz</td><td>Toplam 1/4'ü aşamaz</td><td>Öncelik sırası uygulanır</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Asgari ücret koruması:</strong> Yargıtay içtihatlarına göre borçlunun elinde asgari ücret neti kadar tutar bırakılması gerekir. Bu nedenle net maaş - 1/4 kısmı asgari netten düşükse haciz tutarı buna göre kısılır.</p>
+        <p class="info-p"><strong>İkramiye ve ek ödemeler:</strong> Yıllık ikramiye, prim, fazla mesai ödemeleri de maaş olarak kabul edilir ve haczedilebilir. Kıdem tazminatı ise ayrı kurallara tabidir.</p>
+        <div class="legal-ref">⚖️ İİK Md. 83 · İİK Md. 83/a · Yargıtay 12. HD İçtihatları</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>İşveren haciz emrini uygulamak zorunda mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. İcra müdürlüğünden gelen maaş haciz ihbarnamesi işvereni bağlar. İşveren, haciz yazısı alındığında haczedilen tutarı <strong>7 gün</strong> içinde icra dosyasına yatırmakla yükümlüdür. Uymayan işveren borçlu gibi sorumlu olur.</p></details>
+      <details><summary>Haczedilen maaşa itiraz edebilir miyim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. İİK Md. 83 kapsamında asgari geçim düzeyi korumasına dayanılarak <strong>şikâyet</strong> yoluna başvurulabilir. Bunun yanı sıra borcun asılsız olduğu iddiasıyla <strong>menfi tespit davası</strong> da açılabilir. İcra mahkemesine şikâyet için süre 7 gündür.</p></details>
+      <details><summary>Emekli maaşı haczedilebilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Emekli maaşları da maaş hükümlerine tabidir. Nafaka alacakları dışında net emekli maaşının <strong>en fazla 1/4'ü</strong> haczedilebilir. Yargıtay, emeklinin geçim düzeyini de gözetmektedir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Gerçek haciz tutarı icra müdürü tarafından kesin olarak belirlenir. Hukuki itiraz için bir avukattan destek alın.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  function getVal(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const netMaas   = parseFloat(document.getElementById('net-maas').value);
+    const borcTuru  = getVal('borc-turu');
+    const asgariNet = parseFloat(document.getElementById('asgari-net').value) || 27825;
+
+    if (!netMaas || netMaas <= 0) { err.textContent = 'Geçerli bir net maaş girin.'; err.classList.add('visible'); return; }
+
+    document.getElementById('r-net').textContent = fmt(netMaas);
+    document.getElementById('sonuc-genel').style.display = 'none';
+    document.getElementById('sonuc-nafaka').style.display = 'none';
+
+    if (borcTuru === 'nafaka') {
+      document.getElementById('r-nafaka-haciz').textContent = fmt(netMaas);
+      document.getElementById('sonuc-nafaka').style.display = '';
+    } else {
+      const ceyrek     = netMaas * 0.25;
+      const korunan    = asgariNet;
+      // Haczedilebilir: min(1/4, net - asgari), ama 0'dan küçük olamaz
+      const maxHaciz   = Math.max(0, netMaas - korunan);
+      const haciz      = Math.min(ceyrek, maxHaciz);
+      const kalan      = netMaas - haciz;
+      const asagariAlti = netMaas <= asgariNet;
+
+      document.getElementById('r-ceyrek').textContent = fmt(ceyrek);
+      document.getElementById('r-korunan').textContent = fmt(korunan);
+      document.getElementById('r-haciz').textContent   = asagariAlti ? '0 ₺ (tamamı korunur)' : fmt(haciz);
+      document.getElementById('r-kalan').textContent   = fmt(kalan);
+      document.getElementById('uyari-asagari').style.display = asagariAlti ? 'flex' : 'none';
+      document.getElementById('sonuc-genel').style.display = '';
+    }
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

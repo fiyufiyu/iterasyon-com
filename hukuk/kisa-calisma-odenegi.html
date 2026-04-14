@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kısa Çalışma Ödeneği Hesaplama 2026 | İŞKUR</title>
+  <meta name="description" content="Kısa çalışma ödeneği tutarınızı hesaplayın. Son 12 aylık günlük brüt kazanç ortalaması × %60. 2026 İŞKUR güncel üst sınırı dahil." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/kisa-calisma-odenegi" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Kısa Çalışma Ödeneği Hesaplama","url":"https://hukuk.iterasyon.com/kisa-calisma-odenegi","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Sosyal Güvenlik</div>
+    <h1>Kısa Çalışma Ödeneği Hesaplama</h1>
+    <p class="calc-subtitle">4447 sayılı Kanun Ek Md. 2 · İŞKUR · 2026 güncel üst sınır</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">📉</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="gunluk-brut">Son 12 aylık prime esas günlük brüt kazanç ortalaması (₺)<span class="req">*</span></label>
+          <div class="form-hint">Aylık prime esas brüt kazancı 30'a bölerek bulabilirsiniz. Örn: 33 000 ₺ aylık → 1 100 ₺/gün</div>
+          <input type="number" id="gunluk-brut" class="form-input" placeholder="ör. 1 100" min="1" step="0.01" inputmode="decimal" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="calisılmayan-gun">Kısa çalışma kapsamında çalışılmayan gün sayısı<span class="req">*</span></label>
+          <div class="form-hint">İŞKUR onaylı kısa çalışma bildirgesiyle tespit edilen çalışılmayan günler (max 90 gün/dönem)</div>
+          <input type="number" id="calisılmayan-gun" class="form-input" placeholder="ör. 30" min="1" max="90" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="asgari-ucret-gunu">Günlük asgari brüt ücret (₺)</label>
+          <div class="form-hint">2026 H1 asgari ücret: 33 030 ₺/ay ÷ 30 = 1 101 ₺/gün (varsayılan)</div>
+          <input type="number" id="asgari-ucret-gunu" class="form-input" placeholder="1101" min="1" step="0.01" inputmode="decimal" />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Ödeneği Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Günlük brüt kazanç ortalaması</span>
+          <span class="result-value" id="r-gunluk"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Hesaplanan günlük ödenek (%60)</span>
+          <span class="result-value" id="r-hesaplanan"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Günlük maksimum ödenek üst sınırı (%150 asgari)</span>
+          <span class="result-value" id="r-ust-sinir"></span>
+        </div>
+        <div id="ust-sinir-uyari" class="result-warning" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          <span>Hesaplanan ödenek üst sınırı aşıyor. <strong>Üst sınır</strong> uygulanır.</span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Uygulanacak günlük ödenek</span>
+          <span class="result-value" id="r-uygulanan"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Çalışılmayan gün sayısı</span>
+          <span class="result-value" id="r-gun"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Toplam kısa çalışma ödeneği (brüt)</span>
+          <span class="result-value" id="r-toplam"></span>
+        </div>
+        <div class="result-info">ℹ️ Kısa çalışma ödeneği <strong>işveren değil, SGK/İŞKUR</strong> tarafından ödenir. Çalışılmayan günler için işveren ücret ödemez. Prim günleri de sayılır.</div>
+        <p class="result-note">Ödenek brüt tutardır; gelir vergisi ve damga vergisi kesilir. Gerçek net ödenek bunun yaklaşık %93–95'idir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./issizlik-odenegi" class="sim-link">
+        <span class="sim-icon">📂</span><span class="sim-name">İşsizlik Ödeneği Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./net-maas" class="sim-link">
+        <span class="sim-icon">💵</span><span class="sim-name">Net Maaş Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./kidem-tazminati" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Kısa Çalışma Ödeneği Nasıl İşler?</div>
+      <div class="calc-info-body">
+        <p class="info-p">Kısa çalışma; ekonomik kriz, deprem, salgın gibi zorlayıcı sebeplerle <strong>haftalık normal çalışma süresinin en az 1/3 oranında azaltıldığı</strong> ya da tamamen durdurulduğu dönemlerde uygulanır. İŞKUR onayı şarttır.</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Parametre</th><th>Kural</th><th>2026 Değeri</th></tr></thead>
+            <tbody>
+              <tr><td>Ödenek oranı</td><td>Günlük brüt ort × %60</td><td>—</td></tr>
+              <tr><td>Günlük üst sınır</td><td>Asgari brüt × %150 ÷ 30</td><td>≈ 1.651,50 ₺/gün</td></tr>
+              <tr><td>Maksimum süre</td><td>3 ay (ilave 3 ay mümkün)</td><td>Cumhurbaşkanı kararı ile</td></tr>
+              <tr><td>İşçi koşulu</td><td>Son 60 günde kesintisiz çalışma</td><td>+ 600 prim gün</td></tr>
+              <tr><td>Ödeme yapan</td><td>İŞKUR/SGK</td><td>İşveren değil</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>İşçi koşulları:</strong> Kısa çalışmadan yararlanmak için son 3 yılda en az 600 gün prim ödemiş ve kısa çalışma başladığında son 60 gün kesintisiz çalışmış olmak gerekir.</p>
+        <div class="legal-ref">⚖️ 4447 s. Kanun Ek Md. 2 · İŞKUR Kısa Çalışma Yönetmeliği</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Kısa çalışma ödeneği talep etmek için ne yapmalıyım? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p><strong>İşveren</strong> İŞKUR'a başvurur ve kısa çalışma bildirgesiyle çalışan listesini teslim eder. İŞKUR uygunluk denetimi yaptıktan sonra onay verir. İşçi bireysel olarak başvuramaz; başvuru işveren üzerinden yapılır.</p></details>
+      <details><summary>Kısa çalışma sırasında kıdem süresi işler mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Kısa çalışma süresi kıdeme dahil edilir. Ancak kısa çalışma dönemindeki SGK prim günleri, ödenek üzerinden İŞKUR tarafından ödenir.</p></details>
+      <details><summary>Kısa çalışma ile işsizlik ödeneği aynı anda alınabilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Hayır. İkisi aynı anda alınamaz. Kısa çalışma sona erip işten çıkarılırsanız kısa çalışma aldığınız süre kadar işsizlik ödeneği hakkınız kısalır.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. Gerçek ödenek İŞKUR denetim sonucuna ve bireysel çalışma koşullarına göre değişebilir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const gunlukBrut = parseFloat(document.getElementById('gunluk-brut').value);
+    const calGun     = parseInt(document.getElementById('calisılmayan-gun').value);
+    const asgariGun  = parseFloat(document.getElementById('asgari-ucret-gunu').value) || 1101;
+
+    if (!gunlukBrut || gunlukBrut <= 0) { err.textContent = 'Geçerli bir günlük brüt kazanç girin.'; err.classList.add('visible'); return; }
+    if (!calGun || calGun <= 0)          { err.textContent = 'Çalışılmayan gün sayısını girin.'; err.classList.add('visible'); return; }
+    if (calGun > 90)                     { err.textContent = 'Maksimum çalışılmayan gün 90\'dır (3 ay).'; err.classList.add('visible'); return; }
+
+    const hesaplanan = gunlukBrut * 0.60;
+    const ustSinir   = asgariGun * 1.5;
+    const uygulanan  = Math.min(hesaplanan, ustSinir);
+    const toplam     = uygulanan * calGun;
+    const sinirAsıldı = hesaplanan > ustSinir;
+
+    document.getElementById('r-gunluk').textContent    = fmt(gunlukBrut);
+    document.getElementById('r-hesaplanan').textContent = fmt(hesaplanan);
+    document.getElementById('r-ust-sinir').textContent  = fmt(ustSinir) + '/gün';
+    document.getElementById('r-uygulanan').textContent  = fmt(uygulanan) + '/gün';
+    document.getElementById('r-gun').textContent        = calGun + ' gün';
+    document.getElementById('r-toplam').textContent     = fmt(toplam);
+    document.getElementById('ust-sinir-uyari').style.display = sinirAsıldı ? 'flex' : 'none';
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

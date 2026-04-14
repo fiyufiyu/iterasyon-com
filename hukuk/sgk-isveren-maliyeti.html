@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGK İşveren Maliyeti Hesaplama 2026 | Toplam İşçilik Maliyeti</title>
+  <meta name="description" content="Brüt ücret üzerinden işverenin ödeyeceği SGK, işsizlik ve iş kazası primlerini hesaplayın. İmalat teşviki dahil 2026 oranları." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/sgk-isveren-maliyeti" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"SGK İşveren Maliyeti Hesaplama","url":"https://hukuk.iterasyon.com/sgk-isveren-maliyeti","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Sosyal Güvenlik</div>
+    <h1>SGK İşveren Maliyeti Hesaplama</h1>
+    <p class="calc-subtitle">5510 sayılı SGK Kanunu · 2026 prim oranları · Teşvik dahil</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🏢</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="brut-ucret">Çalışanın brüt aylık ücreti (₺)<span class="req">*</span></label>
+          <div class="form-hint">2026 H1 asgari ücret: 33.030 ₺</div>
+          <input type="number" id="brut-ucret" class="form-input" placeholder="ör. 50 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Teşvik durumu<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="tesvik" value="imaalt" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">İmalat sektörü teşviki — %5 indirim</span>
+                <span class="radio-option-hint">MYÖ işveren payından 5 puan hazine karşılar</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tesvik" value="diger" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Diğer sektör teşviki — %2 indirim</span>
+                <span class="radio-option-hint">Genel 2 puanlık işveren prim indirimi (Md. 81/1-ı)</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tesvik" value="yok" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Teşviksiz — normal oran</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="is-kazasi-prim">İş kazası & meslek hastalığı prim oranı (%)<span class="req">*</span></label>
+          <div class="form-hint">Sektöre göre %1–%6,5 arasında değişir. SGK risk sınıfına göre belirlenir. Genel ort: %2,25</div>
+          <input type="number" id="is-kazasi-prim" class="form-input" placeholder="2.25" min="1" max="6.5" step="0.25" value="2.25" inputmode="decimal" required />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">İşveren Maliyetini Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Brüt ücret</span>
+          <span class="result-value" id="r-brut"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">MYÖ işveren payı (%12 → teşvikli indirilen)</span>
+          <span class="result-value" id="r-myo"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Genel Sağlık Sigortası işveren payı (%7,5)</span>
+          <span class="result-value" id="r-gss"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">İş kazası &amp; meslek hastalığı primi</span>
+          <span class="result-value" id="r-kazaprim"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">İşsizlik sigortası işveren payı (%2)</span>
+          <span class="result-value" id="r-issizlik"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Toplam işveren SGK yükü</span>
+          <span class="result-value" id="r-sgk-yuk"></span>
+        </div>
+        <div class="result-item result-item--neutral" id="r-tesvik-row" style="display:none">
+          <span class="result-label">Hazine/Teşvik karşıladığı kısım</span>
+          <span class="result-value" id="r-tesvik"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">İşverene toplam aylık maliyet</span>
+          <span class="result-value" id="r-toplam"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Efektif prim oranı (teşvik sonrası)</span>
+          <span class="result-value" id="r-efektif"></span>
+        </div>
+        <div class="result-info">ℹ️ Çalışan payları (SGK %14 + işsizlik %1 + damga) brüt ücretten düşülür, işveren ödemez. Bu hesaplama yalnızca <strong>işveren</strong> yükünü göstermektedir.</div>
+        <p class="result-note">Engelli teşviki, EYT indirimi gibi özel teşvikler bu hesaplamada yer almamaktadır.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./net-maas" class="sim-link">
+        <span class="sim-icon">💵</span><span class="sim-name">Net Maaş Hesaplama (Çalışan Tarafı)</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./kidem-tazminati" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./issizlik-odenegi" class="sim-link">
+        <span class="sim-icon">📂</span><span class="sim-name">İşsizlik Ödeneği Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 2026 İşveren Prim Oranları</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Prim Türü</th><th>İşveren Payı</th><th>Çalışan Payı</th></tr></thead>
+            <tbody>
+              <tr><td>Malullük-Yaşlılık-Ölüm (MYÖ)</td><td>%12</td><td>%9</td></tr>
+              <tr><td>Genel Sağlık Sigortası (GSS)</td><td>%7,5</td><td>%5</td></tr>
+              <tr><td>İş Kazası &amp; Meslek Hastalığı</td><td>%1 – %6,5</td><td>—</td></tr>
+              <tr><td>İşsizlik Sigortası</td><td>%2</td><td>%1</td></tr>
+              <tr><td><strong>Toplam (ort. iş kazası ile)</strong></td><td><strong>~%23,75</strong></td><td><strong>%15</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Teşvik</th><th>İndirim</th><th>Kapsam</th></tr></thead>
+            <tbody>
+              <tr><td>İmalat sektörü (5510 Ek Md. 2)</td><td>5 puan</td><td>MYÖ işveren payından</td></tr>
+              <tr><td>Genel işveren teşviki (Md. 81/1-ı)</td><td>2 puan</td><td>Tüm sektörler</td></tr>
+              <tr><td>Engelli istihdamı</td><td>Tamamı</td><td>Kota kapsamındaki engelliler</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="legal-ref">⚖️ 5510 s. SGK Kanunu · 4447 s. İşsizlik Sigortası Kanunu</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>İmalat teşvikini kimler alabilir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>5510 sayılı Kanun Ek Madde 2 kapsamındaki <strong>imalat ve bilişim</strong> sektöründe faaliyet gösteren, borcu bulunmayan işverenler MYÖ işveren payından 5 puan indirimden yararlanabilir. İndirim tutarı Hazine tarafından SGK'ya aktarılır.</p></details>
+      <details><summary>Prime esas kazanç tavanı nedir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>2026 H1 itibarıyla prime esas kazanç <strong>alt sınırı</strong> 33.030 ₺, <strong>üst sınırı</strong> 247.725 ₺ (asgari × 7,5). Üst sınırı aşan ücret kısmına SGK primi uygulanmaz.</p></details>
+      <details><summary>SGK'ya borçlu işveren teşvikten yararlanabilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Hayır. Vadesi geçmiş SGK prim borcu bulunan işverenler teşvik ve indirimlerden <strong>yararlanamaz</strong>. Borçların yapılandırılması veya ödenmesi halinde teşvik haklarına kavuşulur.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır. 2026 H1 prim oranları esas alınmıştır. Özel teşvikler ve istisnalar ayrıca değerlendirilmelidir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+  function fmtPct(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + '%'; }
+
+  function getVal(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const brut      = parseFloat(document.getElementById('brut-ucret').value);
+    const tesvik    = getVal('tesvik');
+    const kazaPrimO = parseFloat(document.getElementById('is-kazasi-prim').value) / 100;
+
+    if (!brut || brut <= 0)        { err.textContent = 'Geçerli bir brüt ücret girin.'; err.classList.add('visible'); return; }
+    if (isNaN(kazaPrimO) || kazaPrimO <= 0) { err.textContent = 'Geçerli bir iş kazası prim oranı girin.'; err.classList.add('visible'); return; }
+
+    // İndirim hesapla
+    let myoIndirim = 0;
+    if (tesvik === 'imaalt') myoIndirim = 0.05;
+    else if (tesvik === 'diger') myoIndirim = 0.02;
+
+    const myoOran      = 0.12 - myoIndirim;
+    const gssOran      = 0.075;
+    const issizlikOran = 0.02;
+
+    const myoPrim       = brut * myoOran;
+    const gssPrim       = brut * gssOran;
+    const kazaPrim      = brut * kazaPrimO;
+    const issizlikPrim  = brut * issizlikOran;
+    const sgkYuk        = myoPrim + gssPrim + kazaPrim + issizlikPrim;
+    const tesvikTutar   = brut * myoIndirim;
+    const toplam        = brut + sgkYuk;
+    const efektifOran   = ((sgkYuk / brut) * 100);
+
+    document.getElementById('r-brut').textContent     = fmt(brut);
+    document.getElementById('r-myo').textContent      = fmt(myoPrim) + ' (%' + ((myoOran)*100).toFixed(2) + ')';
+    document.getElementById('r-gss').textContent      = fmt(gssPrim);
+    document.getElementById('r-kazaprim').textContent = fmt(kazaPrim) + ' (%' + (kazaPrimO*100).toFixed(2) + ')';
+    document.getElementById('r-issizlik').textContent = fmt(issizlikPrim);
+    document.getElementById('r-sgk-yuk').textContent  = fmt(sgkYuk);
+    document.getElementById('r-toplam').textContent   = fmt(toplam);
+    document.getElementById('r-efektif').textContent  = fmtPct(efektifOran);
+
+    if (myoIndirim > 0) {
+      document.getElementById('r-tesvik').textContent   = fmt(tesvikTutar) + ' / ay';
+      document.getElementById('r-tesvik-row').style.display = '';
+    } else {
+      document.getElementById('r-tesvik-row').style.display = 'none';
+    }
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

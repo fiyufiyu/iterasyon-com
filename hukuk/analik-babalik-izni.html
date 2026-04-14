@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analık & Babalık İzni Hesaplama 2026 | SGK Ödeneği & İzin Tarihleri</title>
+  <meta name="description" content="Doğum tarihine göre analık ve babalık izni bitiş tarihlerini, SGK analık ödeneğini ve ek ücretsiz izin haklarını hesaplayın. 4857 sayılı İş Kanunu Md. 74." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/analik-babalik-izni" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Analık & Babalık İzni Hesaplama","url":"https://hukuk.iterasyon.com/analik-babalik-izni","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script async src="https://plausible.io/js/pa-Nxnsfi5zXQd763ARNIzPw.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">İş Hukuku</div>
+    <h1>Analık &amp; Babalık İzni Hesaplama</h1>
+    <p class="calc-subtitle">4857 sayılı İş Kanunu Md. 74 · SGK Analık Ödeneği · 2026</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">👶</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label">Hesaplama türü<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="tur" value="anne" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Analık izni (Anne)</span>
+                <span class="radio-option-hint">Doğum öncesi 8 + sonrası 8 hafta ücretli izin, SGK analık ödeneği</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tur" value="baba" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Babalık izni (Baba)</span>
+                <span class="radio-option-hint">Doğumdan itibaren 5 iş günü işveren ödemeli ücretli izin</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="grup-dogum-tarihi">
+          <label class="form-label" for="dogum-tarihi">Doğum tarihi (veya tahmini)<span class="req">*</span></label>
+          <div class="form-hint">Erken doğum durumunda gerçek doğum tarihini girin</div>
+          <input type="date" id="dogum-tarihi" class="form-input" required />
+        </div>
+
+        <div class="form-group" id="grup-cogul" style="display:none">
+          <label class="form-label">Çoğul gebelik mi?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="cogul" value="hayir" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Hayır — tekil gebelik</span>
+                <span class="radio-option-hint">Doğum öncesi 8 + sonrası 8 = toplam 16 hafta</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="cogul" value="evet" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Evet — çoğul gebelik (ikiz, üçüz...)</span>
+                <span class="radio-option-hint">Doğum öncesi +2 hafta eklenir → toplam 18 hafta</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="grup-erken" style="display:none">
+          <label class="form-label">Erken doğum oldu mu?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="erken" value="hayir" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Hayır</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="erken" value="evet" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Evet — kullanılamayan ön izin sonraya eklenir</span>
+                <span class="radio-option-hint">Kaç hafta erken doğdu?</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="grup-erken-hafta" style="display:none">
+          <label class="form-label" for="erken-hafta">Kaç hafta erken doğum?</label>
+          <input type="number" id="erken-hafta" class="form-input" placeholder="ör. 2" min="1" max="8" inputmode="numeric" />
+        </div>
+
+        <div class="form-group" id="grup-ucret" style="display:none">
+          <label class="form-label" for="brut-ucret">Son 3 aylık brüt aylık ücret ortalaması (₺)<span class="req">*</span></label>
+          <div class="form-hint">SGK analık ödeneği = 3 aylık brüt ort. ÷ 30 × %66,67 × izin günü</div>
+          <input type="number" id="brut-ucret" class="form-input" placeholder="ör. 45 000" min="1" inputmode="numeric" />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">İzin Tarihlerini Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+
+        <div id="sonuc-anne" style="display:none">
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Toplam izin süresi</span>
+            <span class="result-value" id="r-sure"></span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Doğum öncesi izin başlangıcı</span>
+            <span class="result-value" id="r-once-bas"></span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Doğum tarihi</span>
+            <span class="result-value" id="r-dogum"></span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Analık izni bitiş tarihi</span>
+            <span class="result-value" id="r-bitis"></span>
+          </div>
+          <div class="result-divider"></div>
+          <div class="result-item result-item--primary">
+            <span class="result-label">İşe dönüş tarihi</span>
+            <span class="result-value" id="r-donus"></span>
+          </div>
+          <div id="sonuc-odenegi" style="display:none">
+            <div class="result-item result-item--neutral">
+              <span class="result-label">Günlük SGK analık ödeneği</span>
+              <span class="result-value" id="r-gunluk"></span>
+            </div>
+            <div class="result-item result-item--net">
+              <span class="result-label">Toplam SGK analık ödeneği (tahmini)</span>
+              <span class="result-value" id="r-toplam-odenegi"></span>
+            </div>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Ek ücretsiz izin hakkı (yarı zamanlı, isteğe bağlı)</span>
+            <span class="result-value" id="r-ucretsiz"></span>
+          </div>
+        </div>
+
+        <div id="sonuc-baba" style="display:none">
+          <div class="result-item result-item--neutral">
+            <span class="result-label">Babalık izni süresi</span>
+            <span class="result-value">5 iş günü</span>
+          </div>
+          <div class="result-item result-item--neutral">
+            <span class="result-label">İzin başlangıcı</span>
+            <span class="result-value" id="r-baba-bas"></span>
+          </div>
+          <div class="result-divider"></div>
+          <div class="result-item result-item--primary">
+            <span class="result-label">İzin bitiş tarihi (5 iş günü sonra)</span>
+            <span class="result-value" id="r-baba-bitis"></span>
+          </div>
+          <div class="result-info">ℹ️ Babalık izni ücretini <strong>işveren öder</strong> (SGK değil). Hafta sonları ve resmi tatiller izin süresine dahil edilmez.</div>
+        </div>
+
+        <p class="result-note">Resmi tatiller iş günü hesabında dikkate alınmamıştır. SGK ödeneği, prim ödeme gün sayısı ve çalışma koşullarına göre değişebilir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./kidem-tazminati" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./issizlik-odenegi" class="sim-link">
+        <span class="sim-icon">📂</span><span class="sim-name">İşsizlik Ödeneği Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./kisa-calisma-odenegi" class="sim-link">
+        <span class="sim-icon">📉</span><span class="sim-name">Kısa Çalışma Ödeneği</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Doğum İzni Hakları</div>
+      <div class="calc-info-body">
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>İzin Türü</th><th>Süre</th><th>Ödeme</th></tr></thead>
+            <tbody>
+              <tr><td>Tekil gebelik — analık</td><td>8 + 8 = 16 hafta</td><td>SGK (%66,67)</td></tr>
+              <tr><td>Çoğul gebelik — analık</td><td>10 + 8 = 18 hafta</td><td>SGK (%66,67)</td></tr>
+              <tr><td>Erken doğum — kullanılmayan ön izin</td><td>Sonraya eklenir</td><td>SGK (%66,67)</td></tr>
+              <tr><td>Ek ücretsiz izin (yarı zamanlı)</td><td>6 aya kadar (3 yaşa kadar)</td><td>Ücretsiz</td></tr>
+              <tr><td>Babalık izni</td><td>5 iş günü</td><td>İşveren öder</td></tr>
+              <tr><td>Evlat edinme (3 yaş altı)</td><td>8 hafta (eşlerden biri)</td><td>SGK (%66,67)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>SGK analık ödeneği koşulları:</strong> Son bir yıl içinde en az 90 gün kısa vadeli prim ödemiş olunması gerekir. Ödenek, günlük prime esas kazancın 2/3'ü (%66,67) olarak hesaplanır. İşveren fark ödemez.</p>
+        <p class="info-p"><strong>İş güvencesi:</strong> Analık izni süresince işveren iş sözleşmesini feshedemez. İzin süresi kıdem hesabına dahil edilir.</p>
+        <div class="legal-ref">⚖️ 4857 s. İş Kanunu Md. 74 · 5510 s. Kanun Md. 15-16</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Analık izni sırasında işten çıkarılırsam ne olur? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>4857 sayılı İş Kanunu Md. 74 kapsamında analık izni süresi içinde yapılan fesih <strong>geçersizdir</strong>. İşveren tazminat yükümlülüğüne ek olarak idari para cezasıyla karşılaşabilir. İzin bitiminden sonraki fesihlerde kıdem ve ihbar tazminatı hakları doğar.</p></details>
+      <details><summary>Analık izni kıdem süresine dahil midir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Analık izni süresinin tamamı kıdem hesabına dahil edilir. Ancak ücretsiz ek izin (6 aya kadar yarı zamanlı) kıdeme dahil edilmez.</p></details>
+      <details><summary>SGK ödeneğini nasıl alırım? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>İşveren analık iznine başladığınızda SGK'ya bildirim yapar. Ödenek genellikle <strong>e-Devlet</strong> üzerinden veya SGK ofisine başvurarak talep edilir. Doğum sonrası hastane çıkış belgesi ve nüfus cüzdanı yeterlidir. Ödeme genellikle 1–2 hafta içinde yapılır.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; kesin tarihler için SGK ile işvereninizi ayrıca bilgilendirin. Resmi tatil günleri iş günü hesabına dahil edilmemiştir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const turRadios   = document.querySelectorAll('input[name="tur"]');
+  const cogulRadios = document.querySelectorAll('input[name="cogul"]');
+  const erkenRadios = document.querySelectorAll('input[name="erken"]');
+
+  function getSelectedVal(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+
+  function toggleGroups() {
+    const tur = getSelectedVal('tur');
+    document.getElementById('grup-cogul').style.display = tur === 'anne' ? '' : 'none';
+    document.getElementById('grup-erken').style.display = tur === 'anne' ? '' : 'none';
+    document.getElementById('grup-ucret').style.display = tur === 'anne' ? '' : 'none';
+    const erken = getSelectedVal('erken');
+    document.getElementById('grup-erken-hafta').style.display = (tur === 'anne' && erken === 'evet') ? '' : 'none';
+  }
+
+  turRadios.forEach(r => r.addEventListener('change', toggleGroups));
+  erkenRadios.forEach(r => r.addEventListener('change', toggleGroups));
+  toggleGroups();
+
+  function addDays(d, n) {
+    const r = new Date(d);
+    r.setDate(r.getDate() + n);
+    return r;
+  }
+
+  function addBusinessDays(d, n) {
+    let count = 0;
+    let cur = new Date(d);
+    while (count < n) {
+      cur.setDate(cur.getDate() + 1);
+      if (cur.getDay() !== 0 && cur.getDay() !== 6) count++;
+    }
+    return cur;
+  }
+
+  function fmtDate(d) {
+    return d.toLocaleDateString('tr-TR', {day:'2-digit', month:'long', year:'numeric'});
+  }
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const tur      = getSelectedVal('tur');
+    const dogumStr = document.getElementById('dogum-tarihi').value;
+    if (!dogumStr) { err.textContent = 'Lütfen bir doğum tarihi girin.'; err.classList.add('visible'); return; }
+
+    const dogum = new Date(dogumStr);
+
+    document.getElementById('sonuc-anne').style.display = 'none';
+    document.getElementById('sonuc-baba').style.display = 'none';
+
+    if (tur === 'baba') {
+      const babaBaslangic = dogum;
+      const babaBitis = addBusinessDays(dogum, 5);
+      document.getElementById('r-baba-bas').textContent   = fmtDate(babaBaslangic);
+      document.getElementById('r-baba-bitis').textContent = fmtDate(babaBitis);
+      document.getElementById('sonuc-baba').style.display = '';
+    } else {
+      const cogul      = getSelectedVal('cogul');
+      const erken      = getSelectedVal('erken');
+      const erkenHafta = parseInt(document.getElementById('erken-hafta').value) || 0;
+      const brutUcret  = parseFloat(document.getElementById('brut-ucret').value) || 0;
+
+      // Öncesi hafta sayısı
+      let oncesiHafta = cogul === 'evet' ? 10 : 8;
+      let sonrasiHafta = 8;
+      // Erken doğumda kullanılamayan kısım sonraya eklenir
+      if (erken === 'evet' && erkenHafta > 0) {
+        const kullanamayan = Math.min(erkenHafta, oncesiHafta);
+        sonrasiHafta += kullanamayan;
+        oncesiHafta   = oncesiHafta - kullanamayan;
+      }
+      const toplamHafta = oncesiHafta + sonrasiHafta;
+      const toplamGun   = toplamHafta * 7;
+
+      const izinBaslangic = addDays(dogum, -(oncesiHafta * 7));
+      const izinBitis     = addDays(dogum, sonrasiHafta * 7);
+      const iseDonüs      = addDays(izinBitis, 1);
+
+      // Ek ücretsiz izin: çocuğun 3. doğum günü
+      const uckYasGunu    = new Date(dogum);
+      uckYasGunu.setFullYear(uckYasGunu.getFullYear() + 3);
+
+      document.getElementById('r-sure').textContent     = toplamHafta + ' hafta (' + toplamGun + ' gün)';
+      document.getElementById('r-once-bas').textContent = fmtDate(izinBaslangic);
+      document.getElementById('r-dogum').textContent    = fmtDate(dogum);
+      document.getElementById('r-bitis').textContent    = fmtDate(izinBitis);
+      document.getElementById('r-donus').textContent    = fmtDate(iseDonüs);
+      document.getElementById('r-ucretsiz').textContent = 'İzin bitiminden ' + fmtDate(uckYasGunu) + ' tarihine kadar';
+
+      if (brutUcret > 0) {
+        const gunlukBrut  = brutUcret / 30;
+        const gunlukOden  = gunlukBrut * (2 / 3);
+        const toplamOden  = gunlukOden * toplamGun;
+        document.getElementById('r-gunluk').textContent        = fmt(gunlukOden);
+        document.getElementById('r-toplam-odenegi').textContent = fmt(toplamOden);
+        document.getElementById('sonuc-odenegi').style.display = '';
+      } else {
+        document.getElementById('sonuc-odenegi').style.display = 'none';
+      }
+      document.getElementById('sonuc-anne').style.display = '';
+    }
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>
