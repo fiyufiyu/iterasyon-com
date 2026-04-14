@@ -1,10 +1,503 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>hukuk.iterasyon.com</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Türk Hukuku Hesaplama Araçları 2026 | hukuk.iterasyon.com</title>
+  <meta name="description" content="Kıdem tazminatı, ihbar tazminatı, nafaka, kira artışı ve daha fazlası için ücretsiz Türk hukuku hesaplama araçları. Güncel mevzuata göre doğru sonuçlar." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hukuk.iterasyon.com/" />
+  <meta property="og:title" content="Türk Hukuku Hesaplama Araçları 2026" />
+  <meta property="og:description" content="Kıdem tazminatı, ihbar tazminatı, nafaka, kira artışı ve daha fazlası için ücretsiz hesaplama araçları." />
+  <meta property="og:locale" content="tr_TR" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./hukuk.css" />
+
+  <!-- Schema.org: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Hukuk Hesap — Türk Hukuku Hesaplama Araçları",
+    "url": "https://hukuk.iterasyon.com",
+    "description": "Türk hukukuna dayalı ücretsiz hesaplama araçları.",
+    "inLanguage": "tr",
+    "publisher": { "@type": "Organization", "name": "iterasyon", "url": "https://iterasyon.com" }
+  }
+  </script>
+
+  <!-- Schema.org: ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Türk Hukuku Hesaplama Araçları",
+    "numberOfItems": 8,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Kıdem Tazminatı Hesaplama", "url": "https://hukuk.iterasyon.com/kidem-tazminati" },
+      { "@type": "ListItem", "position": 2, "name": "İhbar Tazminatı Hesaplama", "url": "https://hukuk.iterasyon.com/ihbar-tazminati" },
+      { "@type": "ListItem", "position": 3, "name": "Yıllık İzin Ücreti Hesaplama", "url": "https://hukuk.iterasyon.com/yillik-izin" },
+      { "@type": "ListItem", "position": 4, "name": "Fazla Mesai Ücreti Hesaplama", "url": "https://hukuk.iterasyon.com/fazla-mesai" },
+      { "@type": "ListItem", "position": 5, "name": "Kira Artış Oranı Hesaplama", "url": "https://hukuk.iterasyon.com/kira-artis" },
+      { "@type": "ListItem", "position": 6, "name": "Yasal Faiz Hesaplama", "url": "https://hukuk.iterasyon.com/yasal-faiz" },
+      { "@type": "ListItem", "position": 7, "name": "Nafaka Hesaplama", "url": "https://hukuk.iterasyon.com/nafaka" },
+      { "@type": "ListItem", "position": 8, "name": "Miras Payı Hesaplama", "url": "https://hukuk.iterasyon.com/miras-payi" }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Bu hesaplama araçları güncel mevzuata göre mi hazırlanmıştır?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Evet. Tüm araçlar 2026 yılı Türk mevzuatına göre hazırlanmıştır. Önemli hukuki işlemler için bir avukattan danışmanlık almanızı öneririz." }
+      },
+      {
+        "@type": "Question",
+        "name": "Kıdem tazminatı hesaplaması nasıl yapılır?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Giydirilmiş brüt 30 günlük ücret esas alınarak çalışılan her tam yıl için bir aylık brüt ücret hesaplanır. Sonuç kıdem tazminatı tavanını aşamaz." }
+      },
+      {
+        "@type": "Question",
+        "name": "Kira artışında hangi oran geçerlidir?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Türk Borçlar Kanunu 344. madde uyarınca konut kiraları TÜFE'nin 12 aylık ortalamasıyla sınırlıdır." }
+      },
+      {
+        "@type": "Question",
+        "name": "Bu araçlar avukat danışmanlığının yerini tutar mı?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Bu araçlar bilgilendirme amaçlıdır. Kesin hukuki sonuç doğurmaz. Hukuki işlemlerinizde bir avukattan destek alın." }
+      }
+    ]
+  }
+  </script>
 </head>
+
 <body>
+
+  <!-- ─── Navigation ──────────────────────────── -->
+  <header class="site-nav-bar">
+    <a href="/" class="nav-brand" aria-label="Hukuk Hesap ana sayfası">
+      <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+      <span class="nav-sub">hukuk</span>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <span class="nav-label">iterasyon</span>
+    </a>
+  </header>
+
+  <div class="page-wrap">
+
+    <!-- ─── Hero ──────────────────────────────── -->
+    <section class="hero">
+      <p class="hero-eyebrow">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+          <circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M5.5 3.5v3M5.5 7.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Ücretsiz · 2026 Mevzuatı
+      </p>
+      <h1>Türk Hukuku<br><em>Hesaplama Araçları</em></h1>
+      <p class="hero-desc">
+        Kıdem, ihbar, nafaka, kira artışı — saniyeler içinde tahmini sonuç.
+        Kayıt yok, ücret yok.
+      </p>
+
+      <!-- Search -->
+      <div class="search-wrap" role="search">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 12l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <input
+          type="search"
+          id="calc-search"
+          class="search-input"
+          placeholder="Hesaplama ara... (kıdem, nafaka, kira)"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-label="Hesaplama aracı ara"
+        />
+        <button class="search-clear" id="search-clear" aria-label="Aramayı temizle" hidden>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─── Sticky category chips ─────────────── -->
+    <nav class="cat-chips-wrap" aria-label="Kategoriler">
+      <div class="cat-chips" role="list">
+        <button class="cat-chip active" data-target="all" role="listitem">Tümü</button>
+        <button class="cat-chip" data-target="is-hukuku" role="listitem">⚖️ İş Hukuku</button>
+        <button class="cat-chip" data-target="kira" role="listitem">🏠 Kira &amp; Borçlar</button>
+        <button class="cat-chip" data-target="aile" role="listitem">👨‍👧 Aile &amp; Miras</button>
+      </div>
+    </nav>
+
+    <!-- ─── No results ─────────────────────────── -->
+    <p class="search-empty" id="search-empty" role="status" hidden>
+      Aramanızla eşleşen hesaplama bulunamadı.
+    </p>
+
+    <!-- ─── İş Hukuku ─────────────────────────── -->
+    <section class="calc-section" id="is-hukuku" data-category="is-hukuku" aria-labelledby="is-hukuku-label">
+      <h2 class="section-label" id="is-hukuku-label">İş Hukuku</h2>
+      <div class="calc-grid" role="list">
+
+        <a href="./kidem-tazminati.html" class="calc-card" role="listitem"
+           data-keywords="kıdem tazminat işçi iş kanunu ihraç istifa brüt ücret çalışma süresi">
+          <div class="calc-card-icon" aria-hidden="true">⚖️</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">Kıdem Tazminatı Hesaplama</div>
+            <div class="calc-card-desc">Brüt ücret ve çalışma sürenize göre kıdem tazminatınızı hesaplayın. 2026 tavanı dahil.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="./ihbar-tazminati.html" class="calc-card" role="listitem"
+           data-keywords="ihbar tazminat bildirim süresi fesih iş sözleşme işten çıkarma">
+          <div class="calc-card-icon" aria-hidden="true">📋</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">İhbar Tazminatı Hesaplama</div>
+            <div class="calc-card-desc">Bildirimsiz fesihte ödenmesi gereken ihbar tazminatını hesaplayın.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="./yillik-izin.html" class="calc-card" role="listitem"
+           data-keywords="yıllık izin ücreti kullanılmayan tatil hak kazanma gün">
+          <div class="calc-card-icon" aria-hidden="true">🌴</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">Yıllık İzin Ücreti Hesaplama</div>
+            <div class="calc-card-desc">İş sözleşmesi sona erdiğinde kullanılmayan izin günlerinin ücretini hesaplayın.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="./fazla-mesai.html" class="calc-card" role="listitem"
+           data-keywords="fazla mesai ücreti zamlı çalışma saat haftalık 45 saat gece">
+          <div class="calc-card-icon" aria-hidden="true">⏱️</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">Fazla Mesai Ücreti Hesaplama</div>
+            <div class="calc-card-desc">Haftalık 45 saati aşan çalışmalar için %25–%50 zamlı mesai ücretini hesaplayın.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ─── Kira & Borçlar ────────────────────── -->
+    <section class="calc-section" id="kira" data-category="kira" aria-labelledby="kira-label">
+      <h2 class="section-label" id="kira-label">Kira &amp; Borçlar Hukuku</h2>
+      <div class="calc-grid" role="list">
+
+        <a href="./kira-artis.html" class="calc-card" role="listitem"
+           data-keywords="kira artış oranı tüfe enflasyon konut yeni kira bedeli hesaplama">
+          <div class="calc-card-icon" aria-hidden="true">🏠</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">Kira Artış Oranı Hesaplama</div>
+            <div class="calc-card-desc">TÜFE 12 aylık ortalama oranına göre yeni kira bedelinizi hesaplayın.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="./yasal-faiz.html" class="calc-card" role="listitem"
+           data-keywords="yasal faiz temerrüt alacak borç 3095 kanun gecikme faizi">
+          <div class="calc-card-icon" aria-hidden="true">💰</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">Yasal Faiz Hesaplama</div>
+            <div class="calc-card-desc">3095 sayılı Kanun kapsamında alacağınıza işleyecek yasal faizi hesaplayın.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ─── Aile & Miras ──────────────────────── -->
+    <section class="calc-section" id="aile" data-category="aile" aria-labelledby="aile-label">
+      <h2 class="section-label" id="aile-label">Aile &amp; Miras Hukuku</h2>
+      <div class="calc-grid" role="list">
+
+        <a href="./nafaka.html" class="calc-card" role="listitem"
+           data-keywords="nafaka iştirak yoksulluk boşanma ayrılık çocuk eş">
+          <div class="calc-card-icon" aria-hidden="true">👨‍👧</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">Nafaka Hesaplama</div>
+            <div class="calc-card-desc">İştirak ve yoksulluk nafakası için tahmini tutar hesaplayın.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="./miras-payi.html" class="calc-card" role="listitem"
+           data-keywords="miras pay medeni kanun mirasçı eş çocuk anne baba varis">
+          <div class="calc-card-icon" aria-hidden="true">📜</div>
+          <div class="calc-card-body">
+            <div class="calc-card-title">Miras Payı Hesaplama</div>
+            <div class="calc-card-desc">Yasal mirasçıların (eş, çocuklar, anne-baba) miras paylarını öğrenin.</div>
+          </div>
+          <svg class="calc-card-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M7.5 4.5l5 5.5-5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ─── Bilgilendirme ─────────────────────── -->
+    <div class="info-strip" role="note">
+      <strong>Bilgilendirme:</strong> Tüm araçlar 2026 yılı Türk mevzuatına göre hazırlanmıştır.
+      Sonuçlar tahminidir; kesin hukuki sonuç doğurmaz.
+      Önemli işlemlerinizde bir avukattan destek alın.
+    </div>
+
+    <!-- ─── SSS ───────────────────────────────── -->
+    <section class="faq-section" aria-labelledby="sss-label">
+      <h2 class="section-label" id="sss-label">Sıkça Sorulan Sorular</h2>
+      <div class="faq">
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary>
+            <span itemprop="name">Bu araçlar güncel mevzuata göre mi hazırlandı?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M5 7l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">
+              Evet. Tüm hesaplama araçları 2026 yılı itibarıyla yürürlükteki Türk mevzuatına göre
+              hazırlanmıştır. Kıdem tazminatı tavanı, yasal faiz oranı ve TÜFE verileri düzenli
+              olarak güncellenmektedir. Önemli hukuki işlemler için mutlaka bir avukattan danışmanlık alın.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary>
+            <span itemprop="name">Kıdem tazminatı nasıl hesaplanır?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M5 7l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">
+              Giydirilmiş brüt 30 günlük ücret esas alınarak, çalışılan her tam yıl için bir aylık
+              brüt ücret hesaplanır. Giydirilmiş ücret; maaş, düzenli ikramiye, yemek ve yol
+              yardımlarını kapsar. Hesaplama sonucu kıdem tazminatı tavanını (2026: 1 Temmuz'da
+              güncellenir) aşamaz.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary>
+            <span itemprop="name">Kira artışında hangi oran geçerlidir?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M5 7l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">
+              Türk Borçlar Kanunu'nun 344. maddesi uyarınca konut kira sözleşmelerinde artış oranı,
+              TÜİK tarafından açıklanan TÜFE'nin 12 aylık ortalama değişim oranıyla sınırlıdır.
+              Kira artış tarihinden önceki 12 aylık ortalama alınır.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary>
+            <span itemprop="name">İhbar tazminatı ne zaman ödenir?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M5 7l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">
+              Belirsiz süreli iş sözleşmesi bildirim süresi gözetilmeksizin feshedildiğinde ihbar
+              tazminatı doğar. Çalışma süresine göre 2–8 haftalık ihbar süresi esas alınır.
+              İşveren ya bu süreyi çalıştırarak tanımalı ya da karşılığı ücreti peşin ödemelidir.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary>
+            <span itemprop="name">Bu araçlar avukat danışmanlığının yerini tutar mı?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M5 7l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">
+              Hayır. Bu araçlar yalnızca bilgilendirme amaçlıdır. Hesaplama sonuçları genel
+              mevzuat prensiplerine dayanır; bireysel koşullar ve mahkeme takdiri sonucu önemli
+              ölçüde etkileyebilir. Hukuki işlemlerinizde mutlaka bir avukattan destek alın.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ─── Footer ────────────────────────────── -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-row">
+        <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      </div>
+      <p class="footer-disclaimer">
+        Bu sitedeki tüm araçlar yalnızca bilgilendirme amaçlıdır; hukuki danışmanlık hizmeti
+        sunmaz ve kesin hukuki sonuç doğurmaz. Önemli işlemlerinizde bir avukattan destek alın.
+        2026 mevzuatı esas alınmıştır.
+      </p>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ── Search ──────────────────────────────────
+    const searchInput = document.getElementById('calc-search');
+    const searchClear = document.getElementById('search-clear');
+    const searchEmpty = document.getElementById('search-empty');
+    const allCards    = document.querySelectorAll('.calc-card');
+    const allSections = document.querySelectorAll('.calc-section');
+    const chips       = document.querySelectorAll('.cat-chip');
+
+    function normalise(s) {
+      return s.toLowerCase()
+        .replace(/i̇/g, 'i').replace(/ı/g, 'i').replace(/ğ/g, 'g')
+        .replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c');
+    }
+
+    function applySearch(raw) {
+      const q = normalise(raw.trim());
+      searchClear.hidden = !raw.trim();
+      let anyVisible = false;
+
+      allSections.forEach(section => {
+        let sectionVisible = false;
+        section.querySelectorAll('.calc-card').forEach(card => {
+          if (!q) {
+            card.hidden = false;
+            sectionVisible = true;
+            anyVisible = true;
+            return;
+          }
+          const text = normalise((card.dataset.keywords || '') + ' ' + card.textContent);
+          const match = text.includes(q);
+          card.hidden = !match;
+          if (match) { sectionVisible = true; anyVisible = true; }
+        });
+        section.hidden = q ? !sectionVisible : false;
+      });
+
+      searchEmpty.hidden = anyVisible || !q;
+
+      // Deactivate all chips when typing
+      if (q) {
+        chips.forEach(c => c.classList.remove('active'));
+        chips[0].classList.add('active');
+      }
+    }
+
+    searchInput.addEventListener('input', e => applySearch(e.target.value));
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      applySearch('');
+      searchInput.focus();
+    });
+
+    // ── Category chips ───────────────────────────
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        // Clear search
+        searchInput.value = '';
+        applySearch('');
+
+        const target = chip.dataset.target;
+        if (target === 'all') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const section = document.getElementById(target);
+        if (section) {
+          const chipsBar = document.querySelector('.cat-chips-wrap');
+          const offset = section.getBoundingClientRect().top + window.scrollY
+            - (chipsBar ? chipsBar.offsetHeight : 0)
+            - 56 // nav height
+            - 8; // small breathing room
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── Highlight active chip on scroll ──────────
+    const sectionIds = ['is-hukuku', 'kira', 'aile'];
+    const chipMap = {};
+    chips.forEach(c => { chipMap[c.dataset.target] = c; });
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (searchInput.value.trim()) return;
+
+        const scrollY = window.scrollY;
+        let active = 'all';
+        sectionIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 130) active = id;
+        });
+
+        chips.forEach(c => c.classList.remove('active'));
+        if (chipMap[active]) chipMap[active].classList.add('active');
+        else if (chipMap['all']) chipMap['all'].classList.add('active');
+      });
+    }, { passive: true });
+  </script>
+
 </body>
 </html>

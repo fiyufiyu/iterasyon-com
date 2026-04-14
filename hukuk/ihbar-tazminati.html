@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İhbar Tazminatı Hesaplama 2026 | Bildirim Süresi ve Tazminat</title>
+  <meta name="description" content="Çalışma sürenize göre ihbar tazminatınızı anında hesaplayın. 4857 sayılı İş Kanunu Md. 17 uyarınca 2–8 haftalık ihbar süreleri dahil." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/ihbar-tazminati" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"İhbar Tazminatı Hesaplama","url":"https://hukuk.iterasyon.com/ihbar-tazminati","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"İhbar tazminatı ne zaman ödenir?","acceptedAnswer":{"@type":"Answer","text":"Belirsiz süreli iş sözleşmesi bildirim süresi verilmeden feshedildiğinde ödenir."}},{"@type":"Question","name":"İhbar süreleri nelerdir?","acceptedAnswer":{"@type":"Answer","text":"0–6 ay: 2 hafta, 6–18 ay: 4 hafta, 18 ay–3 yıl: 6 hafta, 3 yıldan fazla: 8 hafta."}},{"@type":"Question","name":"İhbar tazminatından vergi kesilir mi?","acceptedAnswer":{"@type":"Answer","text":"%0,759 damga vergisi kesilir. Gelir vergisi ve SGK da kesilir çünkü ihbar tazminatı ücret sayılır."}}]}</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./index.html" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./index.html" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">İş Hukuku</div>
+    <h1>İhbar Tazminatı Hesaplama</h1>
+    <p class="calc-subtitle">4857 sayılı İş Kanunu Md. 17 · Bildirim süreleri ve tazminat</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">📋</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="ucret">Giydirilmiş brüt aylık ücret<span class="req">*</span></label>
+          <div class="form-hint">Maaş + yemek + yol + düzenli ikramiyeler (brüt toplam)</div>
+          <input type="number" id="ucret" class="form-input" placeholder="ör. 40 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="baslangic">İşe giriş tarihi<span class="req">*</span></label>
+            <input type="date" id="baslangic" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bitis">İşten ayrılış tarihi<span class="req">*</span></label>
+            <input type="date" id="bitis" class="form-input" required />
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">İhbar Tazminatını Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Toplam çalışma süresi</span>
+          <span class="result-value" id="r-sure"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">İhbar süresi</span>
+          <span class="result-value" id="r-sure-gun"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Günlük brüt ücret</span>
+          <span class="result-value" id="r-gunluk"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Brüt ihbar tazminatı</span>
+          <span class="result-value" id="r-brut"></span>
+        </div>
+        <div class="result-item result-item--deduct">
+          <span class="result-label">Damga vergisi (%0,759)</span>
+          <span class="result-value" id="r-damga"></span>
+        </div>
+        <div class="result-item result-item--net">
+          <span class="result-label">NET ihbar tazminatı</span>
+          <span class="result-value" id="r-net"></span>
+        </div>
+        <div class="result-info">ℹ️ İhbar tazminatı ücret niteliğindedir; gelir vergisi ve SGK da kesilir. Net tutar kişisel vergi dilimine göre değişir.</div>
+        <p class="result-note">Tahmini hesaplamadır. SGK ve gelir vergisi kesintileri dahil değildir.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">Birlikte Hesaplanabilir</div>
+      <a href="./kidem-tazminati.html" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./yillik-izin.html" class="sim-link">
+        <span class="sim-icon">🌴</span><span class="sim-name">Yıllık İzin Ücreti Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p"><strong>İhbar tazminatı</strong>, belirsiz süreli iş sözleşmesini taraflardan birinin yasal bildirim süresi vermeden feshetmesi durumunda, o süreye karşılık gelen brüt ücretin ödenmesidir.</p>
+        <p class="info-p"><strong>Formül:</strong> Günlük ücret (aylık ÷ 30) × ihbar günü sayısı</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Çalışma Süresi</th><th>İhbar Süresi</th></tr></thead>
+            <tbody>
+              <tr><td>0 – 6 ay</td><td>2 hafta (14 gün)</td></tr>
+              <tr><td>6 ay – 1,5 yıl</td><td>4 hafta (28 gün)</td></tr>
+              <tr><td>1,5 yıl – 3 yıl</td><td>6 hafta (42 gün)</td></tr>
+              <tr><td>3 yıldan fazla</td><td>8 hafta (56 gün)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p">Sözleşmede daha uzun ihbar süreleri kararlaştırılabilir. İhbar süresi içinde çalıştırılan işçi için tazminat yerine ücret ödenir.</p>
+        <div class="legal-ref">⚖️ 4857 sayılı İş Kanunu Md. 17</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>İşçi de ihbar tazminatı öder mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. İşçi de ihbar süresine uymadan işten ayrılırsa işverene ihbar tazminatı ödemek zorundadır. Çalışma süresine göre aynı ihbar süreleri uygulanır.</p></details>
+      <details><summary>İhbar tazminatı kıdem tazminatından farklı mıdır? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet, farklı hukuki dayanaklara sahiptir. <strong>Kıdem tazminatı</strong> 1 yıl çalışmayı ve belirli fesih koşullarını gerektirir; sadece damga vergisi kesilir. <strong>İhbar tazminatı</strong> ise bildirim süresine uymama durumunda doğar; ücret sayıldığından gelir vergisi ve SGK da kesilir.</p></details>
+      <details><summary>İhbar süresi içinde yeni iş aranabilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. İşveren tarafından bildirim süresi tanınan işçi, bu süre içinde iş arama iznine (<strong>günde 2 saat</strong>) hak kazanır. Bu süre için ücret kesilmez.</p></details>
+      <details><summary>İhbar ödenmezse zamanaşımı ne kadar? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>İhbar tazminatı için <strong>5 yıllık zamanaşımı</strong> süresi geçerlidir. Dava açmadan önce arabuluculuk zorunludur.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./index.html">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; hukuki danışmanlık yerine geçmez. SGK ve gelir vergisi tutarları kişisel duruma göre değişir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bitis').value = today;
+  document.getElementById('bitis').max = today;
+  document.getElementById('baslangic').max = today;
+
+  const DAMGA = 0.00759;
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  function durStr(days) {
+    const y = Math.floor(days / 365), rem = days % 365;
+    const m = Math.floor(rem / 30), d = rem % 30;
+    return [y && y + ' yıl', m && m + ' ay', d && d + ' gün'].filter(Boolean).join(' ') || '0 gün';
+  }
+
+  function ihbarGun(days) {
+    const months = days / 30.44;
+    if (months < 6)  return {gun:14, hafta:2};
+    if (months < 18) return {gun:28, hafta:4};
+    if (months < 36) return {gun:42, hafta:6};
+    return {gun:56, hafta:8};
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const ucret = parseFloat(document.getElementById('ucret').value);
+    const s = document.getElementById('baslangic').value;
+    const b = document.getElementById('bitis').value;
+
+    if (!ucret || ucret <= 0) { err.textContent = 'Geçerli bir ücret giriniz.'; err.classList.add('visible'); return; }
+    if (!s || !b) { err.textContent = 'Her iki tarihi de giriniz.'; err.classList.add('visible'); return; }
+    const start = new Date(s), end = new Date(b);
+    if (end <= start) { err.textContent = 'Ayrılış tarihi giriş tarihinden sonra olmalıdır.'; err.classList.add('visible'); return; }
+
+    const days = Math.floor((end - start) / 86400000);
+    const {gun, hafta} = ihbarGun(days);
+    const gunluk = ucret / 30;
+    const brut   = gunluk * gun;
+    const damga  = brut * DAMGA;
+
+    document.getElementById('r-sure').textContent     = durStr(days);
+    document.getElementById('r-sure-gun').textContent = hafta + ' hafta (' + gun + ' gün)';
+    document.getElementById('r-gunluk').textContent   = fmt(gunluk);
+    document.getElementById('r-brut').textContent     = fmt(brut);
+    document.getElementById('r-damga').textContent    = '− ' + fmt(damga);
+    document.getElementById('r-net').textContent      = fmt(brut - damga);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yasal Faiz Hesaplama 2026 | Kanuni ve Temerrüt Faizi</title>
+  <meta name="description" content="2026 kanuni faiz (%24) ve ticari temerrüt faizi (%43) ile gecikme faizini hesaplayın. Ana para, başlangıç ve bitiş tarihini girin." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/yasal-faiz" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Yasal Faiz Hesaplama","url":"https://hukuk.iterasyon.com/yasal-faiz","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./index.html" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./index.html" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Kira &amp; Borçlar Hukuku</div>
+    <h1>Yasal Faiz Hesaplama</h1>
+    <p class="calc-subtitle">3095 sayılı Kanun · 2026: Kanuni faiz <strong style="color:var(--gold)">%24</strong> · Temerrüt <strong style="color:var(--gold)">%43</strong></p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">💰</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="anapara">Ana para (alacak tutarı)<span class="req">*</span></label>
+          <div class="form-hint">Faiz işleyecek asıl alacak veya borç miktarı (₺)</div>
+          <input type="number" id="anapara" class="form-input" placeholder="ör. 100 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Faiz türü<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="faiz" value="24" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Kanuni faiz — %24 (yıllık)</span>
+                <span class="radio-option-hint">Genel hukuki alacaklar, mahkeme kararları, tüketici işlemleri</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="faiz" value="43" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Ticari temerrüt faizi — %43 (yıllık)</span>
+                <span class="radio-option-hint">TTK Md. 1530 kapsamındaki ticari alacaklar</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="faiz" value="custom" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Özel oran gir</span>
+                <span class="radio-option-hint">Sözleşme veya mahkeme kararıyla belirlenen oran</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="custom-group" style="display:none">
+          <label class="form-label" for="custom-oran">Özel faiz oranı (% yıllık)<span class="req">*</span></label>
+          <input type="number" id="custom-oran" class="form-input" placeholder="ör. 30" min="0" step="0.01" inputmode="decimal" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="baslangic">Faizin başladığı tarih<span class="req">*</span></label>
+            <input type="date" id="baslangic" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bitis">Faizin bittiği tarih<span class="req">*</span></label>
+            <input type="date" id="bitis" class="form-input" required />
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Faizi Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Ana para</span>
+          <span class="result-value" id="r-anapara"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Uygulanan faiz oranı</span>
+          <span class="result-value" id="r-oran"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Gecikme süresi</span>
+          <span class="result-value" id="r-gun"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Faiz tutarı</span>
+          <span class="result-value" id="r-faiz"></span>
+        </div>
+        <div class="result-item result-item--net">
+          <span class="result-label">Toplam alacak (ana para + faiz)</span>
+          <span class="result-value" id="r-toplam"></span>
+        </div>
+        <div class="result-info" id="r-asgarinot" style="display:none">ℹ️ Ticari alacaklarda TTK Md. 1530 kapsamında <strong>asgari giderim 2.020 ₺</strong> talep edilebilir.</div>
+        <p class="result-note">Basit faiz hesabıdır (ana para × oran × gün / 365). Bileşik faiz veya farklı dönem uygulamaları için avukat danışın.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./kira-artis.html" class="sim-link">
+        <span class="sim-icon">🏠</span><span class="sim-name">Kira Artış Oranı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p"><strong>Yasal faiz</strong>, alacaklının özel bir sözleşme olmaksızın geciken borçtan talep edebileceği asgari faiz oranıdır. Basit faiz yöntemiyle hesaplanır.</p>
+        <p class="info-p"><strong>Formül:</strong> Faiz = Ana para × (Oran ÷ 100) × (Gün sayısı ÷ 365)</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Faiz Türü</th><th>2026 Oranı</th><th>Dayanak</th></tr></thead>
+            <tbody>
+              <tr><td>Kanuni faiz</td><td><strong style="color:var(--gold2)">%24</strong></td><td>3095 sayılı Kanun</td></tr>
+              <tr><td>Ticari temerrüt faizi</td><td><strong style="color:var(--gold2)">%43</strong></td><td>TTK Md. 1530</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p">Kanuni faiz oranı 01.06.2024'ten bu yana %24 olarak uygulanmaktadır. Ticari alacaklarda ayrıca <strong>asgari giderim 2.020 ₺</strong> talep edilebilir.</p>
+        <div class="legal-ref">⚖️ 3095 sayılı Kanun · TTK Md. 1530</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Kanuni faiz mi, temerrüt faizi mi uygulanır? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p><strong>Ticari işlemlerde</strong> (tacirler arası, tüketici işlemleri hariç) TTK Md. 1530 kapsamında %43 temerrüt faizi uygulanır. <strong>Diğer hukuki alacaklarda</strong> (tüketici, kişisel, mahkeme kararı) %24 kanuni faiz geçerlidir.</p></details>
+      <details><summary>Faiz ne zaman işlemeye başlar? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Borçlu, ödeme tarihinde veya ihtar sonrasında <strong>temerrüde düşer</strong> ve faiz o tarihten başlar. Sözleşmede vade tarihi belirlendiyse ayrıca ihtara gerek yoktur.</p></details>
+      <details><summary>Bileşik faiz talep edilebilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Türk hukukunda kural olarak basit faiz uygulanır. Taraflar özel anlaşmayla veya ticari işlemlerde bileşik faiz kararlaştırabilir; ancak bu farklı bir hesaplama gerektirir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./index.html">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; hukuki danışmanlık yerine geçmez. Oranlar dönemsel değişebilir; güncel veri için Resmi Gazete'yi takip edin.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bitis').value = today;
+  document.getElementById('bitis').max = today;
+
+  document.querySelectorAll('input[name="faiz"]').forEach(r => {
+    r.addEventListener('change', function() {
+      document.getElementById('custom-group').style.display = this.value === 'custom' ? 'flex' : 'none';
+    });
+  });
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const anapara = parseFloat(document.getElementById('anapara').value);
+    const faizTuru = document.querySelector('input[name="faiz"]:checked').value;
+    const s = document.getElementById('baslangic').value;
+    const b = document.getElementById('bitis').value;
+
+    let oran;
+    if (faizTuru === 'custom') {
+      oran = parseFloat(document.getElementById('custom-oran').value);
+      if (isNaN(oran) || oran < 0) { err.textContent = 'Geçerli bir faiz oranı giriniz.'; err.classList.add('visible'); return; }
+    } else {
+      oran = parseFloat(faizTuru);
+    }
+
+    if (!anapara || anapara <= 0) { err.textContent = 'Geçerli bir ana para giriniz.'; err.classList.add('visible'); return; }
+    if (!s || !b) { err.textContent = 'Her iki tarihi de giriniz.'; err.classList.add('visible'); return; }
+    const start = new Date(s), end = new Date(b);
+    if (end <= start) { err.textContent = 'Bitiş tarihi başlangıç tarihinden sonra olmalıdır.'; err.classList.add('visible'); return; }
+
+    const gun   = Math.floor((end - start) / 86400000);
+    const faiz  = anapara * (oran / 100) * (gun / 365);
+    const toplam = anapara + faiz;
+
+    document.getElementById('r-anapara').textContent = fmt(anapara);
+    document.getElementById('r-oran').textContent    = '%' + oran.toLocaleString('tr-TR') + ' (yıllık)';
+    document.getElementById('r-gun').textContent     = gun + ' gün';
+    document.getElementById('r-faiz').textContent    = fmt(faiz);
+    document.getElementById('r-toplam').textContent  = fmt(toplam);
+    document.getElementById('r-asgarinot').style.display = faizTuru === '43' ? 'block' : 'none';
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

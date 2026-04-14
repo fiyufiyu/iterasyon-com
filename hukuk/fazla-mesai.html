@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fazla Mesai Ücreti Hesaplama 2026 | %50 ve %25 Zamlı</title>
+  <meta name="description" content="Haftalık 45 saati aşan fazla mesai ücretini hesaplayın. %50 veya %25 zamlı mesai seçenekleriyle anında sonuç. 4857 İş Kanunu Md. 41." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/fazla-mesai" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fazla Mesai Ücreti Hesaplama","url":"https://hukuk.iterasyon.com/fazla-mesai","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./index.html" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./index.html" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">İş Hukuku</div>
+    <h1>Fazla Mesai Ücreti Hesaplama</h1>
+    <p class="calc-subtitle">4857 sayılı İş Kanunu Md. 41 · Yıllık limit: 270 saat</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">⏱️</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="ucret">Giydirilmiş brüt aylık ücret<span class="req">*</span></label>
+          <div class="form-hint">Saatlik ücret: aylık ÷ 225 (7,5 saat × 30 gün)</div>
+          <input type="number" id="ucret" class="form-input" placeholder="ör. 40 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mesai">Fazla mesai saati sayısı<span class="req">*</span></label>
+          <div class="form-hint">Hesaplamak istediğiniz toplam fazla mesai saati</div>
+          <input type="number" id="mesai" class="form-input" placeholder="ör. 20" min="0.5" step="0.5" inputmode="decimal" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Fazla mesai türü<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="oran" value="1.5" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">%50 zamlı — Haftalık 45 saati aşan mesai</span>
+                <span class="radio-option-hint">Normal fazla mesai (en yaygın durum)</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="oran" value="1.25" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">%25 zamlı — Anlaşmalı 45 saat altı denkleştirme</span>
+                <span class="radio-option-hint">Haftalık çalışma 45 saatin altında belirlenmişse, 45 saate kadar olan kısım</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Fazla Mesaini Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Saatlik brüt ücret</span>
+          <span class="result-value" id="r-saatlik"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Zamlı saatlik ücret</span>
+          <span class="result-value" id="r-zamli"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Mesai saati</span>
+          <span class="result-value" id="r-saat"></span>
+        </div>
+        <div class="result-warning" id="r-limit-w" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          Yasal yıllık fazla mesai sınırı <strong>270 saattir</strong>. Girilen saat bu sınırı aşıyor.
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Toplam fazla mesai ücreti (brüt)</span>
+          <span class="result-value" id="r-brut"></span>
+        </div>
+        <div class="result-info">ℹ️ Fazla mesai ücreti ücret sayılır; SGK, gelir vergisi ve damga vergisi kesilir. Gösterilen tutar brüttür.</div>
+        <p class="result-note">Tahmini hesaplamadır. Net tutar vergi dilimine göre farklılaşır.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./kidem-tazminati.html" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./yillik-izin.html" class="sim-link">
+        <span class="sim-icon">🌴</span><span class="sim-name">Yıllık İzin Ücreti Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p">Normal haftalık çalışma süresi <strong>45 saattir</strong>. Bu sınırı aşan her saat fazla mesai sayılır. Saatlik brüt ücret, aylık ücretin 225'e (7,5 saat × 30 gün) bölünmesiyle bulunur.</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Mesai Türü</th><th>Zam Oranı</th><th>Çarpan</th></tr></thead>
+            <tbody>
+              <tr><td>Haftalık 45 saati aşan</td><td>%50</td><td>× 1,5</td></tr>
+              <tr><td>45 saat altı anlaşmalı</td><td>%25</td><td>× 1,25</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Yıllık azami limit:</strong> 270 saat fazla mesai yapılabilir. Bu sınırın üzerindeki çalışma işçi ve işveren açısından çeşitli hukuki sonuçlar doğurabilir.</p>
+        <p class="info-p">İşçi isterse fazla mesai yerine <strong>serbest zaman</strong> talep edebilir (1,5 saat mesai = 1,5 saat izin).</p>
+        <div class="legal-ref">⚖️ 4857 sayılı İş Kanunu Md. 41</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Fazla mesai yapmak zorunda mıyım? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Zorunlu haller dışında işçinin onayı gerekir. Sözleşmede genel fazla mesai onayı verilebilir; ancak işçi sağlık veya aile zorunlulukları gibi haklı gerekçelerle reddedebilir.</p></details>
+      <details><summary>Gece çalışması farklı hesaplanır mı? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Gece çalışması (20:00–06:00 arası) günlük en fazla <strong>7,5 saatle</strong> sınırlıdır. Bu süreyi aşan kısım fazla mesai sayılır ve %50 zam uygulanır.</p></details>
+      <details><summary>Fazla mesai ödenmezse ne yapılır? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>İş mahkemesinde dava açılabilir; dava öncesi arabuluculuk zorunludur. Fazla mesai alacaklarında <strong>5 yıllık zamanaşımı</strong> geçerlidir. İsbat yükü genellikle işçidedir (tanık, bordro, giriş-çıkış kayıtları).</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./index.html">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; hukuki danışmanlık yerine geçmez. Net tutar vergi dilimine göre farklılık gösterir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const ucret = parseFloat(document.getElementById('ucret').value);
+    const mesai = parseFloat(document.getElementById('mesai').value);
+    const oran  = parseFloat(document.querySelector('input[name="oran"]:checked').value);
+
+    if (!ucret || ucret <= 0) { err.textContent = 'Geçerli bir ücret giriniz.'; err.classList.add('visible'); return; }
+    if (!mesai || mesai <= 0) { err.textContent = 'Geçerli bir mesai saati giriniz.'; err.classList.add('visible'); return; }
+
+    const saatlik = ucret / 225;
+    const zamli   = saatlik * oran;
+    const brut    = zamli * mesai;
+
+    document.getElementById('r-saatlik').textContent = fmt(saatlik);
+    document.getElementById('r-zamli').textContent   = fmt(zamli) + ' (×' + oran.toLocaleString('tr-TR') + ')';
+    document.getElementById('r-saat').textContent    = mesai.toLocaleString('tr-TR') + ' saat';
+    document.getElementById('r-limit-w').style.display = mesai > 270 ? 'flex' : 'none';
+    document.getElementById('r-brut').textContent    = fmt(brut);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

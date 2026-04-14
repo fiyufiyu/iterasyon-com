@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nafaka Hesaplama 2026 | İştirak ve Yoksulluk Nafakası</title>
+  <meta name="description" content="İştirak (çocuk) ve yoksulluk nafakası için tahmini tutar hesaplayın. Türk Medeni Kanunu Md. 175–182 uyarınca aylık gelir bazlı tahmin." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/nafaka" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Nafaka Hesaplama","url":"https://hukuk.iterasyon.com/nafaka","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./index.html" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./index.html" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">Aile &amp; Miras Hukuku</div>
+    <h1>Nafaka Hesaplama</h1>
+    <p class="calc-subtitle">Türk Medeni Kanunu Md. 175–182 · Tahmini aralık gösterir</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">👨‍👧</span> Hesaplama Aracı</div>
+
+      <div class="result-warning" style="display:flex;margin:0 1.1rem .15rem;border-radius:var(--r-sm);margin-top:.9rem">
+        <span class="result-warning-icon">⚠️</span>
+        <span>Nafaka hakime takdir yetkisine bağlıdır; bu araç yalnızca <strong>kaba bir aralık tahmini</strong> verir. Kesin tutar birçok faktöre göre farklılaşır.</span>
+      </div>
+
+      <form class="calc-form" id="form" novalidate style="padding-top:.8rem">
+
+        <div class="form-group">
+          <label class="form-label" for="gelir">Nafaka yükümlüsünün aylık net geliri<span class="req">*</span></label>
+          <div class="form-hint">Tüm gelir kaynakları dahil aylık net (ele geçen) tutar (₺)</div>
+          <input type="number" id="gelir" class="form-input" placeholder="ör. 30 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nafaka türü<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="tur" value="istirak" checked />
+              <div class="radio-option-body">
+                <span class="radio-option-label">İştirak nafakası — Çocuk nafakası</span>
+                <span class="radio-option-hint">Velayet verilmeyen ebeveynin çocuk için ödemesi</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tur" value="yoksulluk" />
+              <div class="radio-option-body">
+                <span class="radio-option-label">Yoksulluk nafakası — Eş nafakası</span>
+                <span class="radio-option-hint">Boşanma sonrası yoksulluğa düşen eşe ödenen nafaka</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" id="cocuk-group">
+          <label class="form-label" for="cocuk">Çocuk sayısı<span class="req">*</span></label>
+          <select id="cocuk" class="form-select">
+            <option value="1">1 çocuk</option>
+            <option value="2">2 çocuk</option>
+            <option value="3">3 çocuk</option>
+            <option value="4">4 veya daha fazla</option>
+          </select>
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Tahmini Nafakayı Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Tahmini Nafaka Aralığı</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Nafaka türü</span>
+          <span class="result-value" id="r-tur"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Net gelir</span>
+          <span class="result-value" id="r-gelir"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Uygulanan oran aralığı</span>
+          <span class="result-value" id="r-oran"></span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Tahmini asgari nafaka</span>
+          <span class="result-value" id="r-min"></span>
+        </div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Tahmini azami nafaka</span>
+          <span class="result-value" id="r-max"></span>
+        </div>
+        <div class="result-item result-item--neutral" id="r-cocuk-row" style="display:none">
+          <span class="result-label">Her çocuk için tahmini</span>
+          <span class="result-value" id="r-cocuk-birim"></span>
+        </div>
+        <div class="result-warning" style="margin-top:.5rem">
+          <span class="result-warning-icon">⚖️</span>
+          <span>Bu rakamlar <strong>uygulamadaki yaygın aralıklara</strong> dayanır. Hakim; iki tarafın geliri, kusur oranı, yaşam standardı ve çocuğun özel ihtiyaçlarını dikkate alarak farklı bir tutar belirleyebilir.</span>
+        </div>
+        <p class="result-note">Kesin tutar için bir aile hukuku avukatından danışmanlık alın.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./miras-payi.html" class="sim-link">
+        <span class="sim-icon">📜</span><span class="sim-name">Miras Payı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Belirlenir?</div>
+      <div class="calc-info-body">
+        <p class="info-p">Nafaka, <strong>hakim tarafından takdir edilir</strong>; kesin bir formülü yoktur. Uygulamada mahkemeler nafaka yükümlüsünün net gelirini esas alarak oran belirler.</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Nafaka Türü</th><th>Tipik Oran Aralığı</th></tr></thead>
+            <tbody>
+              <tr><td>İştirak (1 çocuk)</td><td>%20 – %25</td></tr>
+              <tr><td>İştirak (2 çocuk)</td><td>%25 – %35 (toplam)</td></tr>
+              <tr><td>İştirak (3+ çocuk)</td><td>%30 – %40 (toplam)</td></tr>
+              <tr><td>Yoksulluk (eş)</td><td>%15 – %25</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p"><strong>Dikkate alınan faktörler:</strong> iki tarafın geliri, tarafların geçim yükümlülükleri, yaşam standardı, kusur oranı, çocuğun yaşı ve eğitim ihtiyaçları.</p>
+        <p class="info-p">Nafaka her yıl talep üzerine veya kendiliğinden <strong>TÜFE'ye göre</strong> artırılabilir.</p>
+        <div class="legal-ref">⚖️ TMK Md. 175, 182 · Velayet ve Nafaka Usulü</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>Nafaka ne zaman kesilir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p><strong>İştirak nafakası</strong>: Çocuğun reşit olmasıyla sona erer; ancak eğitim devam ediyorsa uzatılabilir. <strong>Yoksulluk nafakası</strong>: Nafaka alacaklısının yeniden evlenmesi, geçimini sağlayacak mal edinmesi veya ölümüyle sona erer.</p></details>
+      <details><summary>Nafaka ödenmezse ne olur? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Nafaka borcunu ödemeyen kişi hakkında icra takibi başlatılabilir. Ayrıca <strong>İcra ve İflas Kanunu'nun 344. maddesi</strong> kapsamında 3 aya kadar tazyik hapsi uygulanabilir.</p></details>
+      <details><summary>Nafaka miktarı sonradan değiştirilebilir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Tarafların mali durumunda önemli değişiklik olması halinde nafaka arttırma veya azaltma davası açılabilir. Her yıl TÜFE artışı da talep edilebilir.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./index.html">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; kesin nafaka miktarı hakime aittir. Bir aile hukuku avukatından danışmanlık almanızı öneririz.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('input[name="tur"]').forEach(r => {
+    r.addEventListener('change', function() {
+      document.getElementById('cocuk-group').style.display = this.value === 'istirak' ? 'flex' : 'none';
+    });
+  });
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺/ay'; }
+
+  const ORANLAR = {
+    istirak: { 1:[.20,.25], 2:[.25,.35], 3:[.28,.38], 4:[.30,.40] },
+    yoksulluk: [.15,.25]
+  };
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const gelir = parseFloat(document.getElementById('gelir').value);
+    const tur   = document.querySelector('input[name="tur"]:checked').value;
+    const cocuk = parseInt(document.getElementById('cocuk').value);
+
+    if (!gelir || gelir <= 0) { err.textContent = 'Geçerli bir gelir giriniz.'; err.classList.add('visible'); return; }
+
+    let [minOran, maxOran];
+    if (tur === 'istirak') {
+      [minOran, maxOran] = ORANLAR.istirak[Math.min(cocuk, 4)] || ORANLAR.istirak[4];
+    } else {
+      [minOran, maxOran] = ORANLAR.yoksulluk;
+    }
+
+    const minTutar = gelir * minOran;
+    const maxTutar = gelir * maxOran;
+
+    document.getElementById('r-tur').textContent    = tur === 'istirak' ? 'İştirak nafakası (' + cocuk + ' çocuk)' : 'Yoksulluk nafakası';
+    document.getElementById('r-gelir').textContent  = gelir.toLocaleString('tr-TR', {minimumFractionDigits:2,maximumFractionDigits:2}) + ' ₺/ay';
+    document.getElementById('r-oran').textContent   = '%' + (minOran*100).toLocaleString('tr-TR') + ' – %' + (maxOran*100).toLocaleString('tr-TR');
+    document.getElementById('r-min').textContent    = fmt(minTutar);
+    document.getElementById('r-max').textContent    = fmt(maxTutar);
+
+    const cocukRow = document.getElementById('r-cocuk-row');
+    if (tur === 'istirak' && cocuk > 1) {
+      document.getElementById('r-cocuk-birim').textContent = fmt(minTutar/cocuk) + ' – ' + fmt(maxTutar/cocuk);
+      cocukRow.style.display = 'flex';
+    } else {
+      cocukRow.style.display = 'none';
+    }
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yıllık İzin Ücreti Hesaplama 2026 | Kullanılmayan İzin</title>
+  <meta name="description" content="İş sözleşmesi sona erdiğinde kullanılmayan yıllık izin günlerinizin ücretini hesaplayın. 4857 İş Kanunu Md. 56–57 uyarınca." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hukuk.iterasyon.com/yillik-izin" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./hukuk.css" />
+  <link rel="stylesheet" href="./calc.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Yıllık İzin Ücreti Hesaplama","url":"https://hukuk.iterasyon.com/yillik-izin","applicationCategory":"FinanceApplication","inLanguage":"tr","isAccessibleForFree":true}</script>
+</head>
+<body>
+<header class="site-nav-bar">
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="" class="nav-logo" aria-hidden="true" />
+    <span class="nav-sub">hukuk</span>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <span class="nav-label">iterasyon</span>
+  </a>
+  <a href="./index.html" class="nav-back" aria-label="Tüm hesaplamalara dön">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M9.5 12L4.5 7.5 9.5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tüm Hesaplamalar
+  </a>
+</header>
+
+<div class="page-wrap">
+  <div class="calc-hero-section">
+    <a href="./index.html" class="breadcrumb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tüm Hesaplamalar
+    </a>
+    <div class="calc-category">İş Hukuku</div>
+    <h1>Yıllık İzin Ücreti Hesaplama</h1>
+    <p class="calc-subtitle">4857 sayılı İş Kanunu Md. 56–57 · Kullanılmayan izin ücreti</p>
+  </div>
+
+  <div class="calc-container">
+
+    <div class="calc-panel">
+      <div class="calc-panel-header"><span class="calc-panel-icon">🌴</span> Hesaplama Aracı</div>
+      <form class="calc-form" id="form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="ucret">Giydirilmiş brüt aylık ücret<span class="req">*</span></label>
+          <div class="form-hint">Maaş + yemek + yol + düzenli ikramiyeler (brüt toplam)</div>
+          <input type="number" id="ucret" class="form-input" placeholder="ör. 40 000" min="1" inputmode="numeric" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="baslangic">İşe giriş tarihi<span class="req">*</span></label>
+            <input type="date" id="baslangic" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bitis">İşten ayrılış tarihi<span class="req">*</span></label>
+            <input type="date" id="bitis" class="form-input" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="kullanilan">Kullanılan izin günü sayısı</label>
+          <div class="form-hint">Bu dönemde fiilen kullandığınız izin günlerini girin (bilmiyorsanız 0 bırakın)</div>
+          <input type="number" id="kullanilan" class="form-input" placeholder="0" min="0" value="0" inputmode="numeric" />
+        </div>
+
+        <div class="form-error" id="err"></div>
+        <button type="submit" class="calc-btn">Yıllık İzin Ücretini Hesapla</button>
+      </form>
+
+      <div class="result-panel" id="res">
+        <div class="result-section-title">Hesaplama Sonucu</div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Toplam çalışma süresi</span>
+          <span class="result-value" id="r-sure"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Hak kazanılan izin (yıllık)</span>
+          <span class="result-value" id="r-hak"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Toplam hak kazanılan izin</span>
+          <span class="result-value" id="r-toplam-hak"></span>
+        </div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Kullanılan izin</span>
+          <span class="result-value" id="r-kullanilan"></span>
+        </div>
+        <div class="result-warning" id="r-eksik-w" style="display:none">
+          <span class="result-warning-icon">⚠️</span>
+          Kullanılan izin, hak kazanılan izinden fazla görünüyor.
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-item result-item--neutral">
+          <span class="result-label">Günlük brüt ücret</span>
+          <span class="result-value" id="r-gunluk"></span>
+        </div>
+        <div class="result-item result-item--primary">
+          <span class="result-label">Kullanılmayan izin ücreti (brüt)</span>
+          <span class="result-value" id="r-brut"></span>
+        </div>
+        <div class="result-info">ℹ️ Yıllık izin ücreti ücret sayılır; SGK, gelir vergisi ve damga vergisi kesilir. Gösterilen tutar brüttür.</div>
+        <p class="result-note">Tahmini hesaplamadır. Vergi kesintileri dahil değildir, net tutar kişisel duruma göre farklılaşır.</p>
+      </div>
+    </div>
+
+    <div class="similar-calcs">
+      <div class="similar-calcs-header">İlgili Hesaplamalar</div>
+      <a href="./kidem-tazminati.html" class="sim-link">
+        <span class="sim-icon">⚖️</span><span class="sim-name">Kıdem Tazminatı Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./fazla-mesai.html" class="sim-link">
+        <span class="sim-icon">⏱️</span><span class="sim-name">Fazla Mesai Ücreti Hesaplama</span>
+        <svg class="sim-chev" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="calc-info">
+      <div class="calc-info-header">📖 Nasıl Hesaplanır?</div>
+      <div class="calc-info-body">
+        <p class="info-p">İş sözleşmesi sona erdiğinde <strong>kullanılmayan yıllık izin günleri</strong> işçiye nakit olarak ödenir. Bu ödeme ücret niteliğindedir.</p>
+        <p class="info-p"><strong>Formül:</strong> (Giydirilmiş brüt aylık ücret ÷ 30) × kullanılmayan izin günü sayısı</p>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead><tr><th>Çalışma Süresi</th><th>Yıllık İzin (gün/yıl)</th></tr></thead>
+            <tbody>
+              <tr><td>1 – 5 yıl</td><td>14 gün</td></tr>
+              <tr><td>5 – 15 yıl</td><td>20 gün</td></tr>
+              <tr><td>15 yıldan fazla</td><td>26 gün</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="info-p">18 yaşından küçük ve 50 yaşından büyük işçiler için yasal asgari izin süresi <strong>20 gün</strong>dür.</p>
+        <div class="legal-ref">⚖️ 4857 sayılı İş Kanunu Md. 56–57</div>
+      </div>
+    </div>
+
+    <div class="calc-faq">
+      <div class="calc-faq-header">Sıkça Sorulan Sorular</div>
+      <details><summary>İstifa ettiğimde izin ücretimi alabilir miyim? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Sözleşme nasıl sona ererse ersin (istifa, fesih, emeklilik, ölüm), kullanılmayan yıllık izin günlerinin ücreti son ücret üzerinden ödenir.</p></details>
+      <details><summary>İzin hakkı devreden birikir mi? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Evet. Kullanılmayan izinler zamanaşımına uğramaz; işten ayrılırken <strong>tüm birikmiş izin</strong> günlerinin ücreti ödenir.</p></details>
+      <details><summary>Deneme süresindeki izin hakkı nedir? <svg class="faq-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <p>Yıllık izin hakkı için <strong>1 yıllık çalışma süresi</strong> şarttır. 1 yılı doldurmadan ayrılanlar yıllık izin ücretine hak kazanamaz.</p></details>
+    </div>
+
+  </div>
+
+  <footer class="calc-footer">
+    <div class="calc-footer-row">
+      <span>© <span id="yr"></span> hukuk.iterasyon.com</span>
+      <a href="./index.html">← Tüm Hesaplamalar</a>
+    </div>
+    <p class="calc-disclaimer">Bilgi amaçlıdır; hukuki danışmanlık yerine geçmez. Vergi kesintileri dahil değildir.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bitis').value = today;
+  document.getElementById('bitis').max = today;
+  document.getElementById('baslangic').max = today;
+
+  function fmt(n) { return n.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺'; }
+
+  function durStr(days) {
+    const y = Math.floor(days / 365), rem = days % 365;
+    const m = Math.floor(rem / 30), d = rem % 30;
+    return [y && y + ' yıl', m && m + ' ay', d && d + ' gün'].filter(Boolean).join(' ') || '0 gün';
+  }
+
+  function izinGunPerYil(yil) {
+    if (yil < 5)  return 14;
+    if (yil < 15) return 20;
+    return 26;
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const err = document.getElementById('err');
+    err.classList.remove('visible');
+
+    const ucret     = parseFloat(document.getElementById('ucret').value);
+    const kullanilan = parseFloat(document.getElementById('kullanilan').value) || 0;
+    const s = document.getElementById('baslangic').value;
+    const b = document.getElementById('bitis').value;
+
+    if (!ucret || ucret <= 0) { err.textContent = 'Geçerli bir ücret giriniz.'; err.classList.add('visible'); return; }
+    if (!s || !b) { err.textContent = 'Her iki tarihi de giriniz.'; err.classList.add('visible'); return; }
+    const start = new Date(s), end = new Date(b);
+    if (end <= start) { err.textContent = 'Ayrılış tarihi giriş tarihinden sonra olmalıdır.'; err.classList.add('visible'); return; }
+
+    const days  = Math.floor((end - start) / 86400000);
+    const yil   = days / 365;
+    const gunPerYil = izinGunPerYil(yil);
+    const toplamHak = Math.floor(yil * gunPerYil);
+    const kullanilmayan = Math.max(0, toplamHak - kullanilan);
+    const gunluk = ucret / 30;
+    const brut   = gunluk * kullanilmayan;
+
+    document.getElementById('r-sure').textContent       = durStr(days);
+    document.getElementById('r-hak').textContent        = gunPerYil + ' gün/yıl';
+    document.getElementById('r-toplam-hak').textContent = toplamHak + ' gün';
+    document.getElementById('r-kullanilan').textContent = kullanilan + ' gün';
+    document.getElementById('r-eksik-w').style.display  = kullanilan > toplamHak ? 'flex' : 'none';
+    document.getElementById('r-gunluk').textContent     = fmt(gunluk);
+    document.getElementById('r-brut').textContent       = fmt(brut);
+
+    const panel = document.getElementById('res');
+    panel.classList.add('visible');
+    setTimeout(() => panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  });
+</script>
+</body>
+</html>
