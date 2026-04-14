@@ -58,21 +58,23 @@ a, button, [role="button"] {
 }
 
 .nav-brand {
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: -.01em;
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .04em;
   color: var(--paper);
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap: .7rem;
   height: 44px;
 }
 
 .nav-logo {
-  height: 28px;
+  height: 24px;
   width: auto;
   display: block;
   object-fit: contain;
+  opacity: .92;
 }
 
 .site-nav-bar nav {
