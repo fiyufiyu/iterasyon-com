@@ -611,3 +611,251 @@ body {
   .faq-section { padding: 0 2.5rem 2.5rem; }
   .site-footer { padding: 1.4rem 2.5rem; }
 }
+
+/* ═══════════════════════════════════════════════
+   HAMBURGER BUTTON
+═══════════════════════════════════════════════ */
+.nav-calc-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 0 .95rem 0 .8rem;
+  height: 38px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(201,169,110,.45);
+  background: rgba(201,169,110,.08);
+  color: var(--gold);
+  font-family: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background .15s, border-color .15s, color .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .nav-calc-btn:hover {
+    background: rgba(201,169,110,.16);
+    border-color: rgba(201,169,110,.75);
+  }
+}
+
+.nav-calc-btn:active {
+  background: rgba(201,169,110,.22);
+}
+
+/* 3-bar stack */
+.nav-calc-bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4.5px;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.nav-calc-bars span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: center;
+  transition: transform .25s cubic-bezier(.22,1,.36,1), opacity .2s, width .2s;
+}
+
+/* Animate hamburger → X when drawer open */
+.nav-calc-btn[aria-expanded="true"] .nav-calc-bars span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-calc-btn[aria-expanded="true"] .nav-calc-bars span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-calc-btn[aria-expanded="true"] .nav-calc-bars span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.nav-calc-label {
+  font-size: .8rem;
+}
+
+/* ═══════════════════════════════════════════════
+   CALCULATOR DRAWER
+═══════════════════════════════════════════════ */
+
+/* Dim backdrop */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 290;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.drawer-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Drawer panel */
+.calc-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 300;
+  width: min(400px, 100vw);
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border-left: 1px solid var(--line2);
+  box-shadow: -12px 0 48px rgba(0,0,0,.55);
+  transform: translateX(100%);
+  transition: transform .38s cubic-bezier(.22,1,.36,1);
+  will-change: transform;
+  overscroll-behavior: contain;
+}
+.calc-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Drawer header bar */
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  padding: 0 .9rem 0 1.2rem;
+  border-bottom: 1px solid var(--line2);
+  background: rgba(10,11,15,.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  flex-shrink: 0;
+}
+
+.drawer-head-title {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.drawer-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(201,169,110,.12);
+  border: 1px solid rgba(201,169,110,.3);
+  color: var(--gold);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+/* Close (×) button */
+.drawer-x-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.06);
+  color: var(--muted);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .15s, color .15s;
+}
+.drawer-x-btn:active,
+.drawer-x-btn:hover { background: rgba(255,255,255,.13); color: var(--paper); }
+
+/* Scrollable list area */
+.drawer-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  scrollbar-width: thin;
+  scrollbar-color: var(--line2) transparent;
+}
+.drawer-scroll::-webkit-scrollbar { width: 3px; }
+.drawer-scroll::-webkit-scrollbar-track { background: transparent; }
+.drawer-scroll::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 2px; }
+
+/* Category group */
+.drawer-group {
+  padding: .85rem 0 .25rem;
+}
+
+.drawer-group-label {
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0 1.2rem .6rem;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  line-height: 1;
+}
+.drawer-group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* Each calculator link row */
+.drawer-calc-link {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .65rem 1.2rem;
+  color: var(--paper);
+  font-size: .875rem;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.35;
+  min-height: 44px;
+  transition: background .1s, color .1s;
+  -webkit-tap-highlight-color: transparent;
+}
+.drawer-calc-link:active {
+  background: rgba(201,169,110,.09);
+  color: var(--gold2);
+}
+@media (hover: hover) {
+  .drawer-calc-link:hover {
+    background: rgba(255,255,255,.04);
+    color: var(--gold2);
+  }
+}
+
+.drawer-calc-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  opacity: .9;
+}
+
+/* Scroll-lock when drawer is open */
+body.noscroll {
+  overflow: hidden;
+  touch-action: none;
+}
