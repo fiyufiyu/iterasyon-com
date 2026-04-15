@@ -491,6 +491,167 @@ body {
   border-top: 1px solid var(--line2);
 }
 
+/* ─── Hero extras ────────────────────────────── */
+.hero-meta {
+  font-size: .775rem;
+  color: var(--dim);
+  letter-spacing: .03em;
+  margin-bottom: 1.1rem;
+  margin-top: -.35rem;
+}
+
+/* ─── Positioning strip ──────────────────────── */
+.positioning-strip {
+  padding: .6rem 1rem;
+  text-align: center;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(201,169,110,.04);
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+}
+
+/* ─── Editorial sections ─────────────────────── */
+.editorial-section {
+  padding: 2rem 1rem 0;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+  border-top: 1px solid var(--line2);
+  margin-top: 1.5rem;
+}
+
+.editorial-section h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin-bottom: .9rem;
+}
+
+.editorial-section p {
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: .75rem;
+  max-width: 64ch;
+}
+
+.editorial-section p:last-child { margin-bottom: 0; }
+
+.editorial-section strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+/* What-this-is-not list */
+.what-not-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin: .75rem 0 .9rem;
+}
+
+.what-not-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.what-not-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: .58em;
+}
+
+/* Philosophy quote block */
+.philosophy-quote {
+  background: var(--panel);
+  border: 1px solid var(--line2);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--r-sm);
+  padding: 1rem 1.25rem;
+  margin-top: .9rem;
+}
+
+.philosophy-quote p {
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-style: italic;
+  letter-spacing: .01em;
+  margin-bottom: 0;
+}
+
+/* CTA section */
+.cta-section {
+  padding: 2.5rem 1rem 2rem;
+  max-width: 860px;
+  margin: 1.5rem auto 0;
+  width: 100%;
+  border-top: 1px solid var(--line2);
+}
+
+.cta-section h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  margin-bottom: .4rem;
+}
+
+.cta-section p {
+  font-size: .875rem;
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1.65rem;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #12100a;
+  font-family: inherit;
+  font-size: .875rem;
+  font-weight: 700;
+  letter-spacing: .025em;
+  text-decoration: none;
+  transition: opacity .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cta-btn:active { opacity: .82; }
+
+@media (hover: hover) {
+  .cta-btn:hover { opacity: .88; }
+}
+
+/* FAQ intro */
+.faq-intro {
+  font-size: .82rem;
+  color: var(--dim);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  padding: 0 .1rem;
+}
+
 /* ─── Keyframes ──────────────────────────────── */
 @keyframes rise {
   from { opacity: 0; transform: translateY(10px); }
@@ -582,6 +743,18 @@ body {
     width: 100%;
   }
 
+  .editorial-section {
+    padding: 2.5rem 1.5rem 0;
+  }
+
+  .editorial-section h2 { font-size: 1.35rem; }
+
+  .cta-section {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+
+  .cta-section h2 { font-size: 1.65rem; }
+
   .site-footer {
     padding: 1.4rem 1.5rem;
     flex-direction: row;
@@ -609,6 +782,10 @@ body {
 
   .info-strip { margin: 0 2.5rem 2.5rem; }
   .faq-section { padding: 0 2.5rem 2.5rem; }
+  .editorial-section { padding: 3rem 2.5rem 0; }
+  .editorial-section h2 { font-size: 1.5rem; }
+  .cta-section { padding: 3.5rem 2.5rem 3rem; }
+  .cta-section h2 { font-size: 1.8rem; }
   .site-footer { padding: 1.4rem 2.5rem; }
 }
 
